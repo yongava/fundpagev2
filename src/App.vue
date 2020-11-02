@@ -19,9 +19,9 @@
           <br><br>
           ข้าพเจ้าได้อ่านและตกลงยอมรับเงื่อนไขและข้อกำหนดต่าง ๆ ที่ปรากฏข้างต้นแล้ว
         </p>
-        <button @click="$modal.hide('disclaimer')">ยอมรับ</button>
       </div>
     </modal>
+    <button v-if="disclaimer" class="hide-modal-btn" @click="hideModal">ยอมรับ</button>
   </div>
 </template>
 
@@ -43,6 +43,7 @@ export default {
   },
   data() {
     return {
+      disclaimer: true,
       currentComponent: 'Overview',
       navigation: [
         {
@@ -68,7 +69,23 @@ export default {
       ],
     }
   },
+  methods: {
+    hideModal() {
+      this.$modal.hide('disclaimer');
+      this.disclaimer = false;
+    },
+    getData(fundCode) {
+      this.axios.get(`/fund_info/${fundCode}`);
+    }
+  },
   mounted() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const fundCode = urlParams.get('FundCode');
+
+    if (fundCode) {
+      this.getData(fundCode);
+    }
+
     this.$modal.show('disclaimer');
   }
 }
@@ -146,6 +163,8 @@ export default {
   }
 
   .modal-content {
+    height: 100%;
+    overflow: scroll;
     padding: 16px;
     h2 {
       font-size: 32px;
@@ -172,5 +191,27 @@ export default {
       border: none;
       font-size: 18px;
     }
+  }
+
+  .hide-modal-btn {
+    z-index: 999;
+    position: absolute;
+    bottom: 0;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    background: #502A81;
+    border-radius: 10px;
+    width: calc(100% - 40px);
+    margin: 20px;
+    outline: none;
+    border: none;
+    font-size: 18px;
+  }
+
+  .vm--modal {
+    height: calc(100% - 130px) !important;
   }
 </style>
