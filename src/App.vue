@@ -46,23 +46,23 @@ export default {
       currentComponent: 'Overview',
       navigation: [
         {
-          name: 'Fund Overview',
+          name: 'ภาพรวม',
           component: 'Overview'
         },
         {
-          name: 'Performance',
+          name: 'ผลตอบแทน',
           component: 'Performance'
         },
         {
-          name: 'Dividend',
+          name: 'ปันผล',
           component: 'Dividend'
         },
         {
-          name: 'Hold Assets',
+          name: 'สินทรัพย์',
           component: 'Assets'
         },
         {
-          name: 'Commission',
+          name: 'ค่าธรรมเนียม',
           component: 'Commission'
         },
       ],
