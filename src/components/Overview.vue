@@ -252,11 +252,13 @@ a.footer {
   justify-content: center;
   color: #fff;
   background: #72559a;
-  font-size: 18px;
   width: 100%;
   outline: none;
   border: none;
-  font-size: 18px;
+  font-size: 28px;
+  line-height: 33px;
+  text-align: center;
+  text-decoration: none;
 
   a {
     height: 50px;
