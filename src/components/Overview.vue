@@ -14,7 +14,7 @@
             <span>YTD</span>
             <span :class="info.ytd >= 0 ? 'up' : 'down'">{{ info.ytd }}%</span>
           </div>
-          <p class="miniinfo">as of {{ info.navDate }}</p>
+          <p class="miniinfo">as of {{ getDate(info.navDate) }}</p>
           <div class="divided">
             <span>
               7,664,259,312.00
@@ -56,22 +56,27 @@ export default {
     riskOpacity() {
       let opacity = 0;
       switch (this.info.risk) {
-        case 1:
+        case '1':
           opacity = 0.2;
           break;
-        case 2: case 3:
+        case '2': case '3':
           opacity = 0.4;
           break;
-        case 4: case 5:
+        case '4': case '5':
           opacity = 0.6;
           break;
-        case 6: case 7:
+        case '6': case '7':
           opacity = 0.8;
           break;
         default:
           opacity = 1;
       }
       return opacity;
+    }
+  },
+  methods: {
+    getDate(str) {
+      return (new Date(str)).toLocaleDateString();
     }
   }
 //   components: {
@@ -190,10 +195,11 @@ export default {
       .rank {
         display: flex;
         align-items: center;
-        justify-content: center;
+        justify-content: flex-start;
         flex-direction: column;
 
         span {
+          margin-top: 10px;
           background: #4d227b;
           height: 40px;
           border-radius: 20px;
