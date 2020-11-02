@@ -5,7 +5,7 @@
         <li v-for="(item, index) in navigation" :key="index" @click="currentComponent = item.component" :class="[ currentComponent === item.component ? 'active' : '' ]">{{ item.name }}</li>
       </ul>
       <div class="content-wrapper">
-        <component :is="currentComponent"></component>
+        <component :is="currentComponent" :info="info"></component>
       </div>
     </div>
     <modal name="disclaimer" height="90%" width="90%">
@@ -67,6 +67,8 @@ export default {
           component: 'Commission'
         },
       ],
+      info: null,
+      access: null
     }
   },
   methods: {
@@ -74,12 +76,14 @@ export default {
       this.$modal.hide('disclaimer');
       this.disclaimer = false;
     },
-    getData(fundCode, userID) {
+    async getData(fundCode, userID) {
       if (fundCode) {
-        this.axios.get(`/fund_info/${fundCode}`);
+        const { data } = await this.axios.get(`/fund_info/${fundCode}`);
+        this.info = data.data;
       }
       if (userID) {
-        this.axios.post(`/user/disclaimer?token=${userID}`);
+        const { data } = await this.this.axios.post(`/user/disclaimer?token=${userID}`);
+        this.access = data;
       }
     }
   },
