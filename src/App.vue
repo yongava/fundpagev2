@@ -1,0 +1,172 @@
+<template>
+  <div id="app">
+    <div class="main-wrapper">
+      <ul class="navigation">
+        <li v-for="(item, index) in navigation" :key="index" @click="currentComponent = item.component" :class="[ currentComponent === item.component ? 'active' : '' ]">{{ item.name }}</li>
+      </ul>
+      <div class="content-wrapper">
+        <component :is="currentComponent"></component>
+      </div>
+    </div>
+    <modal name="disclaimer" height="90%" width="90%">
+      <div class="modal-content">
+        <h2>คำชี้แจงที่สำคัญ (Disclaimer)</h2>
+        <p>ผู้ลงทุนที่สนใจจะเข้าเยี่ยมชม หรือสืบค้นข้อมูลกองทุนรวม และ/หรือ ข้อมูลต่าง ๆ ภายใต้บริการ SCBAM Line OA Official ของบริษัทหลักทรัพย์จัดการกองทุน ไทยพาณิชย์ จำกัด (“บริษัทจัดการ”) ผ่านระบบปฏิบัติการ LINE Application ตกลงยอมรับเงื่อนไขและข้อกำหนดต่าง ๆ ดังต่อไปนี้
+          <br><br>
+          •	กองทุนรวมเป็นนิติบุคคลแยกต่างหากจากบริษัทจัดการ ดังนั้น บริษัทจัดการจึงไม่มีภาระผูกพันในการชดเชยผลขาดทุนของกองทุนรวม ทั้งนี้ ผลการดำเนินงานของกองทุนรวมไม่ได้ขึ้นอยู่กับสถานะทางการเงินหรือผลการดำเนินงานของบริษัทจัดการแต่อย่างใด
+          <br><br>
+          ข้าพเจ้าได้อ่านและตกลงยอมรับเงื่อนไขและข้อกำหนดต่าง ๆ ที่ปรากฏข้างต้นแล้ว
+        </p>
+        <button @click="$modal.hide('disclaimer')">Accept</button>
+      </div>
+    </modal>
+  </div>
+</template>
+
+<script>
+import Overview from "./components/Overview";
+import Performance from "./components/Performance";
+import Dividend from "./components/Dividend";
+import Assets from "./components/Assets";
+import Commission from "./components/Commission";
+
+export default {
+  name: 'App',
+  components: {
+    Overview,
+    Performance,
+    Dividend,
+    Assets,
+    Commission
+  },
+  data() {
+    return {
+      currentComponent: 'Overview',
+      navigation: [
+        {
+          name: 'Fund Overview',
+          component: 'Overview'
+        },
+        {
+          name: 'Performance',
+          component: 'Performance'
+        },
+        {
+          name: 'Dividend',
+          component: 'Dividend'
+        },
+        {
+          name: 'Hold Assets',
+          component: 'Assets'
+        },
+        {
+          name: 'Commission',
+          component: 'Commission'
+        },
+      ],
+    }
+  },
+  mounted() {
+    this.$modal.show('disclaimer');
+  }
+}
+</script>
+
+<style lang="scss">
+  @font-face {
+    font-family: "kit";
+    src: local("kit"),
+    url(./assets/fonts/kit35f.ttf) format("truetype");
+  }
+
+  @font-face {
+    font-family: "kitbold";
+    src: local("kit"),
+    url(./assets/fonts/kitbold.ttf) format("truetype");
+  }
+
+  body, html {
+    overflow: hidden;
+    padding: 0;
+    margin: 0;
+  }
+  #app {
+    width: 100%;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    overflow-y: scroll;
+    font-family: "kit";
+    font-weight: bold;
+    background: #F1F3F8;
+  }
+  .main-wrapper {
+    height: 100vh;
+    ul.navigation {
+      display: flex;
+      align-items: center;
+      height: fit-content;
+      justify-content: flex-start;
+      padding: 0px 24px;
+      overflow-y: scroll;
+      height: 50px;
+      li {
+        margin-right: 12px;
+        height: 36px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #fff;
+        border-radius: 18px;
+        padding: 0 24px;
+        min-width: fit-content;
+        font-weight: bolder;
+        font-size: 20px;
+        color: #A0A0A0;
+        font-weight: bold;
+        transform: 0.3s all ease;
+        font-family: "kitbold";
+        cursor: pointer;
+        &.active {
+          background: #F8B103;
+          color: #fff;
+        }
+      }
+    }
+    .content-wrapper {
+      margin: 0 24px;
+      height: fit-content;
+    }
+  }
+
+  ::-webkit-scrollbar {
+    display: none;
+  }
+
+  .modal-content {
+    padding: 16px;
+    h2 {
+      font-size: 32px;
+      margin: 0;
+    }
+    p {
+      font-size: 22px;
+      color: #707070;
+    }
+
+    button {
+      height: 50px;
+      margin-top: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      background: #502A81;
+      border-radius: 10px;
+      width: 100%;
+      outline: none;
+      border: none;
+      font-size: 18px;
+    }
+  }
+</style>
