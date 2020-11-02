@@ -209,14 +209,21 @@ export default {
     color: #fff;
     background: #502A81;
     border-radius: 10px;
-    width: calc(100% - 40px);
-    margin: 20px;
+    width: calc(100% - 24px);
+    margin: 12px;
     outline: none;
     border: none;
     font-size: 18px;
   }
 
   .vm--modal {
-    height: calc(100% - 130px) !important;
+    left: 12px !important;
+    width: calc(100% - 24px) !important;
+    height: calc(100% - 110px) !important;
+    box-shadow: none !important;
+  }
+
+  .vm--overlay {
+    background: #F1F3F8 !important;
   }
 </style>
