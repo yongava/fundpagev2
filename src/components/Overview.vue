@@ -196,6 +196,7 @@
 }
 
 .footer-container {
+  background: #F1F3F8 !important;
   margin: 0 -24px !important;
   position: fixed;
   bottom: 0;

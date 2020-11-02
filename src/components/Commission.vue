@@ -111,7 +111,7 @@ export default {
   bottom: 0;
   width: calc(100% - 24px);
   margin: 0 -24px !important;
-  background: #fff;
+  background: #F1F3F8;
   border-radius: 10px;
   margin-bottom: 12px;
   padding: 12px;
