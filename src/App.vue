@@ -126,7 +126,8 @@ export default {
       align-items: center;
       height: fit-content;
       justify-content: flex-start;
-      padding: 0px 24px;
+      margin: 0;
+      padding: 16px 24px;
       overflow-y: scroll;
       height: 50px;
       li {

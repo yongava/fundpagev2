@@ -1,9 +1,9 @@
 <template>
   <div class="overview-wrapper">
-    <div>
+    <div class="container">
       <h2>ค่าธรรมเนียม</h2>
     </div>
-    <div>
+    <div class="container">
       <p>
         หมายเหตุ : Overall Rating 5 ดาว จาก MorningStar ประเภท Thailand Fund
         Equity Large-Cap , ณ 31 ส.ค. 2563 @สงวนลิขสิทธิ์ 2018 บริษัท
@@ -16,8 +16,10 @@
       </p>
     </div>
 
-    <button>Fund Fact Sheet</button>
-    <button>ข้อมูลเพิ่มเติม</button>
+    <div class="footer-container">
+      <button>Fund Fact Sheet</button>
+      <button>ข้อมูลเพิ่มเติม</button>
+    </div>
   </div>
 </template>
 
@@ -31,7 +33,8 @@ export default {
 .overview-wrapper {
   width: 100%;
   height: 100%;
-  > div {
+
+  > .container {
     background: #fff;
     border-radius: 10px;
     margin-bottom: 12px;
@@ -39,12 +42,14 @@ export default {
     box-shadow: 0px 3px 6px #00000009;
     display: flex;
     align-items: flex-start;
+
     h2 {
       font-size: 36px;
       font-weight: bolder;
       margin: 0;
       margin-bottom: 36px;
     }
+
     p {
       margin: 0;
       font-size: 16px;
@@ -52,9 +57,9 @@ export default {
       color: #a0a0a0;
     }
   }
+
   button {
     height: 50px;
-    margin-top: 24px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -65,24 +70,50 @@ export default {
     outline: none;
     border: none;
     font-size: 18px;
+
+    &:last-child {
+      margin-top: 14px;
+    }
   }
+
   table {
     width: 100%;
+
     tr {
       text-align: left;
       border-bottom: 1px solid #a0a0a0;
+
       td {
         font-size: 22px;
       }
+
       td:last-child {
         font-family: "kitbold";
       }
     }
   }
+
   tr th {
     font-family: "kitbold";
     text-align: left;
     font-size: 24px;
   }
+}
+
+.container:last-child {
+  margin-bottom: 150px;
+}
+
+.footer-container {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  bottom: 0;
+  width: calc(100% - 24px);
+  margin: 0 -24px !important;
+  background: #fff;
+  border-radius: 10px;
+  margin-bottom: 12px;
+  padding: 12px;
 }
 </style>

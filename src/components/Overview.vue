@@ -16,7 +16,7 @@
           </div>
           <div class="divided">
             <span
-              >7,664,259,312.00
+            >7,664,259,312.00
               <p class="miniinfo">มูลค่าทรัพย์สินสุทธิ (บาท)</p>
               </span>
           </div>
@@ -27,10 +27,10 @@
         </div>
       </div>
     </div>
-    <div>
-    <h2>ผลการดำเนินงาน</h2>
-    <br>
-    <img src="https://ava-scbam.s3-ap-southeast-1.amazonaws.com/webview-nav/SCBCHA.png" alt="" width="100%">
+    <div class="chart-container">
+      <h2>ผลการดำเนินงาน</h2>
+      <br>
+      <img src="https://ava-scbam.s3-ap-southeast-1.amazonaws.com/webview-nav/SCBCHA.png" alt="" width="100%">
       <!-- <VueApexCharts
         width="500"
         type="line"
@@ -39,7 +39,9 @@
       ></VueApexCharts> -->
 
     </div>
-    <button class="footer">ซื้อกองทุน SCBCHA</button>
+    <div class="footer-container">
+      <button class="footer">ซื้อกองทุน SCBCHA</button>
+    </div>
   </div>
 </template>
 
@@ -91,10 +93,12 @@
   font-family: "KIT55P";
   src: local("KIT55P"), url(/assets/fonts/KIT55P.ttf) format("truetype");
 }
+
 @font-face {
   font-family: "KIT65P";
   src: local("KIT65P"), url(/assets/fonts/KIT65P.ttf) format("truetype");
 }
+
 @font-face {
   font-family: "KIT75F";
   src: local("KIT75F"), url(/assets/fonts/KIT75F.ttf) format("truetype");
@@ -103,14 +107,15 @@
 .overview-wrapper {
   width: 100%;
   height: 100%;
-  > div {
 
+  > div {
     background: #fff;
     border-radius: 5px;
     margin-bottom: 12px;
     margin-top: 5px;
     padding: 12px;
     box-shadow: 0px 3px 6px #00000009;
+
     h2 {
       font-size: 36px;
       font-weight: medium;
@@ -120,53 +125,50 @@
       font-style: "medium";
       color: #525252;
     }
+
     p.info {
       margin: 0;
       margin-bottom: 32px;
       color: #a0a0a0;
     }
+
     p.miniinfo {
       margin: 0;
       font-size: 16px;
       margin-bottom: 16px;
       color: #a0a0a0;
     }
-    button{
-      height: 30px;
-      padding: 0 24px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 15px;
-      border: 1px solid #4F2A81;
-      color: #4F2A81;
-      background: transparent;
-    }
+
     .further-info {
       display: flex;
       align-items: center;
       justify-content: center;
+
       .left-block {
         display: flex;
         justify-content: space-between;
         align-items: flex-start;
         flex-direction: column;
         width: 100%;
+
         .divided {
           display: flex;
           justify-content: space-between;
           width: 50%;
+
           span {
             font-size: 24px;
             font-family: "kitbold";
           }
         }
       }
+
       .rank {
         display: flex;
         align-items: center;
         justify-content: center;
         flex-direction: column;
+
         span {
           background: #4d227b;
           height: 40px;
@@ -179,6 +181,7 @@
           justify-content: center;
           color: #fff;
         }
+
         p {
           margin: 0;
           color: #a0a0a0;
@@ -187,50 +190,62 @@
     }
   }
 }
-.footer{
-    // position: fixed;
-    // left: 0;
-    bottom: 0;
-    width: 100%;
-    
-    outline: none;
-    border: none;
 
-    border-radius: 10px;
-    margin-bottom: 12px;
-    // padding: 12px;
+.chart-container {
+  margin-bottom: 90px !important;
+}
 
+.footer-container {
+  margin: 0 -24px !important;
+  position: fixed;
+  bottom: 0;
+  width: calc(100% - 24px);
+}
+
+button.footer {
+  // position: fixed;
+  // left: 0;
+  bottom: 0;
+  width: 100%;
+
+  outline: none;
+  border: none;
+
+  border-radius: 10px;
+  // padding: 12px;
+
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  background: #72559a;
+  font-size: 18px;
+  width: 100%;
+  outline: none;
+  border: none;
+  font-size: 18px;
+
+  button {
     height: 50px;
+    margin-top: 24px;
     display: flex;
     align-items: center;
     justify-content: center;
     color: #fff;
     background: #72559a;
-    font-size: 18px;
+    border-radius: 10px;
     width: 100%;
     outline: none;
     border: none;
     font-size: 18px;
-
-    button {
-      height: 50px;
-      margin-top: 24px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #fff;
-      background: #72559a;
-      border-radius: 10px;
-      width: 100%;
-      outline: none;
-      border: none;
-      font-size: 18px;
-    }
-
+  }
 }
+
 ::v-deep .apexcharts-canvas {
   width: 330px !important;
 }
+
 ::v-deep .apexcharts-svg {
   width: 330px !important;
 }
