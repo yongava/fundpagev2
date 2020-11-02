@@ -41,7 +41,9 @@
 
     </div>
     <div class="footer-container">
-      <button class="footer">ซื้อกองทุน SCBCHA</button>
+      <a :href="`https://info.scb.co.th/scbeasy/easy_app_link.html?URI=scbeasy://mutualfunds/discover/${info.fundCode}`" class="footer">
+        ซื้อกองทุน {{ info.fundCode }}
+      </a>
     </div>
   </div>
 </template>
@@ -232,7 +234,7 @@ export default {
   width: calc(100% - 24px);
 }
 
-button.footer {
+a.footer {
   // position: fixed;
   // left: 0;
   bottom: 0;
@@ -256,7 +258,7 @@ button.footer {
   border: none;
   font-size: 18px;
 
-  button {
+  a {
     height: 50px;
     margin-top: 24px;
     display: flex;
