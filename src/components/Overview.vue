@@ -31,7 +31,7 @@
     <div class="chart-container">
       <h2>ผลการดำเนินงาน</h2>
       <br>
-      <img src="https://ava-scbam.s3-ap-southeast-1.amazonaws.com/webview-nav/SCBCHA.png" alt="" width="100%">
+      <img :src="`https://ava-scbam.s3-ap-southeast-1.amazonaws.com/webview-nav/${info.fundCode}.png`" alt="" width="100%">
       <!-- <VueApexCharts
         width="500"
         type="line"
@@ -170,7 +170,7 @@ export default {
 
     .further-info {
       display: flex;
-      align-items: center;
+      align-items: flex-start;
       justify-content: center;
 
       .left-block {
@@ -200,12 +200,11 @@ export default {
 
         span {
           margin-top: 10px;
-          background: #4d227b;
-          height: 40px;
-          border-radius: 20px;
-          width: fit-content;
-          padding: 0 30px;
-          font-size: 30px;
+          background: #4B2885;
+          height: 44px;
+          border-radius: 21.75px;
+          width: 60px;
+          font-size: 44px;
           display: flex;
           align-items: center;
           justify-content: center;
