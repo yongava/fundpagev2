@@ -8,11 +8,11 @@
         <div class="left-block">
           <div class="divided">
             <span>NAV</span>
-            <span>{{ info.nav }}</span>
+            <span>{{ info.nav | toFixed(4) }}</span>
           </div>
           <div class="divided">
             <span>YTD</span>
-            <span :class="info.ytd >= 0 ? 'up' : 'down'">{{ info.ytd }}%</span>
+            <span :class="info.ytd >= 0 ? 'up' : 'down'">{{ info.ytd | toFixed(2) }}%</span>
           </div>
           <p class="miniinfo">as of {{ getDate(info.navDate) }}</p>
           <div class="divided">
@@ -74,6 +74,11 @@ export default {
           opacity = 1;
       }
       return opacity;
+    }
+  },
+  filters: {
+    toFixed(value, fix) {
+      return Number(value).toFixed(fix);
     }
   },
   methods: {
@@ -290,5 +295,20 @@ a.footer {
 
 .down {
   color: #E64C66;
+}
+
+.mini {
+  border: 1px solid #4F2A81;
+  background: #ffffff;
+  box-sizing: border-box;
+  border-radius: 10px;
+  height: 19px;
+  width: 50px;
+  font-size: 14px;
+  line-height: 18px;
+  color: #4F2A81;
+  font-family: 'kitbold';
+  font-weight: 700;
+  float: right;
 }
 </style>
