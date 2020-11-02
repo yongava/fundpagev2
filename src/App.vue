@@ -73,9 +73,19 @@ export default {
     hideModal() {
       this.$modal.hide('disclaimer');
       this.disclaimer = false;
+    },
+    getData(fundCode) {
+      this.axios.get(`/fund_info/${fundCode}`);
     }
   },
   mounted() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const fundCode = urlParams.get('FundCode');
+
+    if (fundCode) {
+      this.getData(fundCode);
+    }
+
     this.$modal.show('disclaimer');
   }
 }
