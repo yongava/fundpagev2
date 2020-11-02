@@ -17,6 +17,7 @@
     </div>
 
     <button>Fund Fact Sheet</button>
+    <button>ข้อมูลเพิ่มเติม</button>
   </div>
 </template>
 
