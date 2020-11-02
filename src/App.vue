@@ -74,17 +74,21 @@ export default {
       this.$modal.hide('disclaimer');
       this.disclaimer = false;
     },
-    getData(fundCode) {
-      this.axios.get(`/fund_info/${fundCode}`);
+    getData(fundCode, userID) {
+      if (fundCode) {
+        this.axios.get(`/fund_info/${fundCode}`);
+      }
+      if (userID) {
+        this.axios.post(`/user/disclaimer?token=${userID}`);
+      }
     }
   },
   mounted() {
     const urlParams = new URLSearchParams(window.location.search);
     const fundCode = urlParams.get('FundCode');
+    const userID = urlParams.get('UserID');
 
-    if (fundCode) {
-      this.getData(fundCode);
-    }
+    this.getData(fundCode, userID);
 
     this.$modal.show('disclaimer');
   }
