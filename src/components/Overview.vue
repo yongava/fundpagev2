@@ -1,28 +1,29 @@
 <template>
-  <div class="overview-wrapper">
+  <div v-if="info" class="overview-wrapper">
     <div>
-      <!-- <button class="mini">มีปันผล</button> -->
-      <h2>SCBCHA</h2>
-      <p class="info">กองทุนเปิดไทยพาณิชย์ หุ้นจีนเอแชร์ (ชนิดจ่ายเงินปันผล)</p>
+      <button v-if="info.dividendInfo.dividends.length" class="mini">มีปันผล</button>
+      <h2>{{ info.fundCode }}</h2>
+      <p class="info">{{ info.description }}</p>
       <div class="further-info">
         <div class="left-block">
           <div class="divided">
             <span>NAV</span>
-            <span>10.524</span>
+            <span>{{ info.nav }}</span>
           </div>
           <div class="divided">
             <span>YTD</span>
-            <span>15.30%</span>
+            <span :class="info.ytd >= 0 ? 'up' : 'down'">{{ info.ytd }}%</span>
           </div>
+          <p class="miniinfo">as of {{ info.navDate }}</p>
           <div class="divided">
-            <span
-            >7,664,259,312.00
+            <span>
+              7,664,259,312.00
               <p class="miniinfo">มูลค่าทรัพย์สินสุทธิ (บาท)</p>
               </span>
           </div>
         </div>
         <div class="rank">
-          <span>6</span>
+          <span :style="{ opacity: `${this.riskOpacity}` }">{{ info.risk }}</span>
           <p>ความเสี่ยงสูง</p>
         </div>
       </div>
@@ -48,8 +49,31 @@
 <script>
 // import VueApexCharts from "vue-apexcharts";
 
-// export default {
-//   name: "Overview",
+export default {
+  name: "Overview",
+  props: ['info'],
+  computed: {
+    riskOpacity() {
+      let opacity = 0;
+      switch (this.info.risk) {
+        case 1:
+          opacity = 0.2;
+          break;
+        case 2: case 3:
+          opacity = 0.4;
+          break;
+        case 4: case 5:
+          opacity = 0.6;
+          break;
+        case 6: case 7:
+          opacity = 0.8;
+          break;
+        default:
+          opacity = 1;
+      }
+      return opacity;
+    }
+  }
 //   components: {
 //     VueApexCharts,
 //   },
@@ -85,7 +109,7 @@
 //       colors: ["#77B6EA", "#545454"],
 //     };
 //   },
-// };
+};
 // </script>
 
 <style scoped lang="scss">
@@ -249,5 +273,13 @@ button.footer {
 
 ::v-deep .apexcharts-svg {
   width: 330px !important;
+}
+
+.up {
+  color: #2F9463;
+}
+
+.down {
+  color: #E64C66;
 }
 </style>
