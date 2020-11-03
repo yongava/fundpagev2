@@ -195,38 +195,42 @@ body, html {
   display: none;
 }
 
-.modal-content {
-  height: 100%;
-  overflow: scroll;
-  padding: 16px;
+  .modal-content {
+    height: 100%;
+    overflow: scroll;
+    padding: 16px;
+    h2 {
+      font-size: 28px;
+      margin: 0;
+      font-family: "kitbold";
+      font-style: "medium";
+    }
+    p {
+      font-size: 16px;
+      color: #707070;
+      font-family: "kitbold";
+      font-style: "roman";
+    }
 
-  h2 {
-    font-size: 32px;
-    margin: 0;
+    button {
+      // position: fixed;
+      height: 50px;
+      margin-top: 24px;
+      margin-left: 0px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      background: #502A81;
+      border-radius: 10px;
+      width: 100%;
+      outline: none;
+      border: none;
+      font-size: 28px;
+      font-family: "kitbold";
+      font-style: "medium";
+    }
   }
-
-  p {
-    font-size: 22px;
-    color: #707070;
-  }
-
-  button {
-    // position: fixed;
-    height: 50px;
-    margin-top: 24px;
-    margin-left: 0px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #fff;
-    background: #502A81;
-    border-radius: 10px;
-    width: 100%;
-    outline: none;
-    border: none;
-    font-size: 18px;
-  }
-}
 
 .hide-modal-btn {
   z-index: 999;

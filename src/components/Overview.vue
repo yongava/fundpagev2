@@ -154,7 +154,11 @@ export default {
     margin-top: 5px;
     padding: 12px;
     box-shadow: 0px 3px 6px #00000009;
-
+    a{
+      font-family: "kitbold";
+      font-style: "medium";
+      font-size: 28px;
+    }
     h2 {
       font-size: 36px;
       font-weight: medium;
@@ -167,12 +171,17 @@ export default {
     p.info {
       margin: 0 0 32px;
       color: #a0a0a0;
+      font-size: 18px;
+      font-family: "kitbold";
+      font-style: "roman";
     }
 
     p.miniinfo {
       font-size: 16px;
       margin: 0 0 16px;
       color: #a0a0a0;
+      font-family: "kitbold";
+      font-style: "roman";
     }
 
     .further-info {
@@ -206,27 +215,36 @@ export default {
       }
 
       .rank {
+        
         display: flex;
         align-items: center;
         justify-content: flex-start;
         flex-direction: column;
+        margin-right: 5px;
+        margin-top: 5px;
 
         span {
           margin-top: 10px;
           background: #4B2885;
           height: 44px;
           border-radius: 21.75px;
-          width: 60px;
+          width: 70px;
           font-size: 44px;
           display: flex;
           align-items: center;
           justify-content: center;
           color: #fff;
+          font-family: "kitbold";
+          font-style: "bold";
         }
 
         p {
           margin: 0;
+          font-size: 14px;
           color: #a0a0a0;
+          text-align: left;
+          font-family: "kitbold";
+          font-style: "roman";
         }
       }
     }
@@ -301,13 +319,15 @@ a.footer {
 }
 
 .mini {
+  margin-top: 30px;
+  margin-right: 7px;
   border: 1px solid #4F2A81;
   background: #ffffff;
   box-sizing: border-box;
   border-radius: 10px;
   height: 19px;
-  width: 50px;
-  font-size: 14px;
+  width: 60px;
+  font-size: 12px;
   line-height: 18px;
   color: #4F2A81;
   font-family: 'kitbold';
