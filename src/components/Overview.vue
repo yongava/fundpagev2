@@ -226,6 +226,7 @@ export default {
           font-size: 16px;
           color: #a0a0a0;
           text-align: left;
+          font-family: "kitbold";
         }
       }
     }
