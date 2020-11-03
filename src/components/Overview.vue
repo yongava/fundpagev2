@@ -173,6 +173,8 @@ export default {
       font-size: 16px;
       margin-bottom: 16px;
       color: #a0a0a0;
+      font-family: "kitbold";
+      font-style: "roman";
     }
 
     .further-info {
@@ -219,6 +221,8 @@ export default {
           align-items: center;
           justify-content: center;
           color: #fff;
+          font-family: "kitbold";
+          font-style: "bold";
         }
 
         p {
@@ -227,6 +231,7 @@ export default {
           color: #a0a0a0;
           text-align: left;
           font-family: "kitbold";
+          font-style: "roman";
         }
       }
     }
