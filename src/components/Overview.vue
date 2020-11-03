@@ -230,7 +230,7 @@ export default {
 
         p {
           margin: 0;
-          font-size: 16px;
+          font-size: 14px;
           color: #a0a0a0;
           text-align: left;
           font-family: "kitbold";
@@ -313,7 +313,7 @@ a.footer {
 
 .mini {
   margin-top: 30px;
-  margin-right: 5px;
+  margin-right: 7px;
   border: 1px solid #4F2A81;
   background: #ffffff;
   box-sizing: border-box;
