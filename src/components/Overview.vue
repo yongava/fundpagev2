@@ -206,7 +206,7 @@ export default {
         justify-content: flex-start;
         flex-direction: column;
         margin-right: 5px;
-        margin-top: 10px;
+        margin-top: 5px;
 
         span {
           margin-top: 10px;
