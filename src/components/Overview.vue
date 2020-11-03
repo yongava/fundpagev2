@@ -206,6 +206,7 @@ export default {
         justify-content: flex-start;
         flex-direction: column;
         margin-right: 5px;
+        margin-top: 10px;
 
         span {
           margin-top: 10px;
@@ -224,7 +225,7 @@ export default {
           margin: 0;
           font-size: 16px;
           color: #a0a0a0;
-          text-align: right;
+          text-align: left;
         }
       }
     }
