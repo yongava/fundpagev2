@@ -176,12 +176,16 @@ export default {
     overflow: scroll;
     padding: 16px;
     h2 {
-      font-size: 32px;
+      font-size: 28px;
       margin: 0;
+      font-family: "kitbold";
+      font-style: "medium";
     }
     p {
-      font-size: 22px;
+      font-size: 16px;
       color: #707070;
+      font-family: "kitbold";
+      font-style: "roman";
     }
 
     button {
@@ -198,7 +202,9 @@ export default {
       width: 100%;
       outline: none;
       border: none;
-      font-size: 18px;
+      font-size: 28px;
+      font-family: "kitbold";
+      font-style: "medium";
     }
   }
 
