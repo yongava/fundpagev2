@@ -222,6 +222,7 @@ export default {
 
         p {
           margin: 0;
+          font-size: 16px;
           color: #a0a0a0;
           text-align: right;
         }
@@ -302,6 +303,7 @@ a.footer {
 
 .mini {
   margin-top: 30px;
+  margin-right: 5px;
   border: 1px solid #4F2A81;
   background: #ffffff;
   box-sizing: border-box;
