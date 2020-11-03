@@ -166,6 +166,9 @@ export default {
       margin: 0;
       margin-bottom: 32px;
       color: #a0a0a0;
+      font-size: 18px;
+      font-family: "kitbold";
+      font-style: "roman";
     }
 
     p.miniinfo {
@@ -215,7 +218,7 @@ export default {
           background: #4B2885;
           height: 44px;
           border-radius: 21.75px;
-          width: 60px;
+          width: 70px;
           font-size: 44px;
           display: flex;
           align-items: center;
@@ -316,7 +319,7 @@ a.footer {
   box-sizing: border-box;
   border-radius: 10px;
   height: 19px;
-  width: 50px;
+  width: 60px;
   font-size: 14px;
   line-height: 18px;
   color: #4F2A81;
