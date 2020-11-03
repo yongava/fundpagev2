@@ -1,7 +1,7 @@
 <template>
   <div class="overview-wrapper">
     <div class="container">
-      <h2>ค่าธรรมเนียม {{title}}</h2>
+      <h2>ค่าธรรมเนียม</h2>
     </div>
     <div class="container">
       <p>
