@@ -24,7 +24,7 @@
         </div>
         <div class="rank">
           <span :style="{ opacity: `${this.riskOpacity}` }">{{ info.risk }}</span>
-          <p>ความเสี่ยงสูง</p>
+          <p>เสี่ยงสูง</p>
         </div>
       </div>
     </div>
@@ -298,7 +298,7 @@ a.footer {
 }
 
 .mini {
-  margin-top: 24px;
+  margin-top: 30px;
   border: 1px solid #4F2A81;
   background: #ffffff;
   box-sizing: border-box;
