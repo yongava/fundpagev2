@@ -200,10 +200,12 @@ export default {
       }
 
       .rank {
+        
         display: flex;
         align-items: center;
         justify-content: flex-start;
         flex-direction: column;
+        margin-right: 5px;
 
         span {
           margin-top: 10px;
@@ -221,6 +223,7 @@ export default {
         p {
           margin: 0;
           color: #a0a0a0;
+          text-align: right;
         }
       }
     }
