@@ -49,6 +49,8 @@ export default {
       font-weight: bolder;
       margin: 0;
       margin-bottom: 36px;
+      font-family: 'kitbold';
+      color: #333333;
     }
 
     p {
