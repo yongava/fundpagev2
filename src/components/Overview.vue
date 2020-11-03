@@ -24,7 +24,7 @@
         </div>
         <div class="rank">
           <span :style="{ opacity: `${this.riskOpacity}` }">{{ info.risk }}</span>
-          <p>เสี่ยงสูง</p>
+          <p>ความเสี่ยงสูง</p>
         </div>
       </div>
     </div>
