@@ -12,7 +12,10 @@
           </div>
           <div class="divided">
             <span>YTD</span>
-            <span :class="info.ytd >= 0 ? 'up' : 'down'">{{ info.ytd | toFixed(2) }}%</span>
+            <span :class="info.ytd >= 0 ? 'up' : 'down'">
+              <span v-html="info.ytd >= 0 ? '&#9650;' : '&#9660;'"></span>
+              {{ info.ytd | toFixed(2) }}%
+            </span>
           </div>
           <p class="miniinfo">as of {{ getDate(info.navDate) }}</p>
           <div class="divided">
@@ -158,20 +161,17 @@ export default {
       margin-bottom: 5px;
       line-height: 20px;
       font-family: "kitbold";
-      font-style: "medium";
       color: #525252;
     }
 
     p.info {
-      margin: 0;
-      margin-bottom: 32px;
+      margin: 0 0 32px;
       color: #a0a0a0;
     }
 
     p.miniinfo {
-      margin: 0;
       font-size: 16px;
-      margin-bottom: 16px;
+      margin: 0 0 16px;
       color: #a0a0a0;
     }
 
@@ -192,9 +192,15 @@ export default {
           justify-content: space-between;
           width: 50%;
 
-          span {
+          > span {
             font-size: 24px;
             font-family: "kitbold";
+            display: flex;
+            align-items: baseline;
+
+            > span {
+              font-size: 16px;
+            }
           }
         }
       }
@@ -257,9 +263,6 @@ a.footer {
   justify-content: center;
   color: #fff;
   background: #72559a;
-  width: 100%;
-  outline: none;
-  border: none;
   font-size: 28px;
   line-height: 33px;
   text-align: center;
