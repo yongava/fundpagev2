@@ -320,7 +320,7 @@ a.footer {
   border-radius: 10px;
   height: 19px;
   width: 60px;
-  font-size: 14px;
+  font-size: 12px;
   line-height: 18px;
   color: #4F2A81;
   font-family: 'kitbold';
