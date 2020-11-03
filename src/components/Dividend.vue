@@ -11,9 +11,9 @@
           </tr>
           <br>
           <tr v-for="item of info.dividendInfo.dividends" :key="item.dividendRate">
-            <td>{{ item.closeBookDate }}</td>
-            <td>{{ item.paymentDate }}</td>
-            <td>{{ item.dividendRate }}</td>
+            <td>{{ item.closeBookDate | toDate }}</td>
+            <td>{{ item.paymentDate | toDate }}</td>
+            <td>{{ item.dividendRate | toFixed }}</td>
           </tr>
         </table>
       </div>
@@ -24,7 +24,15 @@
 <script>
 export default {
   name: "Dividend",
-  props: ['info']
+  props: ['info'],
+  filters: {
+    toDate(value) {
+      return (new Date(value)).toLocaleDateString();
+    },
+    toFixed(value) {
+      return Number(value).toFixed(4);
+    }
+  }
 }
 </script>
 
@@ -68,10 +76,6 @@ export default {
       td {
         font-size: 18px;
         color: #666666;
-      }
-
-      td:last-child {
-        font-family: 'kitbold';
       }
     }
   }

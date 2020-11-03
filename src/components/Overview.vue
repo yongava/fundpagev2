@@ -19,7 +19,7 @@
           </div>
           <p class="miniinfo">as of {{ getDate(info.navDate) }}</p>
           <div class="divided">
-            <span>
+            <span class="column">
               7,664,259,312.00
               <p class="miniinfo">มูลค่าทรัพย์สินสุทธิ (บาท)</p>
               </span>
@@ -44,7 +44,7 @@
 
     </div>
     <div class="footer-container">
-      <a :href="`https://info.scb.co.th/scbeasy/easy_app_link.html?URI=scbeasy://mutualfunds/discover/${info.fundCode}`" class="footer">
+      <a target="_blank" :href="`https://info.scb.co.th/scbeasy/easy_app_link.html?URI=scbeasy://mutualfunds/discover/${info.fundCode}`" class="footer">
         ซื้อกองทุน {{ info.fundCode }}
       </a>
     </div>
@@ -208,14 +208,14 @@ export default {
             align-items: baseline;
 
             > span {
-              font-size: 16px;
+              font-size: 14px;
             }
           }
         }
       }
 
       .rank {
-        
+
         display: flex;
         align-items: center;
         justify-content: flex-start;
@@ -249,6 +249,10 @@ export default {
       }
     }
   }
+}
+
+.column {
+  flex-direction: column;
 }
 
 .chart-container {
