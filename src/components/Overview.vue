@@ -298,6 +298,7 @@ a.footer {
 }
 
 .mini {
+  margin-top: 24px;
   border: 1px solid #4F2A81;
   background: #ffffff;
   box-sizing: border-box;
