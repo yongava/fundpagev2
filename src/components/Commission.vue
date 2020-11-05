@@ -1,24 +1,13 @@
 <template>
-  <div class="overview-wrapper">
+  <div v-if="info" class="overview-wrapper">
     <div class="container">
-      <h2>ค่าธรรมเนียม {{title}}</h2>
-    </div>
-    <div class="container">
-      <p>
-        หมายเหตุ : Overall Rating 5 ดาว จาก MorningStar ประเภท Thailand Fund
-        Equity Large-Cap , ณ 31 ส.ค. 2563 @สงวนลิขสิทธิ์ 2018 บริษัท
-        มอร์นิ่งสตาร์ รีเสิรซ์ ประเทศไทย ข้อมูลนี้ (1)
-        เป็นกรรมสิทธิ์ของบริษัทมอร์นิ่งสตาร์ และ/หรือ ผู้ให้บริการข้อมูล (2)
-        ขอสงวนสิทธิ์ในการลอกเลียน หรือ เผยแพร่ (3)
-        ขอสงวนสิทธิ์ที่จะไม่รับผิดชอบต่อความถูกต้อง ครบถ้วน และความเสียหายต่างๆ
-        ที่เกิดขึ้นทุกกรณีจากการนำข้อมูลไปใช้อ้างอิง
-        ผลการดำเนินงานในอดีตมิได้เป็นสิ่งยืนยันถึงผลการดำเนินงานในอนาคต
-      </p>
+      <h2>ค่าธรรมเนียม</h2>
+      <p>{{ info.commissionFee.annotation }}</p>
     </div>
 
     <div class="footer-container">
-      <button>Fund Fact Sheet</button>
-      <button>ข้อมูลเพิ่มเติม</button>
+      <a target="_blank" :href="info.factSheetURL">Fund Fact Sheet</a>
+      <a target="_blank" :href="`https://www.scbam.com/th/fund/morningstar/fund-information/${info.fundCode}`">ข้อมูลเพิ่มเติม</a>
     </div>
   </div>
 </template>
@@ -42,13 +31,14 @@ export default {
     padding: 12px;
     box-shadow: 0px 3px 6px #00000009;
     display: flex;
-    align-items: flex-start;
+    flex-direction: column;
 
     h2 {
       font-size: 36px;
       font-weight: bolder;
-      margin: 0;
-      margin-bottom: 36px;
+      margin: 0 0 18px;
+      font-family: 'kitbold';
+      color: #333333;
     }
 
     p {
@@ -59,7 +49,7 @@ export default {
     }
   }
 
-  button {
+  button, a {
     height: 50px;
     display: flex;
     align-items: center;
@@ -70,7 +60,10 @@ export default {
     width: 100%;
     outline: none;
     border: none;
-    font-size: 18px;
+    font-family: "kitbold";
+    font-size: 28px;
+    cursor: pointer;
+    text-decoration: none;
 
     &:last-child {
       margin-top: 14px;

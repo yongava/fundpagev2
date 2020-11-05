@@ -12,11 +12,14 @@
           </div>
           <div class="divided">
             <span>YTD</span>
-            <span :class="info.ytd >= 0 ? 'up' : 'down'">{{ info.ytd | toFixed(2) }}%</span>
+            <span :class="info.ytd >= 0 ? 'up' : 'down'">
+              <span v-html="info.ytd >= 0 ? '&#9650;' : '&#9660;'"></span>
+              {{ info.ytd | toFixed(2) }}%
+            </span>
           </div>
           <p class="miniinfo">as of {{ getDate(info.navDate) }}</p>
           <div class="divided">
-            <span>
+            <span class="column">
               7,664,259,312.00
               <p class="miniinfo">มูลค่าทรัพย์สินสุทธิ (บาท)</p>
               </span>
@@ -41,7 +44,7 @@
 
     </div>
     <div class="footer-container">
-      <a :href="`https://info.scb.co.th/scbeasy/easy_app_link.html?URI=scbeasy://mutualfunds/discover/${info.fundCode}`" class="footer">
+      <a target="_blank" :href="`https://info.scb.co.th/scbeasy/easy_app_link.html?URI=scbeasy://mutualfunds/discover/${info.fundCode}`" class="footer">
         ซื้อกองทุน {{ info.fundCode }}
       </a>
     </div>
@@ -162,13 +165,11 @@ export default {
       margin-bottom: 5px;
       line-height: 20px;
       font-family: "kitbold";
-      font-style: "medium";
       color: #525252;
     }
 
     p.info {
-      margin: 0;
-      margin-bottom: 32px;
+      margin: 0 0 32px;
       color: #a0a0a0;
       font-size: 18px;
       font-family: "kitbold";
@@ -176,9 +177,8 @@ export default {
     }
 
     p.miniinfo {
-      margin: 0;
       font-size: 16px;
-      margin-bottom: 16px;
+      margin: 0 0 16px;
       color: #a0a0a0;
       font-family: "kitbold";
       font-style: "roman";
@@ -201,15 +201,21 @@ export default {
           justify-content: space-between;
           width: 50%;
 
-          span {
+          > span {
             font-size: 24px;
             font-family: "kitbold";
+            display: flex;
+            align-items: baseline;
+
+            > span {
+              font-size: 14px;
+            }
           }
         }
       }
 
       .rank {
-        
+
         display: flex;
         align-items: center;
         justify-content: flex-start;
@@ -245,6 +251,10 @@ export default {
   }
 }
 
+.column {
+  flex-direction: column;
+}
+
 .chart-container {
   margin-bottom: 90px !important;
 }
@@ -275,9 +285,6 @@ a.footer {
   justify-content: center;
   color: #fff;
   background: #72559a;
-  width: 100%;
-  outline: none;
-  border: none;
   font-size: 28px;
   line-height: 33px;
   text-align: center;
