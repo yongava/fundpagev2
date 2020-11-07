@@ -3,13 +3,13 @@
 
     <div class="main-wrapper">
       <ul class="navigation">
-        <li v-for="(item, index) in navigation" :key="index" @click="currentComponent = item.component"
+        <li v-for="(item, index) in navigation" :key="index" @click="setComponent(item.component)"
             :class="[ currentComponent === item.component ? 'active' : '' ]">{{ item.name }}
         </li>
       </ul>
       <v-touch @swipeleft="swipe('left')" @swiperight="swipe('right')">
         <div class="content-wrapper">
-          <component :is="currentComponent" :info="info"></component>
+          <component :is="currentComponent" :info="info" @setComponent="setComponent"></component>
         </div>
       </v-touch>
     </div>
@@ -67,10 +67,6 @@ export default {
           component: 'Performance'
         },
         {
-          name: 'ปันผล',
-          component: 'Dividend'
-        },
-        {
           name: 'สินทรัพย์',
           component: 'Assets'
         },
@@ -92,6 +88,13 @@ export default {
       if (fundCode) {
         const {data} = await this.axios.get(`/fund_info/${fundCode}`);
         this.info = data.data;
+
+        if (this.info.typeName === 'normal') {
+          this.navigation.splice(2, 0, {
+            name: 'ปันผล',
+            component: 'Dividend'
+          });
+        }
       }
       if (userID) {
         const {data} = await this.this.axios.post(`/user/disclaimer?token=${userID}`);
@@ -101,7 +104,10 @@ export default {
     swipe(direction) {
       let index = this.navigation.findIndex(item => item.component === this.currentComponent);
       index = direction === 'right' ? index - 1 : index + 1;
-      this.currentComponent = this.navigation[index] ? this.navigation[index].component : this.currentComponent;
+      this.setComponent(this.navigation[index] ? this.navigation[index].component : this.currentComponent)
+    },
+    setComponent(component) {
+      this.currentComponent = component;
     }
   },
   mounted() {

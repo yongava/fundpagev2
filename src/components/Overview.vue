@@ -1,7 +1,7 @@
 <template>
   <div v-if="info" class="overview-wrapper">
     <div>
-      <button v-if="info.dividendInfo.dividends.length" class="mini">มีปันผล</button>
+      <button v-if="info.typeName === 'normal'" @click="setComponent" class="mini">มีปันผล</button>
       <h2>{{ info.fundCode }}</h2>
       <p class="info">{{ info.description }}</p>
       <div class="further-info">
@@ -20,7 +20,7 @@
           <p class="miniinfo">as of {{ getDate(info.navDate) }}</p>
           <div class="divided">
             <span class="column">
-              7,664,259,312.00
+              {{ info.aum | toLocale }}
               <p class="miniinfo">มูลค่าทรัพย์สินสุทธิ (บาท)</p>
               </span>
           </div>
@@ -82,11 +82,17 @@ export default {
   filters: {
     toFixed(value, fix) {
       return Number(value).toFixed(fix);
+    },
+    toLocale(value) {
+      return Number(value).toLocaleString('en');
     }
   },
   methods: {
     getDate(str) {
       return (new Date(str)).toLocaleDateString();
+    },
+    setComponent() {
+      this.$emit('setComponent', 'Dividend');
     }
   }
 //   components: {
@@ -337,5 +343,6 @@ a.footer {
   font-family: 'kitbold';
   font-weight: 700;
   float: right;
+  cursor: pointer;
 }
 </style>
