@@ -2,7 +2,7 @@
   <div class="overview-wrapper">
     <div>
       <h2>ข้อมูลการปันผล</h2>
-      <div v-if="info && info.dividendInfo.dividends" class="grid-table">
+      <div v-if="info && info.dividendInfo.dividends.length" class="grid-table">
         <table style="width:100%">
           <tr>
             <th>วันที่ปิดสมุด</th>
@@ -17,6 +17,7 @@
           </tr>
         </table>
       </div>
+      <div class="empty" v-else-if="info && !info.dividendInfo.dividends.length">ไม่มีประวัติการจ่ายปันผล</div>
     </div>
   </div>
 </template>
@@ -86,5 +87,15 @@ export default {
     font-size: 20px;
     color: #666666;
   }
+}
+
+.empty {
+  width: 100%;
+  text-align: center;
+  padding: 36px 0 62px;
+  font-family: 'kitbold';
+  color: #666666;
+  font-size: 20px;
+  line-height: 55px;
 }
 </style>

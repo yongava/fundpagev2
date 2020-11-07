@@ -1,7 +1,7 @@
 <template>
   <div v-if="info" class="overview-wrapper">
     <div>
-      <button v-if="info.dividendInfo.dividends.length" class="mini">มีปันผล</button>
+      <button v-if="info.typeName === 'normal'" @click="setComponent" class="mini">มีปันผล</button>
       <h2>{{ info.fundCode }}</h2>
       <p class="info">{{ info.description }}</p>
       <div class="further-info">
@@ -20,7 +20,7 @@
           <p class="miniinfo">as of {{ getDate(info.navDate) }}</p>
           <div class="divided">
             <span class="column">
-              7,664,259,312.00
+              {{ info.aum | toLocale }}
               <p class="miniinfo">มูลค่าทรัพย์สินสุทธิ (บาท)</p>
               </span>
           </div>
@@ -34,13 +34,16 @@
     <div class="chart-container">
       <h2>ผลการดำเนินงาน</h2>
       <br>
-      <img :src="`https://ava-scbam.s3-ap-southeast-1.amazonaws.com/webview-nav/${info.fundCode}.png`" alt="" width="100%">
-      <!-- <VueApexCharts
-        width="500"
-        type="line"
-        :options="options"
-        :series="series"
-      ></VueApexCharts> -->
+
+      <div id="chart">
+        <VueApexCharts
+            type="line"
+            height="350"
+            :options="options"
+            :series="series"
+        ></VueApexCharts>
+      </div>
+
 
     </div>
     <div class="footer-container">
@@ -52,11 +55,37 @@
 </template>
 
 <script>
-// import VueApexCharts from "vue-apexcharts";
+import VueApexCharts from "vue-apexcharts";
 
 export default {
   name: "Overview",
   props: ['info'],
+  components: {
+    VueApexCharts,
+  },
+  data() {
+    return {
+      options: {
+        chart: {
+          id: "chart",
+          height: 350,
+          type: 'line',
+          zoom: {
+            enabled: false
+          }
+        },
+        colors: [],
+        stroke: {
+          width: 3,
+          curve: 'smooth',
+        },
+        xaxis: {
+          categories: [],
+        }
+      },
+      series: []
+    };
+  },
   computed: {
     riskOpacity() {
       let opacity = 0;
@@ -79,53 +108,64 @@ export default {
       return opacity;
     }
   },
+  watch: {
+    info(val) {
+      if (val) {
+        this.initChart();
+      }
+    }
+  },
   filters: {
     toFixed(value, fix) {
       return Number(value).toFixed(fix);
+    },
+    toLocale(value) {
+      return Number(value).toLocaleString('en');
     }
   },
   methods: {
     getDate(str) {
       return (new Date(str)).toLocaleDateString();
+    },
+    setComponent() {
+      this.$emit('setComponent', 'Dividend');
+    },
+    initChart() {
+      const data = this.info.navChart.map(item => ({
+        name: item.name,
+        data: item.price.map(val => val.value)
+      }));
+
+      const colors = this.info.navChart.map(item => item.color);
+      const date = this.info.navChart[0].price.map(val => (new Date(val.date)).toDateString().slice(4, 10));
+
+      this.series = [
+        ...this.series,
+        ...data
+      ];
+
+      this.options = {
+        ...this.options,
+        ...{
+          colors,
+          xaxis: {
+            categories: date,
+            labels: {
+              show: true,
+              rotate: -10
+            }
+          }
+        }
+      }
+    }
+  },
+  mounted() {
+    if (this.info) {
+      this.initChart();
     }
   }
-//   components: {
-//     VueApexCharts,
-//   },
-//   data() {
-//     return {
-//       options: {
-//         chart: {
-//           id: "vuechart-example",
-//         },
-//         xaxis: {
-//           categories: [
-//             "Jan'20",
-//             "Feb'20",
-//             "March'20",
-//             "Apr'20",
-//             "May'20",
-//             "Jun'20",
-//             "Jul'20",
-//             "Aug'20",
-//           ],
-//         },
-//       },
-//       series: [
-//         {
-//           name: "SCBCHA",
-//           data: [30, 40, 45, 57, 49, 60, 70, 91],
-//         },
-//         {
-//           name: "เกณฑ์มาตรฐาน",
-//           data: [30, 41, 45, 50, 49, 62, 70, 91],
-//         },
-//       ],
-//       colors: ["#77B6EA", "#545454"],
-//     };
-//   },
 };
-// </script>
+</script>
 
 <style scoped lang="scss">
 @font-face {
@@ -337,5 +377,6 @@ a.footer {
   font-family: 'kitbold';
   font-weight: 700;
   float: right;
+  cursor: pointer;
 }
 </style>

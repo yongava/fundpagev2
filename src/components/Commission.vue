@@ -2,6 +2,45 @@
   <div v-if="info" class="overview-wrapper">
     <div class="container">
       <h2>ค่าธรรมเนียม</h2>
+
+      <h4>ค่าธรรมเนียมที่เรียกเก็บจากผู้ถือหน่วยลงทุน</h4>
+
+      <div v-if="info && commissionFee.length" class="grid-table">
+        <table style="width:100%">
+          <tr>
+            <th></th>
+            <th>สูงสุดไม่เกิน</th>
+            <th>เก็บจริง</th>
+            <th>หน่วย</th>
+          </tr>
+          <tr v-for="item of commissionFee" :key="item.name">
+            <td>{{ item.name }}</td>
+            <td>{{ item.max | toFixed }}</td>
+            <td>{{ item.actual | toFixed }}</td>
+            <td>{{ item.unit }}</td>
+          </tr>
+        </table>
+      </div>
+
+      <h4>ค่าธรรมเนียมที่เรียกเก็บจากกองทุน</h4>
+
+      <div v-if="info && fundFee.length" class="grid-table">
+        <table style="width:100%">
+          <tr>
+            <th></th>
+            <th>สูงสุดไม่เกิน</th>
+            <th>เก็บจริง</th>
+            <th>หน่วย</th>
+          </tr>
+          <tr v-for="item of fundFee" :key="item.name">
+            <td>{{ item.name }}</td>
+            <td>{{ item.max | toFixed }}</td>
+            <td>{{ item.actual | toFixed }}</td>
+            <td>{{ item.unit }}</td>
+          </tr>
+        </table>
+      </div>
+
       <p>{{ info.commissionFee.annotation }}</p>
     </div>
 
@@ -15,7 +54,32 @@
 <script>
 export default {
   name: "Commission",
-  props: ['info']
+  props: ['info'],
+  computed: {
+    commissionFee() {
+      return this.feeMap('commissionFee');
+    },
+    fundFee() {
+      return this.feeMap('fundFee');
+    }
+  },
+  methods: {
+    feeMap(fee) {
+      return this.info[fee].name.map((item, i) => {
+        return {
+          name: item,
+          max: this.info[fee].maximumFees[i],
+          actual: this.info[fee].actualFees[i],
+          unit: this.info[fee].unit[i]
+        }
+      });
+    }
+  },
+  filters: {
+    toFixed(value) {
+      return Number(value).toFixed(2);
+    }
+  }
 };
 </script>
 
@@ -36,8 +100,8 @@ export default {
     h2 {
       font-size: 36px;
       font-weight: bolder;
-      margin: 0 0 18px;
       font-family: 'kitbold';
+      margin: 0;
       color: #333333;
     }
 
@@ -75,22 +139,44 @@ export default {
 
     tr {
       text-align: left;
-      border-bottom: 1px solid #a0a0a0;
+      border-bottom: 1px solid #A0A0A0;
 
       td {
-        font-size: 22px;
-      }
+        font-size: 18px;
+        color: #666666;
+        text-align: center;
 
-      td:last-child {
-        font-family: "kitbold";
+        &:first-child {
+          text-align: left;
+        }
+
+        &:last-child {
+          text-align: right;
+        }
       }
     }
   }
 
   tr th {
-    font-family: "kitbold";
-    text-align: left;
-    font-size: 24px;
+    font-family: 'kitbold';
+    font-size: 18px;
+    color: #666666;
+    text-align: center;
+
+    &:last-child {
+      text-align: right;
+    }
+  }
+
+  h4 {
+    margin: 18px 0 5px;
+    padding: 5px 10px;
+    background: #F0F3F7;
+    border-radius: 3px;
+    font-size: 21px;
+    line-height: 25px;
+    font-family: 'kit';
+    color: #525252;
   }
 }
 
