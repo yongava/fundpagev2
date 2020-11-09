@@ -1,7 +1,7 @@
 <template>
   <div v-if="info" class="overview-wrapper">
     <div>
-      <button v-if="info.typeName === 'normal'" @click="setComponent" class="mini">มีปันผล</button>
+      <button v-if="info.typeName != 'normal'" @click="setComponent" class="mini">มีปันผล</button>
       <h2>{{ info.fundCode }}</h2>
       <p class="info">{{ info.description }}</p>
       <div class="further-info">

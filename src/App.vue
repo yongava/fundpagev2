@@ -89,7 +89,7 @@ export default {
         const {data} = await this.axios.get(`/fund_info/${fundCode}`);
         this.info = data.data;
 
-        if (this.info.typeName === 'normal') {
+        if (this.info.typeName != 'normal') {
           this.navigation.splice(2, 0, {
             name: 'ปันผล',
             component: 'Dividend'
