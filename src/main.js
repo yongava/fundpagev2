@@ -9,6 +9,10 @@ import VueTouch from 'vue-touch';
 
 const BASE_URL = 'https://lineoa-api.ava.fund';
 
+VueTouch.config.swipe = {
+  direction: 'horizontal',
+  threshold: 200
+};
 
 Vue.config.productionTip = false
 Vue.use(VModal);
