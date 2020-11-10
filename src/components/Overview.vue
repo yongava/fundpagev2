@@ -27,7 +27,7 @@
         </div>
         <div class="rank">
           <span :style="{ opacity: `${this.riskOpacity}` }">{{ info.risk }}</span>
-          <p>ความเสี่ยงสูง</p>
+          <p>{{ riskText }}</p>
         </div>
       </div>
     </div>
@@ -106,6 +106,26 @@ export default {
           opacity = 1;
       }
       return opacity;
+    },
+    riskText() {
+      let text = '';
+      switch (this.info.risk) {
+        case '1': case '2':
+          text = 'ความเสี่ยงต่ำ';
+          break;
+        case '3': case '4':
+          text = 'ความเสี่ยงปานกลางค่อนข้างต่ำ';
+          break;
+         case '5':
+          text = 'ความเสี่ยงปานกลางค่อนข้างสูง';
+          break;
+        case '6': case '7':
+          text = 'ความเสี่ยงสูง';
+          break;
+        default:
+          text = 'ความเสี่ยงสูงมาก';
+      }
+      return text;
     }
   },
   watch: {
@@ -125,7 +145,7 @@ export default {
   },
   methods: {
     getDate(str) {
-      return (new Date(str)).toLocaleDateString();
+      return (new Date(str)).toLocaleDateString('ru').replaceAll('.', '/');
     },
     setComponent() {
       this.$emit('setComponent', 'Dividend');
@@ -282,9 +302,9 @@ export default {
           margin: 0;
           font-size: 14px;
           color: #a0a0a0;
-          text-align: left;
           font-family: "kitbold";
           font-style: "roman";
+          text-align: center;
         }
       }
     }
