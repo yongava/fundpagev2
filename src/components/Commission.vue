@@ -103,7 +103,7 @@ export default {
       font-family: "kitbold";
       font-style: "medium";
       font-weight: medium;
-      color: #525252;
+      color: #000000;
     }
 
     p {

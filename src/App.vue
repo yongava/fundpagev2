@@ -369,6 +369,7 @@ html {
     font-family: "kitbold";
     font-style: "medium";
     font-weight: medium;
+    color: #000000;
   }
   p {
     font-size: 16px;

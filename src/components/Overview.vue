@@ -225,7 +225,7 @@ export default {
       margin-bottom: 5px;
       line-height: 20px;
       font-family: "kitbold";
-      color: #525252;
+      color: #000000;
     }
 
     p.info {
