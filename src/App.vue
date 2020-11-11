@@ -292,6 +292,11 @@ export default {
   src: local("kit"), url(./assets/fonts/kitbold.ttf) format("truetype");
 }
 
+@font-face {
+  font-family: "PSLxText";
+  src: local("psl"), url(./assets/fonts/PSLxText.ttf) format("truetype");
+}
+
 body,
 html {
   overflow: hidden;
@@ -374,8 +379,7 @@ html {
   p {
     font-size: 16px;
     color: #707070;
-    font-family: "kitbold";
-    font-style: "roman";
+    font-family: "psl";
   }
 
   button {

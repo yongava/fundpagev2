@@ -111,6 +111,7 @@ export default {
       font-size: 16px;
       margin-bottom: 16px;
       color: #a0a0a0;
+      font-family: "psl";
     }
   }
 
