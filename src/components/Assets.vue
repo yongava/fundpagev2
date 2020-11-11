@@ -146,12 +146,13 @@ export default {
     flex-direction: column;
 
     h2 {
-      font-size: 36px;
-      font-weight: bolder;
       margin: 0;
       margin-bottom: 36px;
-      font-family: 'kitbold';
-      color: #333333;
+      font-size: 36px;
+      font-family: "kitbold";
+      font-style: "medium";
+      font-weight: medium;
+      color: #525252;
     }
   }
 }

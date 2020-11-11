@@ -364,10 +364,11 @@ html {
   overflow: scroll;
   padding: 16px;
   h2 {
-    font-size: 28px;
     margin: 0;
+    font-size: 36px;
     font-family: "kitbold";
     font-style: "medium";
+    font-weight: medium;
   }
   p {
     font-size: 16px;
