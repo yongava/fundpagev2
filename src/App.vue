@@ -377,7 +377,7 @@ html {
     color: #000000;
   }
   p {
-    font-size: 16px;
+    font-size: 10px;
     color: #707070;
     font-family: "psl";
   }
