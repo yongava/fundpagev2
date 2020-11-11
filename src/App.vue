@@ -324,7 +324,7 @@ html {
     height: fit-content;
     justify-content: flex-start;
     margin: 0;
-    padding: 16px 24px;
+    padding: 15px 20px;
     overflow-y: scroll;
     height: 50px;
 
