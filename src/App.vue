@@ -1,39 +1,190 @@
 <template>
   <div id="app">
-
     <div class="main-wrapper">
       <ul class="navigation">
-        <li v-for="(item, index) in navigation" :key="index" @click="setComponent(item.component)"
-            :class="[ currentComponent === item.component ? 'active' : '' ]">{{ item.name }}
+        <li
+          v-for="(item, index) in navigation"
+          :key="index"
+          @click="setComponent(item.component)"
+          :class="[currentComponent === item.component ? 'active' : '']"
+        >
+          {{ item.name }}
         </li>
       </ul>
       <v-touch @swipeleft="swipe('left')" @swiperight="swipe('right')">
         <div class="content-wrapper">
-          <component :is="currentComponent" :info="info" @setComponent="setComponent"></component>
+          <component
+            :is="currentComponent"
+            :info="info"
+            @setComponent="setComponent"
+          ></component>
         </div>
       </v-touch>
     </div>
     <modal name="disclaimer" height="90%" width="90%">
       <div class="modal-content">
         <h2>คำชี้แจงที่สำคัญ (Disclaimer)</h2>
-        <p>ผู้ลงทุนที่สนใจจะเข้าเยี่ยมชม หรือสืบค้นข้อมูลกองทุนรวม และ/หรือ ข้อมูลต่าง ๆ ภายใต้บริการ SCBAM Line OA
-          Official ของบริษัทหลักทรัพย์จัดการกองทุน ไทยพาณิชย์ จำกัด (“บริษัทจัดการ”) ผ่านระบบปฏิบัติการ LINE
-          Application ตกลงยอมรับเงื่อนไขและข้อกำหนดต่าง ๆ ดังต่อไปนี้
-          <br><br>
+        <p>
+          ผู้ลงทุนที่สนใจจะเข้าเยี่ยมชม หรือสืบค้นข้อมูลกองทุนรวม และ/หรือ
+          ข้อมูลต่าง ๆ ภายใต้บริการ SCBAM Line OA Official
+          ของบริษัทหลักทรัพย์จัดการกองทุน ไทยพาณิชย์ จำกัด (“บริษัทจัดการ”)
+          ผ่านระบบปฏิบัติการ LINE Application ตกลงยอมรับเงื่อนไขและข้อกำหนดต่าง
+          ๆ ดังต่อไปนี้
+          <br /><br />
           1. กองทุนรวมเป็นนิติบุคคลแยกต่างหากจากบริษัทจัดการ ดังนั้น
           บริษัทจัดการจึงไม่มีภาระผูกพันในการชดเชยผลขาดทุนของกองทุนรวม ทั้งนี้
           ผลการดำเนินงานของกองทุนรวมไม่ได้ขึ้นอยู่กับสถานะทางการเงินหรือผลการดำเนินงานของบริษัทจัดการแต่อย่างใด
-          <br><br>
+          <br /><br />
           2. การลงทุนในหน่วยลงทุนมิใช่การฝากเงินและมีความเสี่ยงของการลงทุน
-          ผู้ลงทุนอาจได้รับเงินลงทุนคืนมากกว่าหรือน้อยกว่าเงินลงทุนเริ่มแรกก็ได้ และในกรณีที่มีเหตุการณ์ไม่ปกติ
+          ผู้ลงทุนอาจได้รับเงินลงทุนคืนมากกว่าหรือน้อยกว่าเงินลงทุนเริ่มแรกก็ได้
+          และในกรณีที่มีเหตุการณ์ไม่ปกติ
           ผู้ลงทุนอาจไม่ได้รับชำระเงินค่าขายคืนหน่วยลงทุนภายในระยะเวลาที่กำหนด
           หรืออาจไม่สามารถขายคืนหน่วยลงทุนได้ตามที่มีคำสั่งไว้
-          <br><br>
-          ข้าพเจ้าได้อ่านและตกลงยอมรับเงื่อนไขและข้อกำหนดต่าง ๆ ที่ปรากฏข้างต้นแล้ว
+          <br /><br />
+          3. การลงทุนย่อมมีความเสี่ยง ผู้สนใจลงทุนควรศึกษาข้อมูลในหนังสือชี้ชวน
+          และคู่มือภาษีเกี่ยวกับการลงทุนในกองทุนรวมเพื่อการออม
+          หรือกองทุนรวมเพื่อการเลี้ยงชีพให้เข้าใจก่อนซื้อหน่วยลงทุน
+          และเก็บไว้เป็นข้อมูลเพื่อใช้อ้างอิงในอนาคต
+          หากต้องการทราบข้อมูลเพิ่มเติม
+          ผู้ลงทุนสามารถติดต่อขอรับหนังสือชี้ชวนส่วนข้อมูลโครงการได้ที่สำนักงานของบริษัทจัดการ
+          หรือสำนักงานของผู้สนับสนุนการขายและรับซื้อคืนหน่วยลงทุนทุกแห่งที่ได้รับการแต่งตั้งจากบริษัทจัดการ
+          <br /><br />
+          4. ผลการดำเนินงานในอดีตของกองทุนมิได้เป็นสิ่งยืนยันถึงผลการดำเนินงานในอนาคต
+          <br /><br />
+          5. การที่สำนักงานคณะกรรมการ ก.ล.ต.
+          ได้อนุมัติให้จัดตั้งและจัดการกองทุนรวมตามรายละเอียดในหนังสือ
+          ชี้ชวนที่ได้ ปรากฏอยู่ในระบบปฏิบัติการ LINE Application นี้
+          มิได้เป็นการแสดงว่าคณะกรรมการ ก.ล.ต. และสำนักงานคณะกรรมการ ก.ล.ต.
+          ได้รับรองถึงความถูกต้องของข้อมูลในหนังสือชี้ชวน
+          และมิได้ประกันราคาเสนอขายหน่วยลงทุนแต่อย่างใด
+          <br /><br />
+          6. บริษัทจัดการอาจลงทุนในหลักทรัพย์หรือทรัพย์สินอื่นเพื่อบริษัทจัดการเช่นเดียวกันกับที่บริษัทจัดการลงทุนในหลักทรัพย์
+          หรือทรัพย์สินอื่นเพื่อกองทุนรวมตามหลักเกณฑ์ที่สำนักงานคณะกรรมการ
+          ก.ล.ต.กำหนด ทั้งนี้
+          ผู้สนใจจะลงทุนในกองทุนรวมที่ต้องการทราบรายละเอียดข้อมูลการลงทุนเพื่อบริษัทจัดการ
+          ผู้ลงทุนสามารถติดต่อขอดูข้อมูลได้ที่สำนักงานของบริษัทจัดการ
+          หรือสำนักงานของผู้สนับสนุนการขายและรับซื้อคืนหน่วยลงทุนทุกแห่งที่ได้รับการแต่งตั้งจากบริษัทจัดการ
+          และสำนักงานคณะกรรมการ ก.ล.ต.
+          <br /><br />
+          7. บริษัทจัดการอนุญาตให้พนักงานลงทุนในหลักทรัพย์เพื่อตนเองได้โดยจะต้องปฏิบัติตามจรรยาบรรณและประกาศต่าง
+          ๆ ที่สมาคมบริษัทจัดการลงทุนกำหนด
+          และจะต้องเปิดเผยการลงทุนดังกล่าวให้บริษัทจัดการทราบเพื่อที่บริษัทจัดการจะสามารถกำกับและดูแลการซื้อขายหลักทรัพย์ของพนักงานได้
+          <br /><br />
+          8. ผู้ลงทุนสามารถตรวจสอบข้อมูลที่อาจจะมีผลต่อการตัดสินใจลงทุน เช่น
+          รายงานการทำธุรกรรมกับบุคคล ที่เกี่ยวข้อง (Connected person)
+          และรายงานการลงทุนตามอัตราส่วนที่กำหนดในวัตถุประสงค์การลงทุน เป็นต้น
+          ได้ที่สำนักงานคณะกรรมการ ก.ล.ต.
+          หรือผ่านเครือข่ายทางอินเทอร์เน็ตหรือเว็บไซด์ของสำนักงานคณะกรรมการ
+          ก.ล.ต. (http://www.sec.or.th)
+          <br /><br />
+          9. การวัดผลการดำเนินงานของกองทุนรวมที่ปรากฏในระบบปฏิบัติการ LINE
+          Application
+          ได้ถูกจัดทำขึ้นตามมาตรฐานการวัดผลการดำเนินงานของสมาคมบริษัทจัดการลงทุน
+          <br /><br />
+          10. ในการเผยแพร่ข้อมูลและเอกสารต่าง ๆ ที่ปรากฏในระบบปฏิบัติการ LINE
+          Application นี้
+          บริษัทจัดการได้รวบรวมและจัดทำขึ้นภายใต้เจตนาสุจริตบนพื้นฐานของแหล่งข้อมูลที่น่าเชื่อถือ
+          เพื่อประโยชน์และเป็นการอำนวยความสะดวกให้แก่ผู้ลงทุนเท่านั้น
+          อย่างไรก็ตาม บริษัทจัดการไม่สามารถรับรองและรับประกันถึงความถูกต้อง
+          ความครบถ้วนสมบูรณ์
+          และความน่าเชื่อถือของข้อมูลและเอกสารดังกล่าวไม่ว่าในกรณีใด ๆ ทั้งสิ้น
+          ทั้งนี้ หากผู้ลงทุนต้องการใช้ข้อมูลและเอกสารที่ปรากฏในระบบปฏิบัติการ
+          LINE Application นี้เพื่อดำเนินการอย่างใดอย่างหนึ่ง
+          ถือว่าเป็นการตัดสินใจและยอมรับความเสี่ยงของผู้ลงทุนเอง
+          โดยบริษัทจัดการไม่ต้องรับผิดชอบในความเสียหายใด ๆ ที่เกิดขึ้น
+          รวมทั้งผู้ลงทุนควรใช้ด้วยความรอบคอบ และ/หรือ
+          ใช้ข้อมูลจากแหล่งข้อมูลอื่น ๆ ประกอบการพิจารณาด้วย
+          <br /><br />
+          11. บริษัทจัดการขอสงวนสิทธิ์ในข้อมูลและเอกสารต่าง ๆ
+          ที่ปรากฏในระบบปฏิบัติการ LINE Application นี้ โดยห้ามมิให้ผู้ใดเผยแพร่
+          ทำซ้ำ ดัดแปลง ลอกเลียนแบบ เผยแพร่ อ้างอิง ไม่ว่าทั้งหมดหรือบางส่วน
+          หรือใช้วิธีการใดก็ตาม เว้นแต่จะได้รับอนุญาตจากบริษัทจัดการ
+          <br /><br />
+          12. บริษัทจัดการ และผู้บริหาร
+          รวมถึงพนักงานเจ้าหน้าที่ของบริษัทจัดการขอสงวนสิทธิ์ที่จะไม่รับผิดชอบต่อความเสียหายในทุกกรณีที่เกิดขึ้นกับข้อมูล
+          หรือระบบสื่อสารของผู้เข้าเยี่ยมชมหรือผู้ลงทุน
+          อันเนื่องมาจากการเข้ามาใช้บริการผ่านระบบปฏิบัติการ LINE Application
+          นี้
+          <br /><br />
+          13. ผู้ลงทุนสามารถค้นหาข้อมูลกองทุนได้ตามรูปแบบและวิธีการที่บริษัทจัดการกำหนด
+          ทั้งนี้ ระบบปฏิบัติการ LINE Application
+          จะแสดงเฉพาะข้อมูลกองทุนของบริษัทจัดการเท่านั้น
+          <br /><br />
+          14. ผู้ลงทุนสามารถดูข้อมูลต่าง ๆ เช่น ข้อมูลกองทุนแยกตามหมวดหมู่,
+          ข้อมูลสัดส่วนของประเภททรัพย์สินที่ลงทุน,
+          ข้อมูลชื่อสินทรัพย์และการลงทุนสูงสุด 5 อันดับแรก
+          (อันดับสามารถเปลี่ยนแปลงได้), การจัดอันดับกองทุนรวมจาก Morningstar
+          Research (Thailand) Ltd. (“มอร์นิ่งสตาร์ฯ”) (โดยจะแสดงเฉพาะอันดับ 4
+          และ 5 ดาว เท่านั้น), ค่าธรรมเนียม, กราฟการดำเนินงาน,
+          ประวัติการจ่ายเงินปันผล,
+          ข้อมูลการแนะนำพอร์ตการลงทุนตามความเสี่ยงของลูกค้า (Wealth Advisory),
+          ข่าวสาร และบทความ เป็นต้น ทั้งนี้
+          ตามหลักเกณฑ์และเงื่อนไขที่บริษัทจัดการกำหนด
+          <br /><br />
+          15. ผู้ลงทุนสามารถดูรายละเอียดข้อมูลกองทุน (เช่น ชื่อกองทุน,
+          ระดับความเสี่ยงของกองทุน, ประเภทกองทุน มูลค่าทรัพย์สินสุทธิ, ฯลฯ)
+          โดยจะแสดงเฉพาะข้อมูลกองทุนของบริษัทจัดการเท่านั้น ทั้งนี้
+          ผู้ลงทุนสามารถดูข้อมูลในส่วนของหนังสือชี้ชวนส่วนสรุปข้อมูลสำคัญของกองทุน
+          และช่วงระยะเวลาที่เปิดซื้อขายหน่วยลงทุนได้
+          <br /><br />
+          16. บริษัทจัดการอาจจะทำการแก้ไขหนังสือชี้ชวนส่วนสรุปข้อมูลสำคัญได้
+          โดยบริษัทจัดการไม่ได้รับรองความถูกต้องครบถ้วน
+          และความสมบูรณ์ของข้อมูลดังกล่าว และไม่ต้องรับผิดชอบในความเสียหายใด ๆ
+          ที่เกิดขึ้นจากการใช้ข้อมูลดังกล่าวไม่ว่าโดยทางตรงหรือทางอ้อม
+          <br /><br />
+          17. เพื่อให้เป็นไปตามเงื่อนไขของมอร์นิ่งสตาร์ฯ
+          ในการอนุญาตให้บริษัทจัดการเผยแพร่ข้อมูลใด ๆ ที่จัดทำโดยมอร์นิ่งสตาร์ฯ
+          ผู้ลงทุนตกลงยอมรับในข้อจำกัดการใช้ข้อมูล (Restrictions) คำชี้แจงสำคัญ
+          (Disclaimers) และข้อจำกัดความรับผิดชอบ (Limitation of Liability)
+          ของมอร์นิ่งสตาร์ฯ ซึ่งรวมถึงแต่ไม่จำกัดเพียงข้อความดังต่อไปนี้
+          <br /><br />
+          “© มอร์นิ่งสตาร์ฯ ขอสงวนสิทธิ์ทั้งหมดในข้อมูล การวิเคราะห์
+          และข้อเสนอแนะ (“ข้อมูล”) ซึ่งข้อมูลดังกล่าวนั้น (1)
+          รวมถึงข้อมูลที่เป็นของมอร์นิ่งสตาร์ฯ
+          และผู้ให้บริการข้อมูลของมอร์นิ่งสตาร์ฯ เป็นเจ้าของ (2) ไม่สามารถทำซ้ำ
+          หรือ เผยแพร่ เว้นแต่ได้รับอนุญาตเป็นการเฉพาะ (3)
+          ไม่ถือเป็นการให้คำแนะนำการลงทุน (4)
+          สามารถใช้เพื่อวัตถุประสงค์เป็นการให้ข้อมูลเท่านั้น (5)
+          ไม่ได้รับรองความถูกต้อง ครบถ้วน หรือ เหมาะสมแก่เวลา และ (6)
+          อาจได้รับมาจากข้อมูลกองทุนที่เผยแพร่มาจากวันเวลาที่หลากหลาย
+          โดยมอร์นิ่งสตาร์ฯ ไม่รับผิดชอบในการตัดสินใจในการลงทุน ความเสียหาย
+          หรือความสูญเสียอื่นใด ที่เกี่ยวข้องกับข้อมูลหรือการใช้ข้อมูลดังกล่าว
+          กรุณาตรวจสอบข้อมูลทั้งหมดก่อนที่จะใช้และอย่าตัดสินใจลงทุน
+          เว้นแต่ตามคำแนะนำของผู้เชี่ยวชาญทางการเงิน ทั้งนี้
+          ผลการดำเนินงานในอดีตไม่ได้เป็นสิ่งยืนยันถึงผลการดำเนินงานในอนาคต
+          มูลค่าและรายได้ที่ได้รับมาจากการลงทุนอาจลดลงหรือเพิ่มขึ้นได้”
+          <br /><br />
+          18. ในกรณีที่ผู้ลงทุนใช้บริการ SCBAM Line OA Official
+          โดยไม่ได้สมัครใช้บริการฯ
+          ผู้ลงทุนตกลงให้บริษัทจัดการเก็บรวบรวมและใช้ข้อมูลตามที่ท่านระบุไว้ในระบบปฏิบัติการ
+          LINE Application นี้ เพื่อการพัฒนาระบบ การวิเคราะห์ข้อมูล
+          โดยผู้ลงทุนไม่จำเป็นต้องระบุข้อมูลส่วนบุคคลของผู้ลงทุนไว้ในระบบปฏิบัติการ
+          LINE Application นี้
+          และหากผู้ลงทุนได้ระบุข้อมูลส่วนบุคคลในส่วนนี้มาด้วยแล้ว
+          ผู้ลงทุนตกลงให้บริษัทจัดการเก็บรวบรวมและใช้ข้อมูลส่วนบุคคลดังกล่าว
+          เพื่อการพัฒนาระบบ การวิเคราะห์ข้อมูล ด้วย
+          <br /><br />
+          19. เพื่อประโยชน์ของผู้ลงทุน
+          บริษัทจัดการอาจส่งข้อมูลข่าวสารในเชิงพาณิชย์ เช่น
+          ข้อมูลผลิตภัณฑ์และบริการต่าง ๆ ข้อมูลทางการตลาด
+          และรายการส่งเสริมการขาย เป็นต้น
+          ไปยังบัญชีการเป็นผู้ใช้บริการระบบปฏิบัติการ LINE Application
+          ของผู้ลงทุน
+          โดยผู้ลงทุนสามารถบอกเลิกหรือปฏิเสธการรับข้อมูลดังกล่าวได้ตามช่องทางที่บริษัทจัดการกำหนด
+          <br /><br />
+          20. บริษัทจัดการมีสิทธิที่จะแก้ไข ปรับปรุง
+          หรือเปลี่ยนแปลงเงื่อนไขและข้อกำหนดนี้ และ/หรือ ข้อมูลใด ๆ
+          ที่ปรากฏในระบบปฏิบัติการ LINE Application
+          นี้เมื่อใดก็ได้โดยไม่จำเป็นต้องแจ้งให้ทราบล่วงหน้า แต่อย่างใด
+          <br /><br />
+          ข้าพเจ้าได้อ่านและตกลงยอมรับเงื่อนไขและข้อกำหนดต่าง ๆ
+          ที่ปรากฏข้างต้นแล้ว
         </p>
       </div>
     </modal>
-    <button v-if="disclaimer" class="hide-modal-btn" @click="hideModal">ยอมรับ</button>
+    <button v-if="disclaimer" class="hide-modal-btn" @click="hideModal">
+      ยอมรับ
+    </button>
   </div>
 </template>
 
@@ -45,97 +196,104 @@ import Assets from "./components/Assets";
 import Commission from "./components/Commission";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
     Overview,
     Performance,
     Dividend,
     Assets,
-    Commission
+    Commission,
   },
   data() {
     return {
       disclaimer: true,
-      currentComponent: 'Overview',
+      currentComponent: "Overview",
       navigation: [
         {
-          name: 'ภาพรวม',
-          component: 'Overview'
+          name: "ภาพรวม",
+          component: "Overview",
         },
         {
-          name: 'ผลตอบแทน',
-          component: 'Performance'
+          name: "ผลตอบแทน",
+          component: "Performance",
         },
         {
-          name: 'สินทรัพย์',
-          component: 'Assets'
+          name: "สินทรัพย์",
+          component: "Assets",
         },
         {
-          name: 'ค่าธรรมเนียม',
-          component: 'Commission'
+          name: "ค่าธรรมเนียม",
+          component: "Commission",
         },
       ],
       info: null,
-      access: null
-    }
+      access: null,
+    };
   },
   methods: {
     hideModal() {
-      this.$modal.hide('disclaimer');
+      this.$modal.hide("disclaimer");
       this.disclaimer = false;
     },
     async getData(fundCode, userID) {
       if (fundCode) {
-        const {data} = await this.axios.get(`/fund_info/${fundCode}`);
+        const { data } = await this.axios.get(`/fund_info/${fundCode}`);
         this.info = data.data;
 
-        if (this.info.typeName != 'normal') {
+        if (this.info.typeName != "normal") {
           this.navigation.splice(2, 0, {
-            name: 'ปันผล',
-            component: 'Dividend'
+            name: "ปันผล",
+            component: "Dividend",
           });
         }
       }
       if (userID) {
-        const {data} = await this.this.axios.post(`/user/disclaimer?token=${userID}`);
+        const { data } = await this.this.axios.post(
+          `/user/disclaimer?token=${userID}`
+        );
         this.access = data;
       }
     },
     swipe(direction) {
-      let index = this.navigation.findIndex(item => item.component === this.currentComponent);
-      index = direction === 'right' ? index - 1 : index + 1;
-      this.setComponent(this.navigation[index] ? this.navigation[index].component : this.currentComponent)
+      let index = this.navigation.findIndex(
+        (item) => item.component === this.currentComponent
+      );
+      index = direction === "right" ? index - 1 : index + 1;
+      this.setComponent(
+        this.navigation[index]
+          ? this.navigation[index].component
+          : this.currentComponent
+      );
     },
     setComponent(component) {
       this.currentComponent = component;
-    }
+    },
   },
   mounted() {
     const urlParams = new URLSearchParams(window.location.search);
-    const fundCode = urlParams.get('FundCode');
-    const userID = urlParams.get('UserID');
+    const fundCode = urlParams.get("FundCode");
+    const userID = urlParams.get("UserID");
 
     this.getData(fundCode, userID);
 
-    this.$modal.show('disclaimer');
-  }
-}
+    this.$modal.show("disclaimer");
+  },
+};
 </script>
 
 <style lang="scss">
 @font-face {
   font-family: "kit";
-  src: local("kit"),
-  url(./assets/fonts/kit35f.ttf) format("truetype");
+  src: local("kit"), url(./assets/fonts/kit35f.ttf) format("truetype");
 }
 
 @font-face {
   font-family: "kitbold";
-  src: local("kit"),
-  url(./assets/fonts/kitbold.ttf) format("truetype");
+  src: local("kit"), url(./assets/fonts/kitbold.ttf) format("truetype");
 }
 
-body, html {
+body,
+html {
   overflow: hidden;
   padding: 0;
   margin: 0;
@@ -149,7 +307,7 @@ body, html {
   overflow-y: scroll;
   font-family: "kit";
   font-weight: bold;
-  background: #F1F3F8;
+  background: #f1f3f8;
 }
 
 .main-wrapper {
@@ -177,14 +335,14 @@ body, html {
       min-width: fit-content;
       font-weight: bolder;
       font-size: 20px;
-      color: #A0A0A0;
+      color: #a0a0a0;
       font-weight: bold;
       transform: 0.3s all ease;
       font-family: "kitbold";
       cursor: pointer;
 
       &.active {
-        background: #F8B103;
+        background: #f8b103;
         color: #fff;
       }
     }
@@ -201,42 +359,42 @@ body, html {
   display: none;
 }
 
-  .modal-content {
-    height: 100%;
-    overflow: scroll;
-    padding: 16px;
-    h2 {
-      font-size: 28px;
-      margin: 0;
-      font-family: "kitbold";
-      font-style: "medium";
-    }
-    p {
-      font-size: 16px;
-      color: #707070;
-      font-family: "kitbold";
-      font-style: "roman";
-    }
-
-    button {
-      // position: fixed;
-      height: 50px;
-      margin-top: 24px;
-      margin-left: 0px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #fff;
-      background: #502A81;
-      border-radius: 10px;
-      width: 100%;
-      outline: none;
-      border: none;
-      font-size: 28px;
-      font-family: "kitbold";
-      font-style: "medium";
-    }
+.modal-content {
+  height: 100%;
+  overflow: scroll;
+  padding: 16px;
+  h2 {
+    font-size: 28px;
+    margin: 0;
+    font-family: "kitbold";
+    font-style: "medium";
   }
+  p {
+    font-size: 16px;
+    color: #707070;
+    font-family: "kitbold";
+    font-style: "roman";
+  }
+
+  button {
+    // position: fixed;
+    height: 50px;
+    margin-top: 24px;
+    margin-left: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    background: #502a81;
+    border-radius: 10px;
+    width: 100%;
+    outline: none;
+    border: none;
+    font-size: 28px;
+    font-family: "kitbold";
+    font-style: "medium";
+  }
+}
 
 .hide-modal-btn {
   z-index: 999;
@@ -247,7 +405,7 @@ body, html {
   align-items: center;
   justify-content: center;
   color: #fff;
-  background: #502A81;
+  background: #502a81;
   border-radius: 10px;
   width: calc(100% - 24px);
   margin: 12px;
@@ -264,6 +422,6 @@ body, html {
 }
 
 .vm--overlay {
-  background: #F1F3F8 !important;
+  background: #f1f3f8 !important;
 }
 </style>
