@@ -137,7 +137,7 @@ export default {
 
   > div {
     background: #fff;
-    border-radius: 10px;
+    border-radius: 5px;
     margin-bottom: 12px;
     padding: 12px;
     box-shadow: 0px 3px 6px #00000009;
@@ -186,15 +186,19 @@ export default {
 
     .name {
       flex: 1;
-
+      font-family: "kitbold";
+      font-style: "medium";
+      font-weight: medium;
       &:nth-child(2) {
-        padding-left: 20px;
+        padding-left: 16px;
       }
     }
 
     .value {
-      font-family: 'kitbold';
-      padding-left: 20px;
+      font-family: "kitbold";
+      font-style: "medium";
+      font-weight: medium;
+      padding-left: 16px;
     }
   }
 }
@@ -207,8 +211,12 @@ h4 {
   border-radius: 3px;
   font-size: 21px;
   line-height: 25px;
-  font-family: 'kit';
-  color: #525252;
+  font-family: "kitbold";
+  font-style: "medium";
+  font-weight: medium;
+  color: #000000;
+  opacity: 0.8;
+  opacity: 0.8;
   width: calc(100% - 18px);
 }
 </style>

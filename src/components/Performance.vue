@@ -195,7 +195,7 @@ export default {
 
   > div {
     background: #fff;
-    border-radius: 10px;
+    border-radius: 5px;
     margin-bottom: 12px;
     padding: 12px;
     box-shadow: 0px 3px 6px #00000009;

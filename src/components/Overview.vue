@@ -214,6 +214,7 @@ export default {
     margin-top: 5px;
     padding: 12px;
     box-shadow: 0px 3px 6px #00000009;
+
     a{
       font-family: "kitbold";
       font-style: "medium";

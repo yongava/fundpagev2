@@ -324,19 +324,19 @@ html {
     height: fit-content;
     justify-content: flex-start;
     margin: 0;
-    padding: 15px 20px;
+    padding: 10px 20px;
     overflow-y: scroll;
     height: 50px;
 
     li {
-      margin-right: 12px;
+      margin-right: 10px;
       height: 36px;
       display: flex;
       align-items: center;
       justify-content: center;
       background: #fff;
       border-radius: 18px;
-      padding: 0 24px;
+      padding: 0 10px;
       min-width: fit-content;
       font-weight: bolder;
       font-size: 20px;
@@ -377,7 +377,7 @@ html {
     color: #000000;
   }
   p {
-    font-size: 10px;
+    font-size: 12px;
     color: #707070;
     font-family: "psl";
   }

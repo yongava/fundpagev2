@@ -44,7 +44,7 @@ export default {
 
   > div {
     background: #fff;
-    border-radius: 10px;
+    border-radius: 5px;
     margin-bottom: 12px;
     padding: 12px;
     box-shadow: 0px 3px 6px #00000009;
@@ -75,14 +75,20 @@ export default {
       border-bottom: 1px solid #A0A0A0;
 
       td {
-        font-size: 18px;
+
+        font-family: "kitbold";
+        font-style: "medium";
+        font-weight: medium;
+        font-size: 16px;
         color: #666666;
       }
     }
   }
 
   tr th {
-    font-family: 'kitbold';
+    font-family: "kitbold";
+    font-style: "medium";
+    font-weight: medium;
     text-align: left;
     font-size: 20px;
     color: #666666;
@@ -93,7 +99,9 @@ export default {
   width: 100%;
   text-align: center;
   padding: 36px 0 62px;
-  font-family: 'kitbold';
+  font-family: "kitbold";
+  font-style: "medium";
+  font-weight: medium;
   color: #666666;
   font-size: 20px;
   line-height: 55px;

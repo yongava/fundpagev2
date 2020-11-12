@@ -90,7 +90,7 @@ export default {
 
   > .container {
     background: #fff;
-    border-radius: 10px;
+    border-radius: 5px;
     margin-bottom: 12px;
     padding: 12px;
     box-shadow: 0px 3px 6px #00000009;
@@ -108,7 +108,8 @@ export default {
 
     p {
       margin: 0;
-      font-size: 10px;
+      font-size: 12px;
+      margin-top: 16px;
       margin-bottom: 16px;
       color: #a0a0a0;
       font-family: "psl";
@@ -144,10 +145,11 @@ export default {
       border-bottom: 1px solid #A0A0A0;
 
       td {
-        font-size: 18px;
+        font-family: 'kitbold';
+        font-size: 16px;
         color: #666666;
         text-align: center;
-
+        padding: 3px;
         &:first-child {
           text-align: left;
         }
@@ -177,8 +179,11 @@ export default {
     border-radius: 3px;
     font-size: 21px;
     line-height: 25px;
-    font-family: 'kit';
-    color: #525252;
+    font-family: "kitbold";
+    font-style: "medium";
+    font-weight: medium;
+    color: #000000;
+    opacity: 0.8;
   }
 }
 
