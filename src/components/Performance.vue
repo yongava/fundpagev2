@@ -204,7 +204,8 @@ export default {
 
     h2 {
       margin: 0;
-      margin-bottom: 36px;
+      margin-top: 4px;
+      margin-bottom: 5px;
       font-family: "KIT65P";
       font-size: 28px;
       color: #000000;

@@ -147,6 +147,7 @@ export default {
 
     h2 {
       margin: 0;
+      margin-top: 4px;
       margin-bottom: 36px;
       font-family: "KIT65P";
       font-size: 28px;
@@ -184,18 +185,16 @@ export default {
 
     .name {
       flex: 1;
-      font-family: "kitbold";
-      font-style: "medium";
-      font-weight: medium;
+      font-family: "KIT55P";
+      font-weight: normal;
       &:nth-child(2) {
         padding-left: 16px;
       }
     }
 
     .value {
-      font-family: "kitbold";
-      font-style: "medium";
-      font-weight: medium;
+      font-family: "KIT55P";
+      font-weight: normal;
       padding-left: 16px;
     }
   }
@@ -209,9 +208,7 @@ h4 {
   border-radius: 3px;
   font-size: 21px;
   line-height: 25px;
-  font-family: "kitbold";
-  font-style: "medium";
-  font-weight: medium;
+  font-family: "KIT65P";
   color: #000000;
   opacity: 0.8;
   opacity: 0.8;

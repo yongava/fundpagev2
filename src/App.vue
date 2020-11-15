@@ -399,6 +399,7 @@ html {
     color: #707070;
     font-family: "psl";
     font-weight: normal;
+    align-content:stretch;
   }
 
   button {

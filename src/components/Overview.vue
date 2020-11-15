@@ -196,8 +196,12 @@ export default {
         },
         grid: {
           padding: {
+            right: 20,
             left: -10,
           },
+        },
+        chart: {
+          offsetY: -20,
         }
       }
     }
@@ -266,12 +270,14 @@ export default {
         align-items: flex-start;
         flex-direction: column;
         width: 100%;
+        
 
         .divided {
           display: flex;
           justify-content: space-between;
-          width: 50%;
+          width: 60%;
           align-items: left;
+
 
           > span {
             font-size: 24px;
@@ -294,9 +300,11 @@ export default {
         flex-direction: column;
         margin-right: 5px;
         margin-top: 1px;
+        // margin-left: -25px;
 
         span {
           margin-top: 10px;
+          margin-right: 0px;
           background: #4B2885;
           height: 44px;
           border-radius: 21.75px;
@@ -327,9 +335,11 @@ export default {
   flex-direction: column;
 }
 
+
 .chart-container {
-  margin-bottom: 90px !important;
+  margin-bottom: 40px !important;
 }
+
 
 .footer-container {
   background: #F1F3F8 !important;

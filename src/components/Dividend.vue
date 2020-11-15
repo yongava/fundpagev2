@@ -54,7 +54,7 @@ export default {
     flex-direction: column;
 
     h2 {
-      margin-top: 12px;
+      margin-top: 11px;
       margin-bottom: 30px;
       line-height: 20px;
       font-family: "KIT65P";

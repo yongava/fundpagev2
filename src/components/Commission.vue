@@ -99,6 +99,7 @@ export default {
 
     h2 {
       margin: 0;
+      margin-top: 4px;
       font-family: "KIT65P";
       font-size: 28px;
       color: #000000;
@@ -143,7 +144,8 @@ export default {
       border-bottom: 1px solid #A0A0A0;
 
       td {
-        font-family: 'kitbold';
+        font-family: 'KIT55P';
+        font-weight: normal;
         font-size: 16px;
         color: #666666;
         text-align: center;
@@ -160,7 +162,8 @@ export default {
   }
 
   tr th {
-    font-family: 'kitbold';
+    font-family: 'KIT55P';
+    font-weight: normal;
     font-size: 18px;
     color: #666666;
     text-align: center;
@@ -177,9 +180,8 @@ export default {
     border-radius: 3px;
     font-size: 21px;
     line-height: 25px;
-    font-family: "kitbold";
-    font-style: "medium";
-    font-weight: medium;
+    font-family: "KIT65P";
+    font-weight: normal;
     color: #000000;
     opacity: 0.8;
   }
