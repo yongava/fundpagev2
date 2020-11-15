@@ -149,7 +149,7 @@ export default {
         font-size: 16px;
         color: #666666;
         text-align: center;
-        padding: 3px;
+        padding: 0px;
         &:first-child {
           text-align: left;
         }
