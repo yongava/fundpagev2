@@ -57,10 +57,8 @@ export default {
       margin-top: 12px;
       margin-bottom: 30px;
       line-height: 20px;
-      font-size: 36px;
-      font-family: "kitbold";
-      font-style: "medium";
-      font-weight: medium;
+      font-family: "KIT65P";
+      font-size: 28px;
       color: #000000;
     }
 

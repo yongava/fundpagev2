@@ -173,20 +173,31 @@ export default {
       this.options = {
         ...this.options,
         ...{
+          
           colors,
           xaxis: {
             categories: date,
             tickAmount: 10,
             labels: {
               offsetX: 13,
-              offsetY: 25,
+              offsetY: 30,
               show: true,
               rotate: 45,
               hideOverlappingLabels: true,
               showDuplicates: false,
               trim: true,
             }
-          }
+          },
+          yaxis: {
+            labels: {
+              offsetX: -15,
+            }
+          },
+        },
+        grid: {
+          padding: {
+            left: -10,
+          },
         }
       }
     }
@@ -200,25 +211,6 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@font-face {
-  font-family: "kitbold";
-  src: local("kit"), url(/assets/fonts/kitbold.ttf) format("truetype");
-}
-
-@font-face {
-  font-family: "KIT55P";
-  src: local("KIT55P"), url(/assets/fonts/KIT55P.ttf) format("truetype");
-}
-
-@font-face {
-  font-family: "KIT65P";
-  src: local("KIT65P"), url(/assets/fonts/KIT65P.ttf) format("truetype");
-}
-
-@font-face {
-  font-family: "KIT75F";
-  src: local("KIT75F"), url(/assets/fonts/KIT75F.ttf) format("truetype");
-}
 
 .overview-wrapper {
   width: 100%;
@@ -235,34 +227,32 @@ export default {
     box-shadow: 0px 3px 6px #00000009;
 
     a{
-      font-family: "kitbold";
-      font-style: "medium";
+      // font-family: "kitbold";
       font-size: 28px;
     }
     h2 {
-      font-size: 36px;
-      font-weight: medium;
       margin-top: 6px;
       margin-bottom: 5px;
       line-height: 20px;
-      font-family: "kitbold";
       color: #000000;
+      font-family: "KIT65P";
+      font-size: 28px;
     }
 
     p.info {
       margin: 0 0 32px;
       color: #a0a0a0;
       font-size: 18px;
-      font-family: "kitbold";
-      font-style: "roman";
+      font-family: "KIT55P";
+      font-weight: normal;
     }
 
     p.miniinfo {
       font-size: 16px;
       margin: 0 0 16px;
       color: #a0a0a0;
-      font-family: "kitbold";
-      font-style: "roman";
+      font-family: "KIT55P";
+      font-weight: normal;
     }
 
     .further-info {
@@ -285,11 +275,10 @@ export default {
 
           > span {
             font-size: 24px;
-            font-family: "kitbold";
-            font-style: "medium";
             display: flex;
             align-items: baseline;
-
+            font-family: "KIT45P";
+            font-weight: normal;
             > span {
               font-size: 14px;
             }
@@ -304,30 +293,30 @@ export default {
         justify-content: flex-start;
         flex-direction: column;
         margin-right: 5px;
-        margin-top: 5px;
+        margin-top: 1px;
 
         span {
           margin-top: 10px;
           background: #4B2885;
           height: 44px;
           border-radius: 21.75px;
-          width: 70px;
+          width: 60px;
           font-size: 44px;
           display: flex;
           align-items: center;
           justify-content: center;
           color: #fff;
-          font-family: "kitbold";
+          font-family: "KIT75F";
           font-style: "bold";
         }
 
         p {
           margin: 0;
+          margin-top: 5px;
           font-size: 14px;
           color: #a0a0a0;
-          font-family: "kitbold";
-          font-style: "roman";
-          text-align: center;
+          font-family: "KIT55P";
+          font-weight: normal;
         }
       }
     }
@@ -413,18 +402,18 @@ a.footer {
 }
 
 .mini {
-  margin-top: 30px;
+  margin-top: 4px;
   margin-right: 7px;
   border: 1px solid #4F2A81;
   background: #ffffff;
   box-sizing: border-box;
   border-radius: 10px;
-  height: 19px;
-  width: 60px;
+  height: 20px;
+  width: 50px;
   font-size: 12px;
   line-height: 18px;
   color: #4F2A81;
-  font-family: 'kitbold';
+  font-family: 'KIT65P';
   font-weight: 700;
   float: right;
   cursor: pointer;

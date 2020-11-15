@@ -283,23 +283,38 @@ export default {
 
 <style lang="scss">
 @font-face {
-  font-family: "kit";
-  src: local("kit"), url(./assets/fonts/kit35f.ttf) format("truetype");
+  font-family: "kit35f";
+  src: local("kit35f"), url(./assets/fonts/kit35f.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: "KIT45P";
+  src: local("KIT45P"), url(./assets/fonts/KIT55P.TTF) format("truetype");
+}
+
+@font-face {
+  font-family: "KIT55P";
+  src: local("KIT55P"), url(./assets/fonts/KIT55P.TTF) format("truetype");
+}
+
+@font-face {
+  font-family: "KIT65P";
+  src: local("KIT65P"), url(./assets/fonts/KIT65P.TTF) format("truetype");
+}
+
+@font-face {
+  font-family: "KIT75F";
+  src: local("KIT75F"), url(./assets/fonts/KIT75F.TTF) format("truetype");
 }
 
 @font-face {
   font-family: "kitbold";
-  src: local("kit"), url(./assets/fonts/kitbold.ttf) format("truetype");
+  src: local("kitbold"), url(./assets/fonts/kitbold.ttf) format("truetype");
 }
 
 @font-face {
   font-family: "PSLxText";
   src: local("psl"), url(./assets/fonts/PSLxText.ttf) format("truetype");
-}
-
-@font-face {
-  font-family: "KIT65P";
-  src: local("KIT65P"), url(/assets/fonts/KIT65P.ttf) format("truetype");
 }
 
 body,
@@ -375,16 +390,15 @@ html {
   padding: 16px;
   h2 {
     margin: 0;
-    font-size: 36px;
-    font-family: "kitbold";
-    font-style: "medium";
-    font-weight: medium;
+    font-size: 28px;
+    font-family: "KIT65P";
     color: #000000;
   }
   p {
     font-size: 12px;
     color: #707070;
     font-family: "psl";
+    font-weight: normal;
   }
 
   button {
@@ -402,10 +416,7 @@ html {
     outline: none;
     border: none;
     font-size: 28px;
-    // font-family: "kitbold";
     font-family: "KIT65P";
-    font-style: "medium";
-    font-weight: medium;
   }
 }
 
