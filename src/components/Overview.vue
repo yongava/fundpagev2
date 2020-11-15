@@ -337,6 +337,7 @@ export default {
           color: #a0a0a0;
           font-family: "KIT55P";
           font-weight: normal;
+          text-align: -webkit-center;
         }
       }
     }
