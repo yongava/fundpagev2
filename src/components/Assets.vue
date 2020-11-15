@@ -46,6 +46,7 @@ export default {
       chartOptions: {
         chart: {
           type: 'donut',
+          offsetY: -20,
         },
         legend: {
           show: false,
@@ -74,7 +75,7 @@ export default {
         plotOptions: {
           pie: {
             donut: {
-              size: '80%'
+              size: '70%'
             }
           }
         },
