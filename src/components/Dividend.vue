@@ -46,8 +46,13 @@ export default {
     background: #fff;
     border-radius: 5px;
     
-    margin-bottom: 12px;
-    padding: 12px;
+    margin-bottom: 10px;
+    
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 0px;
+    
     box-shadow: 0px 3px 6px #00000009;
     display: flex;
     align-items: flex-start;

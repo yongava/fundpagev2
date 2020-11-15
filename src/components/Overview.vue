@@ -31,11 +31,11 @@
         </div>
       </div>
     </div>
-    <div class="chart-container">
+    <div >
       <h2>ผลการดำเนินงาน</h2>
       <br>
 
-      <div id="chart">
+      <div id="chart" class="chart-container">
         <VueApexCharts
             type="line"
             height="350"
@@ -201,7 +201,14 @@ export default {
           },
         },
         chart: {
+          height: 300,
           offsetY: -20,
+          toolbar: {
+            show: false,
+            tools: {
+              download: false,
+            },
+          },
         }
       }
     }
@@ -225,9 +232,14 @@ export default {
   > div {
     background: #fff;
     border-radius: 5px;
-    margin-bottom: 12px;
     margin-top: 5px;
-    padding: 12px;
+    margin-bottom: 10px;
+    
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 0px;
+    
     box-shadow: 0px 3px 6px #00000009;
 
     a{
@@ -337,7 +349,7 @@ export default {
 
 
 .chart-container {
-  margin-bottom: 40px !important;
+  margin-bottom: -30px !important;
 }
 
 

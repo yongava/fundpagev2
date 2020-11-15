@@ -2,7 +2,7 @@
   <div class="overview-wrapper">
     <div>
       <h2>ผลตอบแทนรายปี</h2>
-      <div id="chart">
+      <div id="chart" class="chart-container">
         <VueApexCharts
             type="bar"
             height="350"
@@ -11,9 +11,9 @@
         ></VueApexCharts>
       </div>
     </div>
-    <div>
+    <div >
       <h2>ผลตอบแทนสะสม</h2>
-      <div id="chart2">
+      <div id="chart2" class="chart-container">
         <VueApexCharts
             type="bar"
             height="350"
@@ -51,7 +51,8 @@ export default {
       chartOptions: {
         chart: {
           type: "bar",
-          height: 350,
+          height: 300,
+          offsetY: -10,
           toolbar: {
             show: false,
             tools: {
@@ -86,6 +87,13 @@ export default {
               offsetX: -15,
             }
         },
+        grid: {
+          padding: {
+            right: 20,
+            left: -10,
+          },
+        },
+        
         fill: {
           opacity: 1,
           colors: ["#724F96"],
@@ -101,7 +109,8 @@ export default {
       chartOptions2: {
         chart: {
           type: "bar",
-          height: 350,
+          height: 300,
+          offsetY: -10,
           toolbar: {
             show: false,
             tools: {
@@ -135,6 +144,12 @@ export default {
           labels: {
               offsetX: -15,
             }
+        },
+        grid: {
+          padding: {
+            right: 20,
+            left: -10,
+          },
         },
         fill: {
           opacity: 1,
@@ -202,8 +217,13 @@ export default {
   > div {
     background: #fff;
     border-radius: 5px;
-    margin-bottom: 12px;
-    padding: 12px;
+    margin-bottom: 10px;
+    
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 0px;
+    
     box-shadow: 0px 3px 6px #00000009;
     display: flex;
     flex-direction: column;
@@ -218,4 +238,9 @@ export default {
     }
   }
 }
+
+.chart-container {
+  margin-bottom: -10px !important;
+}
+
 </style>

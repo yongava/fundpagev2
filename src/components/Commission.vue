@@ -91,8 +91,11 @@ export default {
   > .container {
     background: #fff;
     border-radius: 5px;
-    margin-bottom: 12px;
-    padding: 12px;
+    margin-bottom: 10px;
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 0px;
     box-shadow: 0px 3px 6px #00000009;
     display: flex;
     flex-direction: column;
@@ -112,6 +115,7 @@ export default {
       margin-bottom: 16px;
       color: #a0a0a0;
       font-family: "psl";
+      font-weight: normal;
     }
   }
 
@@ -152,6 +156,7 @@ export default {
         padding: 0px;
         &:first-child {
           text-align: left;
+          width: 85px;
         }
 
         &:last-child {
@@ -167,7 +172,6 @@ export default {
     font-size: 18px;
     color: #666666;
     text-align: center;
-
     &:last-child {
       text-align: right;
     }
