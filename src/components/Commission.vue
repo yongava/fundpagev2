@@ -99,7 +99,7 @@ export default {
 
     h2 {
       margin: 0;
-      margin-top: 4px;
+      margin-top: 0px;
       font-family: "KIT65P";
       font-size: 28px;
       color: #000000;

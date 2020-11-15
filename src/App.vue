@@ -344,13 +344,16 @@ html {
     height: fit-content;
     justify-content: flex-start;
     margin: 0;
-    padding: 10px 20px;
+    padding-top: 10px;
+    padding-bottom: 0px;
+    padding-right: 10px;
+    padding-left: 15px;
     overflow-y: scroll;
     height: 50px;
 
     li {
       margin-right: 10px;
-      height: 36px;
+      height: 30px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -359,11 +362,12 @@ html {
       padding: 0 10px;
       min-width: fit-content;
       font-weight: bolder;
-      font-size: 20px;
+      font-size: 16px;
       color: #a0a0a0;
       font-weight: bold;
       transform: 0.3s all ease;
-      font-family: "kitbold";
+      font-family: "KIT65P";
+      font-weight: normal;
       cursor: pointer;
 
       &.active {
@@ -374,7 +378,7 @@ html {
   }
 
   .content-wrapper {
-    margin: 0 24px;
+    margin: 0 20px;
     height: fit-content;
     min-height: calc(100vh - 82px);
   }

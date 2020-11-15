@@ -219,7 +219,7 @@ export default {
 .overview-wrapper {
   width: 100%;
   height: 100%;
-  margin-top: 0px;
+  margin-top: -5px;
   overflow-y: scroll;
 
   > div {

@@ -82,6 +82,9 @@ export default {
           title: {
             text: "",
           },
+          labels: {
+              offsetX: -15,
+            }
         },
         fill: {
           opacity: 1,
@@ -129,6 +132,9 @@ export default {
           title: {
             text: "",
           },
+          labels: {
+              offsetX: -15,
+            }
         },
         fill: {
           opacity: 1,
@@ -204,7 +210,7 @@ export default {
 
     h2 {
       margin: 0;
-      margin-top: 4px;
+      margin-top: 0px;
       margin-bottom: 5px;
       font-family: "KIT65P";
       font-size: 28px;
