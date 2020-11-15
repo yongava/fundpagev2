@@ -230,10 +230,11 @@ export default {
 
     h2 {
       margin: 0;
-      margin-top: 0px;
+      margin-top: -6px;
       margin-bottom: 5px;
       font-family: "KIT65P";
-      font-size: 28px;
+      font-size: 36px;
+      font-weight: normal;
       color: #000000;
     }
   }

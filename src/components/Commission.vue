@@ -102,9 +102,10 @@ export default {
 
     h2 {
       margin: 0;
-      margin-top: 0px;
+      margin-top: -6px;
       font-family: "KIT65P";
-      font-size: 28px;
+      font-size: 36px;
+      font-weight: normal;
       color: #000000;
     }
 
@@ -130,13 +131,14 @@ export default {
     width: 100%;
     outline: none;
     border: none;
-    font-family: "kitbold";
     font-size: 28px;
+    font-family: "KIT65P";
+    font-weight: normal;
     cursor: pointer;
     text-decoration: none;
 
     &:last-child {
-      margin-top: 14px;
+      margin-top: 5px;
     }
   }
 

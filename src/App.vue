@@ -396,6 +396,7 @@ html {
     margin: 0;
     font-size: 28px;
     font-family: "KIT65P";
+    font-weight: normal;
     color: #000000;
   }
   p {
@@ -422,6 +423,7 @@ html {
     border: none;
     font-size: 28px;
     font-family: "KIT65P";
+    font-weight: normal;
   }
 }
 

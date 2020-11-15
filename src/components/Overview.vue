@@ -234,7 +234,7 @@ export default {
     border-radius: 5px;
     margin-top: 5px;
     margin-bottom: 10px;
-    
+
     padding-top: 10px;
     padding-left: 10px;
     padding-right: 10px;
@@ -252,11 +252,12 @@ export default {
       line-height: 20px;
       color: #000000;
       font-family: "KIT65P";
-      font-size: 28px;
+      font-size: 36px;
+      font-weight: normal;
     }
 
     p.info {
-      margin: 0 0 32px;
+      margin: 0 0 30px;
       color: #a0a0a0;
       font-size: 18px;
       font-family: "KIT55P";
@@ -383,9 +384,8 @@ a.footer {
   text-align: center;
   text-decoration: none;
   font-size: 28px;
-  font-family: "kitbold";
-  font-style: "medium";
-  font-weight: medium;
+  font-family: "KIT65P";
+  font-weight: normal;
 
   a {
     height: 50px;

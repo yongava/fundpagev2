@@ -144,7 +144,7 @@ export default {
     padding-top: 10px;
     padding-left: 10px;
     padding-right: 10px;
-    padding-bottom: 0px;
+    padding-bottom: 10px;
     box-shadow: 0px 3px 6px #00000009;
     display: flex;
     align-items: flex-start;
@@ -152,10 +152,11 @@ export default {
 
     h2 {
       margin: 0;
-      margin-top: 0px;
+      margin-top: -6px;
       margin-bottom: 36px;
       font-family: "KIT65P";
-      font-size: 28px;
+      font-size: 36px;
+      font-weight: normal;
       color: #000000;
     }
   }
@@ -214,6 +215,7 @@ h4 {
   font-size: 21px;
   line-height: 25px;
   font-family: "KIT65P";
+  font-weight: normal;
   color: #000000;
   opacity: 0.8;
   opacity: 0.8;

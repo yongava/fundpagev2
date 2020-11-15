@@ -51,8 +51,8 @@ export default {
     padding-top: 10px;
     padding-left: 10px;
     padding-right: 10px;
-    padding-bottom: 0px;
-    
+    padding-bottom: 10px;
+
     box-shadow: 0px 3px 6px #00000009;
     display: flex;
     align-items: flex-start;
@@ -63,7 +63,8 @@ export default {
       margin-bottom: 30px;
       line-height: 20px;
       font-family: "KIT65P";
-      font-size: 28px;
+      font-size: 36px;
+      font-weight: normal;
       color: #000000;
     }
 
@@ -81,9 +82,8 @@ export default {
 
       td {
 
-        font-family: "kitbold";
-        font-style: "medium";
-        font-weight: medium;
+        font-family: 'KIT55P';
+        font-weight: normal;
         font-size: 16px;
         color: #666666;
         padding: 3px;
@@ -98,9 +98,8 @@ export default {
   }
 
   tr th {
-    font-family: "kitbold";
-    font-style: "medium";
-    font-weight: medium;
+    font-family: 'KIT65P';
+    font-weight: normal;
     text-align: left;
     font-size: 20px;
     color: #666666;
