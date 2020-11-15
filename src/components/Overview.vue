@@ -176,10 +176,10 @@ export default {
           colors,
           xaxis: {
             categories: date,
-            tickAmount: 5,
+            tickAmount: 10,
             labels: {
               offsetX: 13,
-              offsetY: 20,
+              offsetY: 25,
               show: true,
               rotate: 45,
               hideOverlappingLabels: true,
