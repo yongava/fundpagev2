@@ -70,6 +70,12 @@ export default {
           id: "chart",
           height: 350,
           type: 'line',
+          toolbar: {
+            show: false,
+            tools: {
+              download: false,
+            },
+          },
           zoom: {
             enabled: false
           }
@@ -145,7 +151,7 @@ export default {
   },
   methods: {
     getDate(str) {
-      return (new Date(str)).toLocaleDateString('ru').replaceAll('.', '/');
+      return (new Date(str)).toLocaleDateString('ru').replaceAll('.', '-');
     },
     setComponent() {
       this.$emit('setComponent', 'Dividend');
@@ -172,7 +178,10 @@ export default {
             categories: date,
             labels: {
               show: true,
-              rotate: -10
+              rotate: 45,
+              hideOverlappingLabels: true,
+              showDuplicates: false,
+              trim: false,
             }
           }
         }

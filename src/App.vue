@@ -297,6 +297,11 @@ export default {
   src: local("psl"), url(./assets/fonts/PSLxText.ttf) format("truetype");
 }
 
+@font-face {
+  font-family: "KIT65P";
+  src: local("KIT65P"), url(/assets/fonts/KIT65P.ttf) format("truetype");
+}
+
 body,
 html {
   overflow: hidden;
@@ -391,7 +396,7 @@ html {
     align-items: center;
     justify-content: center;
     color: #fff;
-    background: #502a81;
+    background: #72559a;
     border-radius: 10px;
     width: 100%;
     outline: none;
@@ -399,6 +404,7 @@ html {
     font-size: 28px;
     font-family: "kitbold";
     font-style: "medium";
+    font-weight: medium;
   }
 }
 
@@ -411,13 +417,16 @@ html {
   align-items: center;
   justify-content: center;
   color: #fff;
-  background: #502a81;
+  background: #72559a;
   border-radius: 10px;
   width: calc(100% - 24px);
   margin: 12px;
   outline: none;
   border: none;
-  font-size: 18px;
+  font-size: 28px;
+  font-family: "kitbold";
+  font-style: "medium";
+  font-weight: medium;
 }
 
 .vm--modal {

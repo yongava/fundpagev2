@@ -28,7 +28,7 @@ export default {
   props: ['info'],
   filters: {
     toDate(value) {
-      return (new Date(value)).toLocaleDateString();
+      return (new Date(value)).toLocaleDateString().replaceAll('/', '-');
     },
     toFixed(value) {
       return Number(value).toFixed(4);
@@ -81,6 +81,13 @@ export default {
         font-weight: medium;
         font-size: 16px;
         color: #666666;
+        padding: 3px;
+        &:nth-of-type(2) {
+          padding-left: 7%;
+        }
+        &:last-child {
+          text-align: right;
+        }
       }
     }
   }
@@ -92,7 +99,14 @@ export default {
     text-align: left;
     font-size: 20px;
     color: #666666;
+    &:nth-of-type(2) {
+      padding-left: 7%;
+    }
+    &:last-child {
+    text-align: right;
+    }
   }
+
 }
 
 .empty {
