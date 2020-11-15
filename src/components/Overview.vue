@@ -201,6 +201,11 @@ export default {
 
 <style scoped lang="scss">
 @font-face {
+  font-family: "kitbold";
+  src: local("kit"), url(/assets/fonts/kitbold.ttf) format("truetype");
+}
+
+@font-face {
   font-family: "KIT55P";
   src: local("KIT55P"), url(/assets/fonts/KIT55P.ttf) format("truetype");
 }
@@ -218,6 +223,8 @@ export default {
 .overview-wrapper {
   width: 100%;
   height: 100%;
+  margin-top: 0px;
+  overflow-y: scroll;
 
   > div {
     background: #fff;
@@ -235,6 +242,7 @@ export default {
     h2 {
       font-size: 36px;
       font-weight: medium;
+      margin-top: 6px;
       margin-bottom: 5px;
       line-height: 20px;
       font-family: "kitbold";
@@ -273,10 +281,12 @@ export default {
           display: flex;
           justify-content: space-between;
           width: 50%;
+          align-items: left;
 
           > span {
             font-size: 24px;
             font-family: "kitbold";
+            font-style: "medium";
             display: flex;
             align-items: baseline;
 
@@ -358,10 +368,13 @@ a.footer {
   justify-content: center;
   color: #fff;
   background: #72559a;
-  font-size: 28px;
   line-height: 33px;
   text-align: center;
   text-decoration: none;
+  font-size: 28px;
+  font-family: "kitbold";
+  font-style: "medium";
+  font-weight: medium;
 
   a {
     height: 50px;
@@ -375,7 +388,11 @@ a.footer {
     width: 100%;
     outline: none;
     border: none;
-    font-size: 18px;
+    // font-size: 18px;
+    font-size: 28px;
+    font-family: "kitbold";
+    font-style: "medium";
+    font-weight: medium;
   }
 }
 

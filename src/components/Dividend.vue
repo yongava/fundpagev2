@@ -45,6 +45,7 @@ export default {
   > div {
     background: #fff;
     border-radius: 5px;
+    
     margin-bottom: 12px;
     padding: 12px;
     box-shadow: 0px 3px 6px #00000009;
@@ -53,6 +54,7 @@ export default {
     flex-direction: column;
 
     h2 {
+      margin-top: 12px;
       margin-bottom: 30px;
       line-height: 20px;
       font-size: 36px;

@@ -402,7 +402,8 @@ html {
     outline: none;
     border: none;
     font-size: 28px;
-    font-family: "kitbold";
+    // font-family: "kitbold";
+    font-family: "KIT65P";
     font-style: "medium";
     font-weight: medium;
   }
@@ -425,8 +426,8 @@ html {
   border: none;
   font-size: 28px;
   font-family: "kitbold";
-  font-style: "medium";
-  font-weight: medium;
+  font-style: "bold";
+  font-weight: bold;
 }
 
 .vm--modal {
