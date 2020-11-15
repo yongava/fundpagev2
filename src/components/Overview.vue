@@ -227,7 +227,6 @@ export default {
   width: 100%;
   height: 100%;
   margin-top: -5px;
-  overflow-y: scroll;
 
   > div {
     background: #fff;
@@ -238,7 +237,7 @@ export default {
     padding-top: 10px;
     padding-left: 10px;
     padding-right: 10px;
-    padding-bottom: 0px;
+    padding-bottom: 10px;
     
     box-shadow: 0px 3px 6px #00000009;
 
@@ -350,16 +349,21 @@ export default {
 
 
 .chart-container {
-  margin-bottom: -30px !important;
+  margin-bottom: -10px !important;
 }
 
 
 .footer-container {
   background: #F1F3F8 !important;
-  margin: 0 -24px !important;
   position: fixed;
   bottom: 0;
-  width: calc(100% - 24px);
+
+  // margin: 0 -20px !important;
+  margin-top: 0px;
+  margin-left: -18px;
+  margin-right: -20px;
+
+  width: calc(100% - 20px);
 }
 
 a.footer {
@@ -372,7 +376,6 @@ a.footer {
   border: none;
 
   border-radius: 10px;
-  // padding: 12px;
 
   height: 50px;
   display: flex;
@@ -424,19 +427,19 @@ a.footer {
 }
 
 .mini {
-  margin-top: 4px;
+  margin-top: 5px;
   margin-right: 7px;
   border: 1px solid #4F2A81;
   background: #ffffff;
   box-sizing: border-box;
   border-radius: 10px;
-  height: 20px;
-  width: 50px;
+  height: 21px;
+  width: 55px;
   font-size: 12px;
   line-height: 18px;
   color: #4F2A81;
   font-family: 'KIT65P';
-  font-weight: 700;
+  font-weight: normal;
   float: right;
   cursor: pointer;
 }

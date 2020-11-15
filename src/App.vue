@@ -359,7 +359,7 @@ html {
       justify-content: center;
       background: #fff;
       border-radius: 18px;
-      padding: 0 10px;
+      padding: 0 12px;
       min-width: fit-content;
       font-weight: bolder;
       font-size: 16px;
@@ -409,6 +409,7 @@ html {
 
   button {
     // position: fixed;
+    
     height: 50px;
     margin-top: 24px;
     margin-left: 0px;

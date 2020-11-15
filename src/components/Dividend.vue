@@ -82,11 +82,11 @@ export default {
 
       td {
 
-        font-family: 'KIT55P';
+        font-family: 'KIT45P';
         font-weight: normal;
-        font-size: 16px;
+        font-size: 18px;
         color: #666666;
-        padding: 3px;
+        margin-top: 20px;
         &:nth-of-type(2) {
           padding-left: 7%;
         }
@@ -103,6 +103,7 @@ export default {
     text-align: left;
     font-size: 20px;
     color: #666666;
+    padding: 0;
     &:nth-of-type(2) {
       padding-left: 7%;
     }

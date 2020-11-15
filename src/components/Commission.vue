@@ -200,11 +200,15 @@ export default {
 .footer-container {
   display: flex;
   flex-direction: column;
+
+  background: #F1F3F8;
   position: fixed;
   bottom: 0;
-  width: calc(100% - 24px);
-  margin: 0 -24px !important;
-  background: #F1F3F8;
+
+  width: calc(100% - 20px);
+  margin-top: 0px;
+  margin-left: -20px;
+  margin-right: -20px;
   border-radius: 10px;
   margin-bottom: 12px;
   padding: 12px;
