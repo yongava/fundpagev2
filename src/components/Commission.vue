@@ -4,6 +4,25 @@
       <h2>ค่าธรรมเนียม</h2>
 
       <h4>ค่าธรรมเนียมที่เรียกเก็บจากผู้ถือหน่วยลงทุน</h4>
+      <div v-if="info && fundFee.length" class="grid-table">
+        <table style="width:100%">
+          <tr>
+            <th></th>
+            <th>สูงสุดไม่เกิน</th>
+            <th>เก็บจริง</th>
+            <th>หน่วย</th>
+          </tr>
+          <tr v-for="item of fundFee" :key="item.name">
+            <td>{{ item.name }}</td>
+            <td>{{ item.max | toFixed }}</td>
+            <td>{{ item.actual | toFixed }}</td>
+            <td>{{ item.unit }}</td>
+          </tr>
+        </table>
+      </div>
+      
+
+      <h4>ค่าธรรมเนียมที่เรียกเก็บจากกองทุน</h4>
 
       <div v-if="info && commissionFee.length" class="grid-table">
         <table style="width:100%">
@@ -22,26 +41,7 @@
         </table>
       </div>
 
-      <h4>ค่าธรรมเนียมที่เรียกเก็บจากกองทุน</h4>
-
-      <div v-if="info && fundFee.length" class="grid-table">
-        <table style="width:100%">
-          <tr>
-            <th></th>
-            <th>สูงสุดไม่เกิน</th>
-            <th>เก็บจริง</th>
-            <th>หน่วย</th>
-          </tr>
-          <tr v-for="item of fundFee" :key="item.name">
-            <td>{{ item.name }}</td>
-            <td>{{ item.max | toFixed }}</td>
-            <td>{{ item.actual | toFixed }}</td>
-            <td>{{ item.unit }}</td>
-          </tr>
-        </table>
-      </div>
-
-      <p>{{ info.commissionFee.annotation }}</p>
+      <p>หมายเหตุ :<br>{{ info.commissionFee.annotation }}</p>
     </div>
 
     <div class="footer-container">
