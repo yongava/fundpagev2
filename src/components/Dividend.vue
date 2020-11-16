@@ -3,21 +3,29 @@
     <div>
       <h2>ข้อมูลการปันผล</h2>
       <div v-if="info && info.dividendInfo.dividends.length" class="grid-table">
-        <table style="width:100%">
+        <table style="width: 100%">
           <tr>
             <th>วันที่ปิดสมุด</th>
             <th>วันที่จ่ายปันผล</th>
             <th>บาท/หน่วย</th>
           </tr>
-          <br>
-          <tr v-for="item of info.dividendInfo.dividends" :key="item.dividendRate">
+          <br />
+          <tr
+            v-for="item of info.dividendInfo.dividends"
+            :key="item.dividendRate"
+          >
             <td>{{ item.closeBookDate | toDate }}</td>
             <td>{{ item.paymentDate | toDate }}</td>
             <td>{{ item.dividendRate | toFixed }}</td>
           </tr>
         </table>
       </div>
-      <div class="empty" v-else-if="info && !info.dividendInfo.dividends.length">ไม่มีประวัติการจ่ายปันผล</div>
+      <div
+        class="empty"
+        v-else-if="info && !info.dividendInfo.dividends.length"
+      >
+        ไม่มีประวัติการจ่ายปันผล
+      </div>
     </div>
   </div>
 </template>
@@ -25,16 +33,16 @@
 <script>
 export default {
   name: "Dividend",
-  props: ['info'],
+  props: ["info"],
   filters: {
     toDate(value) {
-      return (new Date(value)).toLocaleDateString().replaceAll('/', '-');
+      return new Date(value).toLocaleDateString().replaceAll("/", "-");
     },
     toFixed(value) {
       return Number(value).toFixed(4);
-    }
-  }
-}
+    },
+  },
+};
 </script>
 
 <style scoped lang="scss">
@@ -45,9 +53,9 @@ export default {
   > div {
     background: #fff;
     border-radius: 5px;
-    
+
     margin-bottom: 10px;
-    
+
     padding-top: 10px;
     padding-left: 10px;
     padding-right: 10px;
@@ -81,8 +89,7 @@ export default {
       border-bottom: 1px solid #A0A0A0;
 
       td {
-
-        font-family: 'KIT45P';
+        font-family: "KIT45P";
         font-weight: normal;
         font-size: 18px;
         color: #666666;
@@ -98,7 +105,7 @@ export default {
   }
 
   tr th {
-    font-family: 'KIT65P';
+    font-family: "KIT65P";
     font-weight: normal;
     text-align: left;
     font-size: 20px;
@@ -108,10 +115,9 @@ export default {
       padding-left: 7%;
     }
     &:last-child {
-    text-align: right;
+      text-align: right;
     }
   }
-
 }
 
 .empty {

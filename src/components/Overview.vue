@@ -1,7 +1,13 @@
 <template>
   <div v-if="info" class="overview-wrapper">
     <div>
-      <button v-if="info.typeName != 'normal'" @click="setComponent" class="mini">มีปันผล</button>
+      <button
+        v-if="info.typeName != 'normal'"
+        @click="setComponent"
+        class="mini"
+      >
+        มีปันผล
+      </button>
       <h2>{{ info.fundCode }}</h2>
       <p class="info">{{ info.description }}</p>
       <div class="further-info">
@@ -22,32 +28,36 @@
             <span class="column">
               {{ info.aum | toLocale }}
               <p class="miniinfo">มูลค่าทรัพย์สินสุทธิ (บาท)</p>
-              </span>
+            </span>
           </div>
         </div>
         <div class="rank">
-          <span :style="{ opacity: `${this.riskOpacity}` }">{{ info.risk }}</span>
+          <span :style="{ opacity: `${this.riskOpacity}` }">{{
+            info.risk
+          }}</span>
           <p>{{ riskText }}</p>
         </div>
       </div>
     </div>
-    <div >
+    <div>
       <h2>ผลการดำเนินงาน</h2>
-      <br>
+      <br />
 
       <div id="chart" class="chart-container">
         <VueApexCharts
-            type="line"
-            height="350"
-            :options="options"
-            :series="series"
+          type="line"
+          height="350"
+          :options="options"
+          :series="series"
         ></VueApexCharts>
       </div>
-
-
     </div>
     <div class="footer-container">
-      <a target="_blank" :href="`https://info.scb.co.th/scbeasy/easy_app_link.html?URI=scbeasy://mutualfunds/discover/${info.fundCode}`" class="footer">
+      <a
+        target="_blank"
+        :href="`https://info.scb.co.th/scbeasy/easy_app_link.html?URI=scbeasy://mutualfunds/discover/${info.fundCode}`"
+        class="footer"
+      >
         ซื้อกองทุน {{ info.fundCode }}
       </a>
     </div>
@@ -59,7 +69,7 @@ import VueApexCharts from "vue-apexcharts";
 
 export default {
   name: "Overview",
-  props: ['info'],
+  props: ["info"],
   components: {
     VueApexCharts,
   },
@@ -69,7 +79,7 @@ export default {
         chart: {
           id: "chart",
           height: 350,
-          type: 'line',
+          type: "line",
           toolbar: {
             show: false,
             tools: {
@@ -77,35 +87,38 @@ export default {
             },
           },
           zoom: {
-            enabled: false
-          }
+            enabled: false,
+          },
         },
         colors: [],
         stroke: {
           width: 3,
-          curve: 'smooth',
+          curve: "smooth",
         },
         xaxis: {
           categories: [],
-        }
+        },
       },
-      series: []
+      series: [],
     };
   },
   computed: {
     riskOpacity() {
       let opacity = 0;
       switch (this.info.risk) {
-        case '1':
+        case "1":
           opacity = 0.2;
           break;
-        case '2': case '3':
+        case "2":
+        case "3":
           opacity = 0.4;
           break;
-        case '4': case '5':
+        case "4":
+        case "5":
           opacity = 0.6;
           break;
-        case '6': case '7':
+        case "6":
+        case "7":
           opacity = 0.8;
           break;
         default:
@@ -114,84 +127,100 @@ export default {
       return opacity;
     },
     riskText() {
-      let text = '';
+      let text = "";
       switch (this.info.risk) {
-        case '1': case '2':
-          text = 'ความเสี่ยงต่ำ';
+        case "1":
+        case "2":
+          text = "ความเสี่ยงต่ำ";
           break;
-        case '3': case '4':
-          text = 'ความเสี่ยงปานกลางค่อนข้างต่ำ';
+        case "3":
+        case "4":
+          text = "ความเสี่ยงปานกลางค่อนข้างต่ำ";
           break;
-         case '5':
-          text = 'ความเสี่ยงปานกลางค่อนข้างสูง';
+        case "5":
+          text = "ความเสี่ยงปานกลางค่อนข้างสูง";
           break;
-        case '6': case '7':
-          text = 'ความเสี่ยงสูง';
+        case "6":
+        case "7":
+          text = "ความเสี่ยงสูง";
           break;
         default:
-          text = 'ความเสี่ยงสูงมาก';
+          text = "ความเสี่ยงสูงมาก";
       }
       return text;
-    }
+    },
   },
   watch: {
     info(val) {
       if (val) {
         this.initChart();
       }
-    }
+    },
   },
   filters: {
     toFixed(value, fix) {
       return Number(value).toFixed(fix);
     },
     toLocale(value) {
-      return Number(value).toLocaleString('en');
-    }
+      return Number(value).toLocaleString("en");
+    },
   },
   methods: {
     getDate(str) {
-      return (new Date(str)).toLocaleDateString('ru').replaceAll('.', '-');
+      return new Date(str).toLocaleDateString("ru").replaceAll(".", "-");
     },
     setComponent() {
-      this.$emit('setComponent', 'Dividend');
+      this.$emit("setComponent", "Dividend");
     },
     initChart() {
-      const data = this.info.navChart.map(item => ({
+      const data = this.info.navChart.map((item) => ({
         name: item.name,
-        data: item.price.map(val => val.value)
+        data: item.price.map((val) => val.value),
       }));
 
-      const colors = this.info.navChart.map(item => item.color);
-      const date = this.info.navChart[0].price.map(val => (new Date(val.date)).toDateString().slice(4, 10));
+      const colors = this.info.navChart.map((item) => item.color);
+      const date = this.info.navChart[0].price.map((val) =>
+        new Date(val.date).toDateString().slice(4, 10)
+      );
 
-      this.series = [
-        ...this.series,
-        ...data
-      ];
+      this.series = [...this.series, ...data];
 
       this.options = {
         ...this.options,
         ...{
-          
           colors,
           xaxis: {
             categories: date,
             tickAmount: 10,
             labels: {
               offsetX: 13,
-              offsetY: 30,
+              offsetY: 20,
               show: true,
               rotate: 45,
               hideOverlappingLabels: true,
               showDuplicates: false,
               trim: true,
-            }
+              style: {
+                colors: ["#525252"],
+                fontSize: "10px",
+              },
+            },
+            axisTicks: {
+              show: true,
+              color: "#525252",
+              height: 0,
+              offsetX: 0,
+              offsetY: 0,
+            },
           },
           yaxis: {
             labels: {
               offsetX: -15,
-            }
+              style: {
+                colors: ["#525252"],
+                fontSize: "10px",
+              },
+            },
           },
         },
         grid: {
@@ -199,9 +228,14 @@ export default {
             right: 20,
             left: -10,
           },
+          xaxis: {
+            lines: {
+              show: false,
+            },
+          },
         },
         chart: {
-          height: 300,
+          height: 250,
           offsetY: -20,
           toolbar: {
             show: false,
@@ -209,20 +243,19 @@ export default {
               download: false,
             },
           },
-        }
-      }
-    }
+        },
+      };
+    },
   },
   mounted() {
     if (this.info) {
       this.initChart();
     }
-  }
+  },
 };
 </script>
 
 <style scoped lang="scss">
-
 .overview-wrapper {
   width: 100%;
   height: 100%;
@@ -238,10 +271,10 @@ export default {
     padding-left: 10px;
     padding-right: 10px;
     padding-bottom: 10px;
-    
+
     box-shadow: 0px 3px 6px #00000009;
 
-    a{
+    a {
       // font-family: "kitbold";
       font-size: 28px;
     }
@@ -282,14 +315,12 @@ export default {
         align-items: flex-start;
         flex-direction: column;
         width: 100%;
-        
 
         .divided {
           display: flex;
           justify-content: space-between;
           width: 60%;
           align-items: left;
-
 
           > span {
             font-size: 24px;
@@ -305,7 +336,6 @@ export default {
       }
 
       .rank {
-
         display: flex;
         align-items: center;
         justify-content: flex-start;
@@ -348,11 +378,9 @@ export default {
   flex-direction: column;
 }
 
-
 .chart-container {
   margin-bottom: -10px !important;
 }
-
 
 .footer-container {
   background: #F1F3F8 !important;
@@ -439,7 +467,7 @@ a.footer {
   font-size: 12px;
   line-height: 18px;
   color: #4F2A81;
-  font-family: 'KIT65P';
+  font-family: "KIT65P";
   font-weight: normal;
   float: right;
   cursor: pointer;

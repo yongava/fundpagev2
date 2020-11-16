@@ -49,7 +49,8 @@
           ผู้ลงทุนสามารถติดต่อขอรับหนังสือชี้ชวนส่วนข้อมูลโครงการได้ที่สำนักงานของบริษัทจัดการ
           หรือสำนักงานของผู้สนับสนุนการขายและรับซื้อคืนหน่วยลงทุนทุกแห่งที่ได้รับการแต่งตั้งจากบริษัทจัดการ
           <br /><br />
-          4. ผลการดำเนินงานในอดีตของกองทุนมิได้เป็นสิ่งยืนยันถึงผลการดำเนินงานในอนาคต
+          4.
+          ผลการดำเนินงานในอดีตของกองทุนมิได้เป็นสิ่งยืนยันถึงผลการดำเนินงานในอนาคต
           <br /><br />
           5. การที่สำนักงานคณะกรรมการ ก.ล.ต.
           ได้อนุมัติให้จัดตั้งและจัดการกองทุนรวมตามรายละเอียดในหนังสือ
@@ -58,7 +59,8 @@
           ได้รับรองถึงความถูกต้องของข้อมูลในหนังสือชี้ชวน
           และมิได้ประกันราคาเสนอขายหน่วยลงทุนแต่อย่างใด
           <br /><br />
-          6. บริษัทจัดการอาจลงทุนในหลักทรัพย์หรือทรัพย์สินอื่นเพื่อบริษัทจัดการเช่นเดียวกันกับที่บริษัทจัดการลงทุนในหลักทรัพย์
+          6.
+          บริษัทจัดการอาจลงทุนในหลักทรัพย์หรือทรัพย์สินอื่นเพื่อบริษัทจัดการเช่นเดียวกันกับที่บริษัทจัดการลงทุนในหลักทรัพย์
           หรือทรัพย์สินอื่นเพื่อกองทุนรวมตามหลักเกณฑ์ที่สำนักงานคณะกรรมการ
           ก.ล.ต.กำหนด ทั้งนี้
           ผู้สนใจจะลงทุนในกองทุนรวมที่ต้องการทราบรายละเอียดข้อมูลการลงทุนเพื่อบริษัทจัดการ
@@ -66,7 +68,8 @@
           หรือสำนักงานของผู้สนับสนุนการขายและรับซื้อคืนหน่วยลงทุนทุกแห่งที่ได้รับการแต่งตั้งจากบริษัทจัดการ
           และสำนักงานคณะกรรมการ ก.ล.ต.
           <br /><br />
-          7. บริษัทจัดการอนุญาตให้พนักงานลงทุนในหลักทรัพย์เพื่อตนเองได้โดยจะต้องปฏิบัติตามจรรยาบรรณและประกาศต่าง
+          7.
+          บริษัทจัดการอนุญาตให้พนักงานลงทุนในหลักทรัพย์เพื่อตนเองได้โดยจะต้องปฏิบัติตามจรรยาบรรณและประกาศต่าง
           ๆ ที่สมาคมบริษัทจัดการลงทุนกำหนด
           และจะต้องเปิดเผยการลงทุนดังกล่าวให้บริษัทจัดการทราบเพื่อที่บริษัทจัดการจะสามารถกำกับและดูแลการซื้อขายหลักทรัพย์ของพนักงานได้
           <br /><br />
@@ -106,7 +109,8 @@
           อันเนื่องมาจากการเข้ามาใช้บริการผ่านระบบปฏิบัติการ LINE Application
           นี้
           <br /><br />
-          13. ผู้ลงทุนสามารถค้นหาข้อมูลกองทุนได้ตามรูปแบบและวิธีการที่บริษัทจัดการกำหนด
+          13.
+          ผู้ลงทุนสามารถค้นหาข้อมูลกองทุนได้ตามรูปแบบและวิธีการที่บริษัทจัดการกำหนด
           ทั้งนี้ ระบบปฏิบัติการ LINE Application
           จะแสดงเฉพาะข้อมูลกองทุนของบริษัทจัดการเท่านั้น
           <br /><br />
@@ -284,37 +288,37 @@ export default {
 <style lang="scss">
 @font-face {
   font-family: "kit35f";
-  src: local("kit35f"), url(./assets/fonts/kit35f.ttf) format("truetype");
+  src: local("kit35f"), url(./assets/fonts/kit35f.ttf)format("truetype");
 }
 
 @font-face {
   font-family: "KIT45P";
-  src: local("KIT45P"), url(./assets/fonts/KIT55P.TTF) format("truetype");
+  src: local("KIT45P"), url(./assets/fonts/KIT55P.TTF)format("truetype");
 }
 
 @font-face {
   font-family: "KIT55P";
-  src: local("KIT55P"), url(./assets/fonts/KIT55P.TTF) format("truetype");
+  src: local("KIT55P"), url(./assets/fonts/KIT55P.TTF)format("truetype");
 }
 
 @font-face {
   font-family: "KIT65P";
-  src: local("KIT65P"), url(./assets/fonts/KIT65P.TTF) format("truetype");
+  src: local("KIT65P"), url(./assets/fonts/KIT65P.TTF)format("truetype");
 }
 
 @font-face {
   font-family: "KIT75F";
-  src: local("KIT75F"), url(./assets/fonts/KIT75F.TTF) format("truetype");
+  src: local("KIT75F"), url(./assets/fonts/KIT75F.TTF)format("truetype");
 }
 
 @font-face {
   font-family: "kitbold";
-  src: local("kitbold"), url(./assets/fonts/kitbold.ttf) format("truetype");
+  src: local("kitbold"), url(./assets/fonts/kitbold.ttf)format("truetype");
 }
 
 @font-face {
   font-family: "PSLxText";
-  src: local("psl"), url(./assets/fonts/PSLxText.ttf) format("truetype");
+  src: local("psl"), url(./assets/fonts/PSLxText.ttf)format("truetype");
 }
 
 body,
@@ -404,12 +408,12 @@ html {
     color: #707070;
     font-family: "psl";
     font-weight: normal;
-    align-content:stretch;
+    align-content: stretch;
   }
 
   button {
     // position: fixed;
-    
+
     height: 50px;
     margin-top: 24px;
     margin-left: 0px;

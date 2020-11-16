@@ -4,9 +4,9 @@
       <h2>สินทรัพย์ของกองทุน</h2>
       <div style="margin: auto">
         <VueApexCharts
-            type="donut"
-            :options="chartOptions"
-            :series="series"
+          type="donut"
+          :options="chartOptions"
+          :series="series"
         ></VueApexCharts>
       </div>
       <div class="assets">
@@ -25,7 +25,6 @@
           <span class="value">{{ asset.value }}%</span>
         </div>
       </div>
-
     </div>
   </div>
 </template>
@@ -36,99 +35,105 @@ import VueApexCharts from "vue-apexcharts";
 export default {
   name: "Assets",
   components: {
-    VueApexCharts
+    VueApexCharts,
   },
-  props: ['info'],
+  props: ["info"],
   data() {
     return {
-      colors: ['#724F96', '#FCBD39', '#C7C5C6', '#F3A1B5', '#EA5A8D', '#AB5DA2'],
+      colors: [
+        "#724F96",
+        "#FCBD39",
+        "#C7C5C6",
+        "#F3A1B5",
+        "#EA5A8D",
+        "#AB5DA2",
+      ],
       series: [],
       chartOptions: {
         chart: {
-          type: 'donut',
+          type: "donut",
           offsetY: -20,
         },
         legend: {
           show: false,
         },
-        responsive: [{
-          breakpoint: 480,
-          options: {
-            chart: {
-              width: '100%',
-              height: 300,
+        responsive: [
+          {
+            breakpoint: 480,
+            options: {
+              chart: {
+                width: "100%",
+                height: 300,
+              },
+              legend: {
+                position: "bottom",
+              },
             },
-            legend: {
-              position: 'bottom'
-            }
-          }
-        }],
+          },
+        ],
         dataLabels: {
           style: {
-            colors: ['transparent']
+            colors: ["transparent"],
           },
           background: {
             enabled: true,
-            borderColor: 'transparent'
-          }
+            borderColor: "transparent",
+          },
         },
         plotOptions: {
           pie: {
             donut: {
-              size: '70%'
-            }
-          }
+              size: "70%",
+            },
+          },
         },
         tooltip: {
-          enabled: false
+          enabled: false,
         },
-        colors: []
-      }
-    }
+        colors: [],
+      },
+    };
   },
   computed: {
     assets() {
       return this.info.fundAsset.names.map((item, i) => ({
         name: item,
         value: this.info.fundAsset.assetPctValue[i],
-        color: this.colors[i]
+        color: this.colors[i],
       }));
     },
     topAssets() {
       return this.info.topAsset.names.map((item, i) => ({
         name: item,
-        value: this.info.topAsset.assetPctValue[i]
+        value: this.info.topAsset.assetPctValue[i],
       }));
-    }
+    },
   },
   watch: {
     info(val) {
       if (val) {
         this.initChart();
       }
-    }
+    },
   },
   methods: {
     initChart() {
-      this.series = [
-        ...this.series,
-        ...this.info.fundAsset.assetPctValue
-      ]
+      this.series = [...this.series, ...this.info.fundAsset.assetPctValue];
 
       this.chartOptions = {
         ...this.chartOptions,
         ...{
-          colors: this.colors
-        }
-      }
-    }
+          colors: this.colors,
+        },
+      };
+    },
   },
   mounted() {
     if (this.info) {
       this.initChart();
     }
-  }
-}
+  },
+};
 </script>
 
 <style scoped lang="scss">
@@ -140,7 +145,7 @@ export default {
     background: #fff;
     border-radius: 5px;
     margin-bottom: 10px;
-    
+
     padding-top: 10px;
     padding-left: 10px;
     padding-right: 10px;
@@ -205,7 +210,6 @@ export default {
     }
   }
 }
-
 
 h4 {
   margin: 18px 0 5px;

@@ -5,7 +5,7 @@
 
       <h4>ค่าธรรมเนียมที่เรียกเก็บจากผู้ถือหน่วยลงทุน</h4>
       <div v-if="info && fundFee.length" class="grid-table">
-        <table style="width:100%">
+        <table style="width: 100%">
           <tr>
             <th></th>
             <th>สูงสุดไม่เกิน</th>
@@ -20,12 +20,11 @@
           </tr>
         </table>
       </div>
-      
 
       <h4>ค่าธรรมเนียมที่เรียกเก็บจากกองทุน</h4>
 
       <div v-if="info && commissionFee.length" class="grid-table">
-        <table style="width:100%">
+        <table style="width: 100%">
           <tr>
             <th></th>
             <th>สูงสุดไม่เกิน</th>
@@ -41,12 +40,16 @@
         </table>
       </div>
 
-      <p>หมายเหตุ :<br>{{ info.commissionFee.annotation }}</p>
+      <p>หมายเหตุ :<br />{{ info.commissionFee.annotation }}</p>
     </div>
 
     <div class="footer-container">
       <a target="_blank" :href="info.factSheetURL">Fund Fact Sheet</a>
-      <a target="_blank" :href="`https://www.scbam.com/th/fund/morningstar/fund-information/${info.fundCode}`">ข้อมูลเพิ่มเติม</a>
+      <a
+        target="_blank"
+        :href="`https://www.scbam.com/th/fund/morningstar/fund-information/${info.fundCode}`"
+        >ข้อมูลเพิ่มเติม</a
+      >
     </div>
   </div>
 </template>
@@ -54,14 +57,14 @@
 <script>
 export default {
   name: "Commission",
-  props: ['info'],
+  props: ["info"],
   computed: {
     commissionFee() {
-      return this.feeMap('commissionFee');
+      return this.feeMap("commissionFee");
     },
     fundFee() {
-      return this.feeMap('fundFee');
-    }
+      return this.feeMap("fundFee");
+    },
   },
   methods: {
     feeMap(fee) {
@@ -70,16 +73,16 @@ export default {
           name: item,
           max: this.info[fee].maximumFees[i],
           actual: this.info[fee].actualFees[i],
-          unit: this.info[fee].unit[i]
-        }
+          unit: this.info[fee].unit[i],
+        };
       });
-    }
+    },
   },
   filters: {
     toFixed(value) {
       return Number(value).toFixed(2);
-    }
-  }
+    },
+  },
 };
 </script>
 
@@ -120,7 +123,8 @@ export default {
     }
   }
 
-  button, a {
+  button,
+  a {
     height: 50px;
     display: flex;
     align-items: center;
@@ -150,7 +154,7 @@ export default {
       border-bottom: 1px solid #A0A0A0;
 
       td {
-        font-family: 'KIT55P';
+        font-family: "KIT55P";
         font-weight: normal;
         font-size: 16px;
         color: #666666;
@@ -169,7 +173,7 @@ export default {
   }
 
   tr th {
-    font-family: 'KIT55P';
+    font-family: "KIT55P";
     font-weight: normal;
     font-size: 18px;
     color: #666666;

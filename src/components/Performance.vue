@@ -4,21 +4,21 @@
       <h2>ผลตอบแทนรายปี</h2>
       <div id="chart" class="chart-container">
         <VueApexCharts
-            type="bar"
-            height="350"
-            :options="chartOptions"
-            :series="series"
+          type="bar"
+          height="350"
+          :options="chartOptions"
+          :series="series"
         ></VueApexCharts>
       </div>
     </div>
-    <div >
+    <div>
       <h2>ผลตอบแทนสะสม</h2>
       <div id="chart2" class="chart-container">
         <VueApexCharts
-            type="bar"
-            height="350"
-            :options="chartOptions2"
-            :series="series2"
+          type="bar"
+          height="350"
+          :options="chartOptions2"
+          :series="series2"
         ></VueApexCharts>
       </div>
     </div>
@@ -30,7 +30,7 @@ import VueApexCharts from "vue-apexcharts";
 
 export default {
   name: "Performance",
-  props: ['info'],
+  props: ["info"],
   components: {
     VueApexCharts,
   },
@@ -78,14 +78,24 @@ export default {
         },
         xaxis: {
           categories: [],
+          labels: {
+            style: {
+              colors: ["#525252"],
+              fontSize: "10px",
+            },
+          },
         },
         yaxis: {
           title: {
             text: "",
           },
           labels: {
-              offsetX: -15,
-            }
+            offsetX: -15,
+            style: {
+              colors: ["#525252"],
+              fontSize: "10px",
+            },
+          },
         },
         grid: {
           padding: {
@@ -93,7 +103,7 @@ export default {
             left: -10,
           },
         },
-        
+
         fill: {
           opacity: 1,
           colors: ["#724F96"],
@@ -136,14 +146,24 @@ export default {
         },
         xaxis: {
           categories: [],
+          labels: {
+            style: {
+              colors: ["#525252"],
+              fontSize: "10px",
+            },
+          },
         },
         yaxis: {
           title: {
             text: "",
           },
           labels: {
-              offsetX: -15,
-            }
+            offsetX: -15,
+            style: {
+              colors: ["#525252"],
+              fontSize: "10px",
+            },
+          },
         },
         grid: {
           padding: {
@@ -171,40 +191,48 @@ export default {
         ...this.chartOptions,
         ...{
           xaxis: {
-            categories: this.info.returnChart.history.period
-          }
-        }
-      }
+            categories: this.info.returnChart.history.period,
+          },
+        },
+      };
 
-      this.series = [{
-        ...this.series,
-        ...{
-          data: this.info.returnChart.history.pct.map(item => item.toFixed(2))
-        }
-      }];
+      this.series = [
+        {
+          ...this.series,
+          ...{
+            data: this.info.returnChart.history.pct.map((item) =>
+              item.toFixed(2)
+            ),
+          },
+        },
+      ];
     },
     initChart2() {
       this.chartOptions2 = {
         ...this.chartOptions2,
         ...{
           xaxis: {
-            categories: Object.keys(this.info.returnChart.chart).map(item => item.slice(6))
-          }
-        }
-      }
+            categories: Object.keys(this.info.returnChart.chart).map((item) =>
+              item.slice(6)
+            ),
+          },
+        },
+      };
 
-      this.series2 = [{
-        ...this.series2,
-        ...{
-          data: Object.values(this.info.returnChart.chart)
-        }
-      }];
-    }
+      this.series2 = [
+        {
+          ...this.series2,
+          ...{
+            data: Object.values(this.info.returnChart.chart),
+          },
+        },
+      ];
+    },
   },
   mounted() {
     this.initChart1();
     this.initChart2();
-  }
+  },
 };
 </script>
 
@@ -218,12 +246,12 @@ export default {
     background: #fff;
     border-radius: 5px;
     margin-bottom: 10px;
-    
+
     padding-top: 10px;
     padding-left: 10px;
     padding-right: 10px;
     padding-bottom: 0px;
-    
+
     box-shadow: 0px 3px 6px #00000009;
     display: flex;
     flex-direction: column;
@@ -243,5 +271,4 @@ export default {
 .chart-container {
   margin-bottom: -10px !important;
 }
-
 </style>
