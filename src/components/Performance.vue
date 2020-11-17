@@ -51,7 +51,7 @@ export default {
       chartOptions: {
         chart: {
           type: "bar",
-          height: 300,
+          height: "250px",
           offsetY: -10,
           toolbar: {
             show: false,
@@ -124,7 +124,7 @@ export default {
       chartOptions2: {
         chart: {
           type: "bar",
-          height: 300,
+          height: "250px",
           offsetY: -10,
           toolbar: {
             show: false,
