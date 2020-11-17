@@ -40,7 +40,7 @@
         </table>
       </div>
 
-      <p>หมายเหตุ :<br />{{ info.commissionFee.annotation }}</p>
+      <p v-if="info.commissionFee.annotation.length" > หมายเหตุ :<br />{{ info.commissionFee.annotation }}</p>
     </div>
 
     <div class="footer-container">
