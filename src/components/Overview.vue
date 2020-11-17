@@ -230,7 +230,7 @@ export default {
           },
           xaxis: {
             lines: {
-              show: false,
+              show: true,
             },
           },
         },

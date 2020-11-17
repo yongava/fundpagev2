@@ -102,6 +102,11 @@ export default {
             right: 20,
             left: -10,
           },
+          xaxis: {
+            lines: {
+              show: true,
+            },
+          }
         },
 
         fill: {
@@ -170,6 +175,11 @@ export default {
             right: 20,
             left: -10,
           },
+          xaxis: {
+            lines: {
+              show: true,
+            },
+          }
         },
         fill: {
           opacity: 1,
