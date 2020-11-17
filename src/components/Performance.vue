@@ -51,7 +51,7 @@ export default {
       chartOptions: {
         chart: {
           type: "bar",
-          height: "250px",
+          height: "280px",
           offsetY: -10,
           toolbar: {
             show: false,
@@ -79,6 +79,7 @@ export default {
         xaxis: {
           categories: [],
           labels: {
+            offsetY: -5,
             style: {
               colors: ["#525252"],
               fontSize: "10px",
@@ -124,7 +125,7 @@ export default {
       chartOptions2: {
         chart: {
           type: "bar",
-          height: "250px",
+          height: "280px",
           offsetY: -10,
           toolbar: {
             show: false,
@@ -152,6 +153,7 @@ export default {
         xaxis: {
           categories: [],
           labels: {
+            offsetY: -5,
             style: {
               colors: ["#525252"],
               fontSize: "10px",
