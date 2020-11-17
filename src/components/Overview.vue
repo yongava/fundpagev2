@@ -174,7 +174,7 @@ export default {
     },
     initChart() {
       const data = this.info.navChart.map((item) => ({
-        name: item.name,
+        name: item.displayName,
         data: item.price.map((val) => val.value),
       }));
 
