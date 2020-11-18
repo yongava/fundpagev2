@@ -1,8 +1,8 @@
 <template>
-  <div v-if="info" class="overview-wrapper">
+  <div  class="overview-wrapper">
     <div>
       <h2>สินทรัพย์ของกองทุน</h2>
-      <div style="margin: auto">
+      <div style="margin: auto" v-if="this.series.length">
         <VueApexCharts
           type="donut"
           :options="chartOptions"
@@ -48,7 +48,8 @@ export default {
         "#EA5A8D",
         "#AB5DA2",
       ],
-      series: [],
+      series: [
+      ],
       chartOptions: {
         chart: {
           type: "donut",
@@ -111,7 +112,8 @@ export default {
   },
   watch: {
     info(val) {
-      if (val) {
+      console.log(this.info)
+      if (val.fundAsset.length) {
         this.initChart();
       }
     },
@@ -119,7 +121,6 @@ export default {
   methods: {
     initChart() {
       this.series = [...this.series, ...this.info.fundAsset.assetPctValue];
-
       this.chartOptions = {
         ...this.chartOptions,
         ...{
