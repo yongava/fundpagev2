@@ -235,7 +235,7 @@ export default {
           },
         },
         chart: {
-          height: "250px",
+          height: "300px",
           offsetY: -20,
           toolbar: {
             show: false,
