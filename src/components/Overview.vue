@@ -78,7 +78,7 @@ export default {
       options: {
         chart: {
           id: "chart",
-          height: 250,
+          // height: 250,
           type: "line",
           toolbar: {
             show: false,
