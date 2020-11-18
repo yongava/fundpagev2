@@ -12,18 +12,25 @@
       <p class="info">{{ info.description }}</p>
       <div class="further-info">
         <div class="left-block">
-          <div class="divided">
-            <span>NAV</span>
-            <span>{{ info.nav | toFixed(4) }}</span>
-          </div>
-          <div class="divided">
-            <span>YTD</span>
-            <span :class="info.ytd >= 0 ? 'up' : 'down'">
+          <table style="width: 100%;font-family:'KIT45P';font-weight: normal;    align-items: baseline;font-size: 24px;">
+          <tr>
+            <td><span>NAV</span></td>
+            <td>
+              <span>{{ info.nav | toFixed(4) }}</span>
+            </td>
+          </tr>
+          <tr>
+            <td><span>YTD</span></td>
+            <td>
+              <span :class="info.ytd >= 0 ? 'up' : 'down'">
               <span v-html="info.ytd >= 0 ? '&#9650;' : '&#9660;'"></span>
               {{ info.ytd | toFixed(2) }}%
             </span>
-          </div>
-          <p class="miniinfo">as of {{ getDate(info.navDate) }}</p>
+            </td>
+          </tr>
+          <tr><td colspan="2"><p class="miniinfo">as of {{ getDate(info.navDate) }}</p></td></tr>
+          </table>
+          
           <div class="divided">
             <span class="column">
               {{ info.aum | toLocale }}
@@ -52,7 +59,7 @@
         ></VueApexCharts>
       </div>
     </div>
-    <div class="footer-container">
+    <div class="footer-container" style="margin-bottom:0px">
       <a
         target="_blank"
         :href="`https://info.scb.co.th/scbeasy/easy_app_link.html?URI=scbeasy://mutualfunds/discover/${info.fundCode}`"
@@ -78,7 +85,7 @@ export default {
       options: {
         chart: {
           id: "chart",
-          // height: 250,
+          height: 350,
           type: "line",
           toolbar: {
             show: false,
@@ -235,7 +242,7 @@ export default {
           },
         },
         chart: {
-          height: "300px",
+          height: "240px",
           offsetY: -20,
           toolbar: {
             show: false,

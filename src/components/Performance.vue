@@ -65,11 +65,36 @@ export default {
             horizontal: false,
             columnWidth: "55%",
             endingShape: "flat",
+            dataLabels: {
+              position: "top", // top, center, bottom
+            },
+            colors: {
+              ranges: [
+                {
+                  from: -10000,
+                  to: 0,
+                  color: "#A794C0",
+                },
+                {
+                  from: 0,
+                  to: 10000,
+                  color: "#724F96",
+                },
+              ],
+            },
           },
         },
 
         dataLabels: {
-          enabled: false,
+          enabled: true,
+          formatter: function (val) {
+            return val + "%";
+          },
+          offsetY: -20,
+          style: {
+            fontSize: "12px",
+            colors: ["#525252"],
+          },
         },
         stroke: {
           show: true,
@@ -112,7 +137,7 @@ export default {
 
         fill: {
           opacity: 1,
-          colors: ["#724F96"],
+          //colors: ["#724F96"],
         },
         tooltip: {
           y: {
@@ -139,11 +164,37 @@ export default {
             horizontal: false,
             columnWidth: "55%",
             endingShape: "flat",
+            dataLabels: {
+              position: "top", // top, center, bottom
+            },
+            colors: {
+              ranges: [
+                {
+                  from: -10000,
+                  to: 0,
+                  color: "#A794C0",
+                },
+                {
+                  from: 0,
+                  to: 10000,
+                  color: "#724F96",
+                },
+              ],
+            },
           },
         },
 
         dataLabels: {
-          enabled: false,
+          enabled: true,
+          formatter: function (val) {
+            return val + "%";
+          },
+          offsetY: -20,
+          style: {
+            fontSize: "12px",
+            colors: ["#525252"],
+          },
+          
         },
         stroke: {
           show: true,
@@ -185,7 +236,7 @@ export default {
         },
         fill: {
           opacity: 1,
-          colors: ["#724F96"],
+          //colors: ["#724F96"],
         },
         tooltip: {
           y: {

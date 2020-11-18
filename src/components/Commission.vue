@@ -43,7 +43,7 @@
       <p v-if="info.commissionFee.annotation.length" > หมายเหตุ :<br />{{ info.commissionFee.annotation }}</p>
     </div>
 
-    <div class="footer-container">
+    <div class="footer-container" style="margin-bottom:0px">
       <a target="_blank" :href="info.factSheetURL">Fund Fact Sheet</a>
       <a
         target="_blank"
