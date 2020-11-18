@@ -13,15 +13,15 @@
       <div class="further-info">
         <div class="left-block">
           <table style="width: 100%;font-family:'KIT45P';font-weight: normal;    align-items: baseline;font-size: 24px;">
-          <tr>
-            <td><span>NAV</span></td>
-            <td>
+          <tr class="table__tr">
+            <td class="table__td"><span>NAV</span></td>
+            <td class="table__td">
               <span>{{ info.nav | toFixed(4) }}</span>
             </td>
           </tr>
-          <tr>
-            <td><span>YTD</span></td>
-            <td>
+          <tr class="table__tr">
+            <td class="table__td"><span>YTD</span></td>
+            <td class="table__td">
               <span :class="info.ytd >= 0 ? 'up' : 'down'">
               <span v-html="info.ytd >= 0 ? '&#9650;' : '&#9660;'"></span>
               {{ info.ytd | toFixed(2) }}%
@@ -30,7 +30,7 @@
           </tr>
           <tr><td colspan="2"><p class="miniinfo">as of {{ getDate(info.navDate) }}</p></td></tr>
           </table>
-          
+
           <div class="divided">
             <span class="column">
               {{ info.aum | toLocale }}
@@ -478,5 +478,22 @@ a.footer {
   font-weight: normal;
   float: right;
   cursor: pointer;
+}
+
+.table {
+  &__tr {
+    display: flex;
+    align-items: baseline;
+  }
+
+  &__td {
+    &:first-child {
+      padding-right: 10px;
+    }
+
+    &:last-child {
+      flex: 1;
+    }
+  }
 }
 </style>

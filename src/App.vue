@@ -244,6 +244,10 @@ export default {
         const { data } = await this.axios.get(`/fund_info/${fundCode}`);
         this.info = data.data;
 
+        if (!this.info.isShowDisclaimer) {
+          this.hideModal();
+        }
+
         if (this.info.typeName != "normal") {
           this.navigation.splice(2, 0, {
             name: "ปันผล",
@@ -382,7 +386,7 @@ html {
   }
 
   .content-wrapper {
-    margin: 0 20px;
+    margin: 0 20px 70px;
     height: fit-content;
     min-height: calc(100vh - 82px);
   }
@@ -409,6 +413,7 @@ html {
     font-family: "psl";
     font-weight: normal;
     align-content: stretch;
+    margin-bottom: 25px;
   }
 
   button {
