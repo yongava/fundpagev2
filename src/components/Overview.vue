@@ -12,23 +12,35 @@
       <p class="info">{{ info.description }}</p>
       <div class="further-info">
         <div class="left-block">
-          <table style="width: 100%;font-family:'KIT45P';font-weight: normal;    align-items: baseline;font-size: 24px;">
-          <tr class="table__tr">
-            <td class="table__td"><span>NAV</span></td>
-            <td class="table__td">
-              <span>{{ info.nav | toFixed(4) }}</span>
-            </td>
-          </tr>
-          <tr class="table__tr">
-            <td class="table__td"><span>YTD</span></td>
-            <td class="table__td">
-              <span :class="info.ytd >= 0 ? 'up' : 'down'">
-              <span v-html="info.ytd >= 0 ? '&#9650;' : '&#9660;'"></span>
-              {{ info.ytd | toFixed(2) }}%
-            </span>
-            </td>
-          </tr>
-          <tr><td colspan="2"><p class="miniinfo">as of {{ getDate(info.navDate) }}</p></td></tr>
+          <table
+            style="
+              width: 100%;
+              font-family: 'KIT45P';
+              font-weight: normal;
+              align-items: baseline;
+              font-size: 24px;
+            "
+          >
+            <tr class="table__tr">
+              <td class="table__td"><span>NAV</span></td>
+              <td class="table__td">
+                <span>{{ info.nav | toFixed(4) }}</span>
+              </td>
+            </tr>
+            <tr class="table__tr">
+              <td class="table__td"><span>YTD</span></td>
+              <td class="table__td">
+                <span :class="info.ytd >= 0 ? 'up' : 'down'">
+                  <span v-html="info.ytd >= 0 ? '&#9650;' : '&#9660;'"></span>
+                  {{ info.ytd | toFixed(2) }}%
+                </span>
+              </td>
+            </tr>
+            <tr>
+              <td colspan="2">
+                <p class="miniinfo">as of {{ getDate(info.navDate) }}</p>
+              </td>
+            </tr>
           </table>
 
           <div class="divided">
@@ -59,7 +71,7 @@
         ></VueApexCharts>
       </div>
     </div>
-    <div class="footer-container" style="margin-bottom:0px">
+    <div class="footer-container" style="margin-bottom: 0px">
       <a
         target="_blank"
         :href="`https://info.scb.co.th/scbeasy/easy_app_link.html?URI=scbeasy://mutualfunds/discover/${info.fundCode}`"
@@ -231,9 +243,17 @@ export default {
           },
         },
         grid: {
+          borderColor: '#f0f0f0',
+          row: {
+            opacity: 0.1,
+          },
+          column: {
+            opacity: 0.1,
+          },
           padding: {
             right: 20,
             left: -10,
+            bottom: 5,
           },
           xaxis: {
             lines: {
@@ -242,8 +262,12 @@ export default {
           },
         },
         chart: {
-          height: "240px",
+          height: "300px",
+          width: "100%",
           offsetY: -20,
+          animations: {
+            enabled: false,
+          },
           toolbar: {
             show: false,
             tools: {
@@ -354,7 +378,7 @@ export default {
         span {
           margin-top: 10px;
           margin-right: 0px;
-          background: #4B2885;
+          background: #4b2885;
           height: 44px;
           border-radius: 21.75px;
           width: 60px;
@@ -390,7 +414,7 @@ export default {
 }
 
 .footer-container {
-  background: #F1F3F8 !important;
+  background: #f1f3f8 !important;
   position: fixed;
   bottom: 0;
 
@@ -455,17 +479,17 @@ a.footer {
 }
 
 .up {
-  color: #2F9463;
+  color: #2f9463;
 }
 
 .down {
-  color: #E64C66;
+  color: #e64c66;
 }
 
 .mini {
   margin-top: 5px;
   margin-right: 7px;
-  border: 1px solid #4F2A81;
+  border: 1px solid #4f2a81;
   background: #ffffff;
   box-sizing: border-box;
   border-radius: 10px;
@@ -473,7 +497,7 @@ a.footer {
   width: 55px;
   font-size: 12px;
   line-height: 18px;
-  color: #4F2A81;
+  color: #4f2a81;
   font-family: "KIT65P";
   font-weight: normal;
   float: right;

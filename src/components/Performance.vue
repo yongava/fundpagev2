@@ -53,6 +53,9 @@ export default {
           type: "bar",
           height: "280px",
           offsetY: -10,
+          animations: {
+            enabled: false,
+          },
           toolbar: {
             show: false,
             tools: {
@@ -92,8 +95,8 @@ export default {
           },
           offsetY: -20,
           style: {
-            fontSize: "12px",
-            colors: ["#525252"],
+            fontSize: "10px",
+            colors: ["#724F96"],
           },
         },
         stroke: {
@@ -124,6 +127,7 @@ export default {
           },
         },
         grid: {
+          borderColor: '#f0f0f0',
           padding: {
             right: 20,
             left: -10,
@@ -152,6 +156,9 @@ export default {
           type: "bar",
           height: "280px",
           offsetY: -10,
+          animations: {
+            enabled: false,
+          },
           toolbar: {
             show: false,
             tools: {
@@ -191,8 +198,9 @@ export default {
           },
           offsetY: -20,
           style: {
-            fontSize: "12px",
-            colors: ["#525252"],
+            fontSize: "10px",
+            colors: ["#724F96"],
+            
           },
           
         },
@@ -224,6 +232,7 @@ export default {
           },
         },
         grid: {
+          borderColor: '#f0f0f0',
           padding: {
             right: 20,
             left: -10,
