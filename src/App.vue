@@ -241,7 +241,7 @@ export default {
     },
     async getData(fundCode, userID) {
       if (fundCode) {
-        const { data } = await this.axios.get(`/fund_info/${fundCode}`);
+        const { data } = await this.axios.get(`/fund_info/${fundCode}?token=${userID}`);
         this.info = data.data;
 
         if (!this.info.isShowDisclaimer) {
