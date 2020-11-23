@@ -31,8 +31,8 @@
               <td class="table__td"><span>YTD</span></td>
               <td class="table__td">
                 <span :class="info.ytd >= 0 ? 'up' : 'down'">
-                  <span v-html="info.ytd >= 0 ? '&#9650;' : '&#9660;'"></span>
                   {{ info.ytd | toFixed(2) }}%
+                  <span v-html="info.ytd >= 0 ? '&#9650;' : '&#9660;'"></span>
                 </span>
               </td>
             </tr>
