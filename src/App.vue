@@ -259,7 +259,7 @@ export default {
         }
       }
       if (userID) {
-        const { data } = await this.this.axios.post(
+        const { data } = await this.axios.post(
           `/user/disclaimer?token=${userID}`
         );
         this.access = data;
