@@ -21,7 +21,8 @@
         </div>
       </v-touch>
     </div>
-    <modal name="disclaimer" height="90%" width="90%">
+    <modal name="disclaimer" height="100%" width="100%">
+      <div class="modal-container">
       <div class="modal-content">
         <h2>คำชี้แจงที่สำคัญ (Disclaimer)</h2>
         <p>
@@ -185,6 +186,7 @@
           ที่ปรากฏข้างต้นแล้ว
         </p>
       </div>
+      </div>
     </modal>
     <button v-if="disclaimer" class="hide-modal-btn" @click="hideModal">
       ยอมรับ
@@ -241,8 +243,15 @@ export default {
     },
     async getData(fundCode, userID) {
       if (fundCode) {
-        const { data } = await this.axios.get(`/fund_info/${fundCode}`);
+        const { data } = await this.axios.get(`/fund_info/${fundCode}?token=${userID}`);
         this.info = data.data;
+
+        // if (!this.info.isShowDisclaimer) {
+        //   this.hideModal();
+        // }
+        // else{
+        //   this.$modal.show("disclaimer");
+        // }
 
         if (this.info.typeName != "normal") {
           this.navigation.splice(2, 0, {
@@ -252,7 +261,7 @@ export default {
         }
       }
       if (userID) {
-        const { data } = await this.this.axios.post(
+        const { data } = await this.axios.post(
           `/user/disclaimer?token=${userID}`
         );
         this.access = data;
@@ -329,7 +338,7 @@ html {
 }
 
 #app {
-  width: 100%;
+  width: 350px;
   height: 100vh;
   margin: 0;
   padding: 0;
@@ -350,8 +359,8 @@ html {
     margin: 0;
     padding-top: 10px;
     padding-bottom: 0px;
-    padding-right: 10px;
-    padding-left: 15px;
+    padding-right: 0px;
+    padding-left: 18px;
     overflow-y: scroll;
     height: 50px;
 
@@ -363,7 +372,7 @@ html {
       justify-content: center;
       background: #fff;
       border-radius: 18px;
-      padding: 0 12px;
+      padding: 0 5px;
       min-width: fit-content;
       font-weight: bolder;
       font-size: 16px;
@@ -382,7 +391,7 @@ html {
   }
 
   .content-wrapper {
-    margin: 0 20px;
+    margin: 0 20px 70px;
     height: fit-content;
     min-height: calc(100vh - 82px);
   }
@@ -391,11 +400,19 @@ html {
 ::-webkit-scrollbar {
   display: none;
 }
-
+.modal-container{
+  margin-top: 22px;
+  width: 92%;
+  height: 87%;
+  margin-left: auto;
+  margin-right: auto;
+  background:white;
+}
 .modal-content {
-  height: 100%;
+  height: 96%;
   overflow: scroll;
-  padding: 16px;
+  padding: 16px 16px 0px 16px;
+
   h2 {
     margin: 0;
     font-size: 28px;
@@ -409,6 +426,7 @@ html {
     font-family: "psl";
     font-weight: normal;
     align-content: stretch;
+    margin-bottom: 25px;
   }
 
   button {
@@ -454,10 +472,11 @@ html {
 }
 
 .vm--modal {
-  left: 12px !important;
-  width: calc(100% - 24px) !important;
-  height: calc(100% - 110px) !important;
+  // left: 12px !important;
+  // width: calc(100% - 24px) !important;
+  // height: calc(100% - 110px) !important;
   box-shadow: none !important;
+  background: #f1f3f8 !important;
 }
 
 .vm--overlay {
