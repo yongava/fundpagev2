@@ -6,7 +6,7 @@
         @click="setComponent"
         class="mini"
       >
-        มีปันผล
+        {{info.typeName}}
       </button>
       <h2>{{ info.fundCode }}</h2>
       <p class="info">{{ info.description }}</p>
