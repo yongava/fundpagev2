@@ -246,12 +246,12 @@ export default {
         const { data } = await this.axios.get(`/fund_info/${fundCode}?token=${userID}`);
         this.info = data.data;
 
-        // if (!this.info.isShowDisclaimer) {
-        //   this.hideModal();
-        // }
-        // else{
-        //   this.$modal.show("disclaimer");
-        // }
+        if (!this.info.isShowDisclaimer) {
+          this.hideModal();
+        }
+        else{
+          this.$modal.show("disclaimer");
+        }
 
         if (this.info.typeName != "normal") {
           this.navigation.splice(2, 0, {
@@ -289,7 +289,7 @@ export default {
 
     this.getData(fundCode, userID);
 
-    this.$modal.show("disclaimer");
+    // this.$modal.show("disclaimer");
   },
 };
 </script>
