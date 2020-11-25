@@ -253,7 +253,7 @@ export default {
           this.$modal.show("disclaimer");
         }
 
-        if (this.info.typeName != "normal") {
+        if (this.info.typeName == "มีปันผล") {
           this.navigation.splice(2, 0, {
             name: "ปันผล",
             component: "Dividend",
