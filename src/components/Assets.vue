@@ -73,14 +73,8 @@ export default {
           },
         ],
         dataLabels: {
-          style: {
-            colors: ["transparent"],
-          },
-          background: {
-            enabled: true,
-            borderColor: "transparent",
-          },
-        },
+              enabled: false
+            },
         plotOptions: {
           pie: {
             donut: {

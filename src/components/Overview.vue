@@ -423,9 +423,14 @@ export default {
   margin-left: -18px;
   margin-right: -20px;
 
-  width: calc(100% - 20px);
+  width: 375px;
 }
-
+/* On screens that are 600px wide or less, */
+@media screen and (max-width: 400px) {
+  .footer-container {
+    width: calc(100% - 20px);
+  }
+}
 a.footer {
   // position: fixed;
   // left: 0;

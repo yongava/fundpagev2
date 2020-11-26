@@ -5,12 +5,12 @@
 
       <h4>ค่าธรรมเนียมที่เรียกเก็บจากผู้ถือหน่วยลงทุน</h4>
       <div v-if="info && fundFee.length" class="grid-table">
-        <table style="width: 100%">
+        <table class="commission-table" style="width: 100%">
           <tr>
-            <th></th>
-            <th>สูงสุดไม่เกิน</th>
-            <th>เก็บจริง</th>
-            <th>หน่วย</th>
+            <th id="_th0"></th>
+            <th id="_th1">สูงสุดไม่เกิน</th>
+            <th id="_th2">เก็บจริง</th>
+            <th id="_th3">หน่วย</th>
           </tr>
           <tr v-for="item of fundFee" :key="item.name">
             <td>{{ item.name }}</td>
@@ -24,12 +24,12 @@
       <h4>ค่าธรรมเนียมที่เรียกเก็บจากกองทุน</h4>
 
       <div v-if="info && commissionFee.length" class="grid-table">
-        <table style="width: 100%">
+        <table class="commission-table" style="width: 100%">
           <tr>
-            <th></th>
-            <th>สูงสุดไม่เกิน</th>
-            <th>เก็บจริง</th>
-            <th>หน่วย</th>
+            <th id="_th0"></th>
+            <th id="_th1">สูงสุดไม่เกิน</th>
+            <th id="_th2">เก็บจริง</th>
+            <th id="_th3">หน่วย</th>
           </tr>
           <tr v-for="item of commissionFee" :key="item.name">
             <td>{{ item.name }}</td>
@@ -162,7 +162,7 @@ export default {
         padding: 0px;
         &:first-child {
           text-align: left;
-          width: 85px;
+          //width: 85px;
         }
 
         &:last-child {
@@ -209,12 +209,31 @@ export default {
   position: fixed;
   bottom: 0;
 
-  width: calc(100% - 20px);
+  width: 375px;
   margin-top: 0px;
   margin-left: -20px;
   margin-right: -20px;
   border-radius: 10px;
   margin-bottom: 12px;
   padding: 12px;
+}
+
+.commission-table th#_th0 {
+    width: 28%;
+}
+.commission-table th#_th1 {
+    width: 22%;
+}
+.commission-table th#_th2 {
+    width: 15%;
+}
+.commission-table th#_th3 {
+    width: 35%;
+}
+/* On screens that are 600px wide or less, */
+@media screen and (max-width: 400px) {
+  .footer-container {
+    width: calc(100% - 20px);
+  }
 }
 </style>
