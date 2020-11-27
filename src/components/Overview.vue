@@ -62,6 +62,7 @@
       <h2>ผลการดำเนินงาน</h2>
       <br />
 
+	  
       <div id="chart" class="chart-container">
         <VueApexCharts
           type="line"
