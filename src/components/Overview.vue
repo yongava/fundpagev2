@@ -74,7 +74,7 @@
     <div class="footer-container" style="margin-bottom: 0px">
       <a
         target="_blank"
-        :href="`https://info.scb.co.th/scbeasy/easy_app_link.html?URI=scbeasy://mutualfunds/discover/${info.fundCode}`"
+        :href="info.factSheetURL"
         class="footer"
       >
         ซื้อกองทุน {{ info.fundCode }}
