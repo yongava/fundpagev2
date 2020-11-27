@@ -1,5 +1,5 @@
 <template>
-  <div  class="overview-wrapper">
+  <div class="overview-wrapper">
     <div>
       <h2>สินทรัพย์ของกองทุน</h2>
       <div style="margin: auto" v-if="this.series.length">
@@ -73,8 +73,15 @@ export default {
           },
         ],
         dataLabels: {
-              enabled: false
-            },
+          style: {
+            colors: ["transparent"],
+          },
+          background: {
+            enabled: true,
+            borderColor: "transparent",
+          },
+          // enabled: false
+        },
         plotOptions: {
           pie: {
             donut: {
@@ -209,7 +216,7 @@ export default {
 h4 {
   margin: 18px 0 5px;
   padding: 5px 10px;
-  background: #F0F3F7;
+  background: #f0f3f7;
   border-radius: 3px;
   font-size: 21px;
   line-height: 25px;
