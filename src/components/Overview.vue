@@ -6,7 +6,7 @@
         @click="setComponent"
         class="mini"
       >
-        {{info.typeName}}
+        {{ info.typeName }}
       </button>
       <h2>{{ info.fundCode }}</h2>
       <p class="info">{{ info.description }}</p>
@@ -60,9 +60,8 @@
     </div>
     <div>
       <h2>ผลการดำเนินงาน</h2>
-      <br />
+      <br/>
 
-	  
       <div id="chart" class="chart-container">
         <VueApexCharts
           type="line"
@@ -244,7 +243,7 @@ export default {
           },
         },
         grid: {
-          borderColor: '#f0f0f0',
+          borderColor: "#f0f0f0",
           row: {
             opacity: 0.1,
           },
