@@ -1,10 +1,15 @@
 <template>
   <div v-if="info" class="overview-wrapper">
-    <div>
-      <button
+    <div v-bind:style="{ height: '270px'}">
+      <!-- <button
         v-if="info.typeName != 'normal'"
         @click="setComponent"
         class="mini"
+      > -->
+      <button
+        v-if="info.typeName != 'normal'"
+        class="mini"
+        :style="[info.typeName == 'มีปันผล' ? {'width': '55px'} : {'width': '115px'}]"
       >
         {{ info.typeName }}
       </button>
@@ -58,9 +63,9 @@
         </div>
       </div>
     </div>
-    <div>
+    <div v-bind:style="{ height: '380px'}">
       <h2>ผลการดำเนินงาน</h2>
-      <br/>
+      <br />
 
       <div id="chart" class="chart-container">
         <VueApexCharts
@@ -499,7 +504,7 @@ a.footer {
   box-sizing: border-box;
   border-radius: 10px;
   height: 21px;
-  width: 55px;
+  width: 115px;
   font-size: 12px;
   line-height: 18px;
   color: #4f2a81;
