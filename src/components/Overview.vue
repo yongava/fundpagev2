@@ -63,14 +63,14 @@
         </div>
       </div>
     </div>
-    <div v-bind:style="{ height: '320px'}">
+    <!-- <div v-bind:style="{ height: '320px'}"> -->
+    <div>
       <h2>ผลการดำเนินงาน</h2>
       <br />
 
       <div id="chart" class="chart-container">
         <VueApexCharts
           type="line"
-          height="300"
           :options="options"
           :series="series"
         ></VueApexCharts>
@@ -103,6 +103,7 @@ export default {
         chart: {
           id: "chart",
           offsetY: 0,
+          offsetX: 0,
           height: '100%',
           width: '100%',
           type: "line",
