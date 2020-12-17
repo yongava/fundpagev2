@@ -36,7 +36,7 @@ export default {
   props: ["info"],
   filters: {
     toDate(value) {
-      return new Date(value).toLocaleDateString("nl",{year:"2-digit",month:"2-digit", day:"2-digit"}).replaceAll("/", "-");
+      return new Date(value).toLocaleDateString("en",{year:"numeric",month:"2-digit", day:"2-digit"}).replaceAll("/", "-");
     },
     toFixed(value) {
       return Number(value).toFixed(4);

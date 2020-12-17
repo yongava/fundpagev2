@@ -247,10 +247,16 @@ export default {
         this.info = data.data;
 
         if (!this.info.isShowDisclaimer) {
-          this.hideModal();
+          this.hideModal(userID);
         }
         else{
           this.$modal.show("disclaimer");
+          if (userID) {
+            const { data } = await this.axios.post(
+              `/user/disclaimer?token=${userID}`
+            );
+            this.access = data;
+          }
         }
 
         if (this.info.typeName == "มีปันผล") {
@@ -259,12 +265,6 @@ export default {
             component: "Dividend",
           });
         }
-      }
-      if (userID) {
-        const { data } = await this.axios.post(
-          `/user/disclaimer?token=${userID}`
-        );
-        this.access = data;
       }
     },
     swipe(direction) {

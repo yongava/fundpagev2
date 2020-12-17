@@ -63,14 +63,14 @@
         </div>
       </div>
     </div>
-    <div v-bind:style="{ height: '380px'}">
+    <div v-bind:style="{ height: '320px'}">
       <h2>ผลการดำเนินงาน</h2>
       <br />
 
       <div id="chart" class="chart-container">
         <VueApexCharts
           type="line"
-          height="350"
+          height="300"
           :options="options"
           :series="series"
         ></VueApexCharts>
@@ -102,7 +102,9 @@ export default {
       options: {
         chart: {
           id: "chart",
-          height: 350,
+          offsetY: 0,
+          height: '100%',
+          width: '100%',
           type: "line",
           toolbar: {
             show: false,
@@ -114,9 +116,24 @@ export default {
             enabled: false,
           },
         },
+        legend: {
+          show: true,
+          offsetX: 0,
+          offsetY: -10,
+        },
+        grid: {
+          show: true,
+          position: 'back',
+          padding: {
+                top: 0,
+                right: 0,
+                bottom: 0,
+                left: 0
+            }
+          },
         colors: [],
         stroke: {
-          width: 3,
+          width: 2.3,
           curve: "smooth",
         },
         xaxis: {
@@ -191,7 +208,7 @@ export default {
   },
   methods: {
     getDate(str) {
-      return new Date(str).toLocaleDateString("ru").replaceAll(".", "-");
+      return new Date(str).toLocaleDateString("en").replaceAll(".", "-");
     },
     setComponent() {
       this.$emit("setComponent", "Dividend");
@@ -215,11 +232,13 @@ export default {
           colors,
           xaxis: {
             categories: date,
-            tickAmount: 10,
+            tickAmount: 12,
+            tickPlacement: 'on',
             labels: {
-              offsetX: 13,
+              offsetX: 10,
               offsetY: 20,
               show: true,
+              // rotate: 90,
               rotate: 45,
               hideOverlappingLabels: true,
               showDuplicates: false,
@@ -256,9 +275,9 @@ export default {
             opacity: 0.1,
           },
           padding: {
-            right: 20,
-            left: -10,
-            bottom: 5,
+            right:0,
+            left: 0,
+            bottom: 0,
           },
           xaxis: {
             lines: {
@@ -268,8 +287,8 @@ export default {
         },
         chart: {
           height: "300px",
-          width: "100%",
-          offsetY: -20,
+          width: "300px",
+          offsetY: -25,
           animations: {
             enabled: false,
           },
