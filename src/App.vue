@@ -243,12 +243,7 @@ export default {
       this.$modal.hide("disclaimer");
       this.disclaimer = false;
       const { data } = await this.axios.post(`/user/disclaimer?token=${this.userID}`);
-      console.log(this.userID)
-      console.log(data)
       this.access = data;
-      this.axios.get(`/fund_info/${this.fundCode}?token=${this.userID}`).then((res) => {
-        console.log(res.data.data)
-      });
     },
     async getData(fundCode, userID) {
       this.userID = userID
