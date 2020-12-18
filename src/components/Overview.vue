@@ -63,7 +63,7 @@
         </div>
       </div>
     </div>
-    <!-- <div v-bind:style="{ height: '320px'}"> -->
+    <!-- <div v-bind:style="{ height: '250px'}"> -->
     <div>
       <h2>ผลการดำเนินงาน</h2>
       <br />
@@ -287,7 +287,7 @@ export default {
           },
         },
         chart: {
-          height: "300px",
+          height: "250px",
           width: "300px",
           offsetY: -25,
           animations: {
@@ -452,7 +452,7 @@ export default {
 }
 
 /* On screens that are 600px wide or less, */
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 600px) {
   .footer-container {
     width: calc(100% - 20px);
   }
@@ -461,13 +461,11 @@ a.footer {
   // position: fixed;
   // left: 0;
   bottom: 0;
+  
   width: 100%;
-
   outline: none;
   border: none;
-
   border-radius: 10px;
-
   height: 50px;
   display: flex;
   align-items: center;
