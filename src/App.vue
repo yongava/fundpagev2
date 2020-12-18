@@ -462,8 +462,12 @@ html {
   color: #fff;
   background: #72559a;
   border-radius: 10px;
-  width: calc(100% - 24px);
-  margin: 12px;
+  width: calc(100% - 33px);
+  // margin: 12px;
+  margin-top: 12px;
+  margin-bottom: 12px;
+  margin-left: 18px;
+  // margin-right: 15px;
   outline: none;
   border: none;
   font-size: 28px;
