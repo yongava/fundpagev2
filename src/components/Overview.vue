@@ -1,6 +1,7 @@
 <template>
   <div v-if="info" class="overview-wrapper">
-    <div v-bind:style="{ height: '270px'}">
+    <!-- <div v-bind:style="{ height: '270px'}"> -->
+    <div>
       <!-- <button
         v-if="info.typeName != 'normal'"
         @click="setComponent"
@@ -287,7 +288,7 @@ export default {
           },
         },
         chart: {
-          height: "250",
+          height: "120%",
           width: "100%",
           offsetY: -25,
           animations: {
@@ -334,6 +335,7 @@ export default {
       // font-family: "kitbold";
       font-size: 28px;
     }
+
     h2 {
       margin-top: 6px;
       margin-bottom: 5px;
@@ -437,32 +439,34 @@ export default {
 .chart-container {
   margin-bottom: 10px !important;
   margin-top: -10px !important;
+  // height: 50vh !important;
 }
 
 .footer-container {
   background: #f1f3f8 !important;
   position: fixed;
   bottom: 0;
-
-  // margin: 0 -20px !important;
   margin-top: 0px;
-  margin-left: -10px;
-  margin-right: 0px;
-  // width: 375px;
+  margin-left: -20px;
+  margin-bottom: 0px !important;
 }
 
 /* On screens that are 600px wide or less, */
 @media screen and (max-width: 1200px) {
   .footer-container {
-    width: calc(100% - 40px);
+    width: calc(100% - 20px);
+  }
+  .chart-container {
+    // height: 50vh !important;
+    height: 30vh !important;
   }
 }
 a.footer {
   // position: fixed;
   // left: 0;
   bottom: 0;
-  
-  width: 100%;
+  margin-left: 10px;
+  width: calc(100% - 20px);
   outline: none;
   border: none;
   border-radius: 10px;
@@ -550,5 +554,8 @@ a.footer {
 }
 .chart-div {
   margin-bottom: 5px;
+  // height: calc(60% - 0px) !important;
+  // height: 50vh !important;
 }
+
 </style>
