@@ -43,7 +43,7 @@
             </tr>
             <tr>
               <td colspan="2">
-                <p class="miniinfo">as of {{ getDate(info.navDate) }}</p>
+                <p class="miniinfo">as of {{ getDate(info.navDate).replaceAll("/", "-") }}</p>
               </td>
             </tr>
           </table>
@@ -450,6 +450,7 @@ export default {
 
   width: 375px;
 }
+
 /* On screens that are 600px wide or less, */
 @media screen and (max-width: 400px) {
   .footer-container {
