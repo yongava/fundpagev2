@@ -64,7 +64,7 @@
       </div>
     </div>
     <!-- <div v-bind:style="{ height: '250px'}"> -->
-    <div>
+    <div class="chart-div">
       <h2>ผลการดำเนินงาน</h2>
       <br />
 
@@ -76,7 +76,7 @@
         ></VueApexCharts>
       </div>
     </div>
-    <div class="footer-container" style="margin-bottom: 0px">
+    <div class="footer-container">
       <a
         target="_blank"
         :href="`https://info.scb.co.th/scbeasy/easy_app_link.html?URI=scbeasy://mutualfunds/discover/${info.fundCode}`"
@@ -287,8 +287,8 @@ export default {
           },
         },
         chart: {
-          height: "250px",
-          width: "300px",
+          height: "250",
+          width: "100%",
           offsetY: -25,
           animations: {
             enabled: false,
@@ -435,7 +435,7 @@ export default {
 }
 
 .chart-container {
-  margin-bottom: -10px !important;
+  margin-bottom: 10px !important;
 }
 
 .footer-container {
@@ -452,7 +452,7 @@ export default {
 }
 
 /* On screens that are 600px wide or less, */
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 1200px) {
   .footer-container {
     width: calc(100% - 20px);
   }
@@ -500,11 +500,11 @@ a.footer {
 }
 
 ::v-deep .apexcharts-canvas {
-  width: 330px !important;
+  // width: 330px !important;
 }
 
 ::v-deep .apexcharts-svg {
-  width: 330px !important;
+  // width: 330px !important;
 }
 
 .up {
@@ -548,5 +548,8 @@ a.footer {
       flex: 1;
     }
   }
+}
+.chart-div {
+  margin-bottom: 50px;
 }
 </style>
