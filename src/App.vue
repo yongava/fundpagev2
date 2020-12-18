@@ -212,7 +212,9 @@ export default {
   },
   data() {
     return {
-      disclaimer: true,
+      userID: null,
+      fundCode: null,
+      disclaimer: false,
       currentComponent: "Overview",
       navigation: [
         {
@@ -237,26 +239,30 @@ export default {
     };
   },
   methods: {
-    hideModal() {
+    async hideModal() {
       this.$modal.hide("disclaimer");
       this.disclaimer = false;
+      const { data } = await this.axios.post(`/user/disclaimer?token=${this.userID}`);
+      console.log(this.userID)
+      console.log(data)
+      this.access = data;
+      this.axios.get(`/fund_info/${this.fundCode}?token=${this.userID}`).then((res) => {
+        console.log(res.data.data)
+      });
     },
     async getData(fundCode, userID) {
+      this.userID = userID
+      this.fundCode = fundCode
       if (fundCode) {
         const { data } = await this.axios.get(`/fund_info/${fundCode}?token=${userID}`);
         this.info = data.data;
-
-        if (!this.info.isShowDisclaimer) {
-          this.hideModal(userID);
+        console.log(this.info.isShowDisclaimer)
+        if (this.info.isShowDisclaimer) {
+          this.$modal.show("disclaimer");
+          this.disclaimer = true
         }
         else{
-          this.$modal.show("disclaimer");
-          if (userID) {
-            const { data } = await this.axios.post(
-              `/user/disclaimer?token=${userID}`
-            );
-            this.access = data;
-          }
+          this.disclaimer = false
         }
 
         if (this.info.typeName == "มีปันผล") {
