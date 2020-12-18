@@ -43,7 +43,7 @@
       <p v-if="info.commissionFee.annotation.length" > หมายเหตุ :<br />{{ info.commissionFee.annotation }}</p>
     </div>
 
-    <div class="footer-container" style="margin-bottom:0px">
+    <div class="footer-container">
       <a target="_blank" :href="info.factSheetURL">Fund Fact Sheet</a>
       <a
         target="_blank"
@@ -201,23 +201,6 @@ export default {
   margin-bottom: 150px;
 }
 
-.footer-container {
-  display: flex;
-  flex-direction: column;
-
-  background: #F1F3F8;
-  position: fixed;
-  bottom: 0;
-
-  width: 375px;
-  margin-top: 0px;
-  margin-left: -20px;
-  margin-right: -20px;
-  border-radius: 10px;
-  margin-bottom: 12px;
-  padding: 12px;
-}
-
 .commission-table th#_th0 {
     width: 28%;
 }
@@ -230,8 +213,34 @@ export default {
 .commission-table th#_th3 {
     width: 35%;
 }
+
+.footer-container {
+  // display: flex;
+  // flex-direction: column;
+
+  // width: 375px;
+  // margin-top: 0px;
+  // margin-left: -20px;
+  // margin-right: -20px;
+  // border-radius: 10px;
+  margin-bottom: 20px;
+  // padding: 12px;
+
+  background: #f1f3f8 !important;
+  position: fixed;
+  bottom: 0;
+
+  // margin: 0 -20px !important;
+  margin-top: 0px;
+  // margin-left: -18px;
+  // margin-right: -20px;
+
+  // width: 375;
+  width: calc(100% - 40px);
+}
+
 /* On screens that are 600px wide or less, */
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 1200) {
   .footer-container {
     width: calc(100% - 20px);
   }

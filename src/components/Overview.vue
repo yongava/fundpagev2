@@ -436,6 +436,7 @@ export default {
 
 .chart-container {
   margin-bottom: 10px !important;
+  margin-top: -10px !important;
 }
 
 .footer-container {
@@ -445,16 +446,15 @@ export default {
 
   // margin: 0 -20px !important;
   margin-top: 0px;
-  margin-left: -18px;
-  margin-right: -20px;
-
-  width: 375px;
+  margin-left: -10px;
+  margin-right: 0px;
+  // width: 375px;
 }
 
 /* On screens that are 600px wide or less, */
 @media screen and (max-width: 1200px) {
   .footer-container {
-    width: calc(100% - 20px);
+    width: calc(100% - 40px);
   }
 }
 a.footer {
@@ -491,7 +491,6 @@ a.footer {
     width: 100%;
     outline: none;
     border: none;
-    // font-size: 18px;
     font-size: 28px;
     font-family: "kitbold";
     font-style: "medium";
@@ -550,6 +549,6 @@ a.footer {
   }
 }
 .chart-div {
-  margin-bottom: 50px;
+  margin-bottom: 5px;
 }
 </style>
