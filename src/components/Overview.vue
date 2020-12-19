@@ -69,6 +69,7 @@
 
       <div id="chart" class="chart-container">
         <VueApexCharts
+          height="110%"
           type="line"
           :options="options"
           :series="series"
@@ -102,6 +103,7 @@ export default {
       options: {
         chart: {
           id: "chart",
+          height:'110%',
           offsetY: 0,
           offsetX: 0,
           type: "line",
@@ -230,7 +232,7 @@ export default {
         ...this.options,
         ...{
           chart: {
-            height:'100%',
+            height:'110%',
             offsetY: 0,
             animations: {
               enabled: false,
