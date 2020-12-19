@@ -43,6 +43,9 @@
       <p v-if="info.commissionFee.annotation.length" > หมายเหตุ :<br />{{ info.commissionFee.annotation }}</p>
     </div>
 
+    <div style="height: 50px">
+    </div>
+
     <div class="footer-container">
       <a target="_blank" :href="info.factSheetURL">Fund Fact Sheet</a>
       <a
@@ -221,6 +224,12 @@ export default {
   margin-top: 0px;
   margin-bottom: 10px !important;
   width: calc(100% - 40px);
+}
+
+@media screen and (max-height: 700px) {
+  .container{
+    height: calc(100vh + 20px) !important;
+  }
 }
 
 </style>
