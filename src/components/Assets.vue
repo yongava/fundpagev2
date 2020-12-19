@@ -48,12 +48,14 @@ export default {
         "#EA5A8D",
         "#AB5DA2",
       ],
-      series: [
-      ],
+      series: [],
       chartOptions: {
         chart: {
           type: "donut",
           offsetY: -20,
+          animations: {
+            enabled: false,
+          },
         },
         legend: {
           show: false,
@@ -77,6 +79,7 @@ export default {
             return val.toFixed(2) + "%";
           },
           style: {
+            fontSize: "10px",
             colors: ["transparent"],
           },
           background: {
@@ -88,7 +91,7 @@ export default {
         plotOptions: {
           pie: {
             donut: {
-              size: "70%",
+              size: "65%",
             },
           },
         },
@@ -116,7 +119,7 @@ export default {
   },
   watch: {
     info(val) {
-      console.log(this.info)
+      console.log(this.info);
       if (val.fundAsset.length) {
         this.initChart();
       }
