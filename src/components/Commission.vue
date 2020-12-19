@@ -146,7 +146,7 @@ export default {
 
     &:last-child {
       margin-top: 5px;
-      margin-bottom: 10px !important;
+      margin-bottom: 20px !important;
     }
     
     width: calc(100% - 20px);
@@ -232,7 +232,7 @@ export default {
 
 @media screen and (max-height: 700px) {
   .container{
-    height: calc(100vh + 20px) !important;
+    height: calc(100vh + 30px) !important;
   }
 }
 

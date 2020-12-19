@@ -469,13 +469,14 @@ export default {
     height: 250px !important;
   }
   .chart-div {
-    height: 350px !important;
+    height: 360px !important;
   }
 }
 
 a.footer {
   bottom: 0;
   margin-left: 10px;
+  margin-bottom: 10px;
   width: calc(100% - 20px);
   outline: none;
   border: none;
