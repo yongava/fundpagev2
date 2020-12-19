@@ -1,12 +1,6 @@
 <template>
   <div v-if="info" class="overview-wrapper">
-    <!-- <div v-bind:style="{ height: '270px'}"> -->
     <div>
-      <!-- <button
-        v-if="info.typeName != 'normal'"
-        @click="setComponent"
-        class="mini"
-      > -->
       <button
         v-if="info.typeName != 'normal'"
         class="mini"
@@ -70,11 +64,7 @@
       <br />
 
       <div id="chart" class="chart-container">
-        <VueApexCharts
-          type="line"
-          :options="options"
-          :series="series"
-        ></VueApexCharts>
+        <VueApexCharts type="line" :options="options" :series="series" />
       </div>
     </div>
     <div class="footer-container">
@@ -105,8 +95,6 @@ export default {
           id: "chart",
           offsetY: 0,
           offsetX: 0,
-          height: '100%',
-          width: '100%',
           type: "line",
           toolbar: {
             show: false,
@@ -216,6 +204,7 @@ export default {
       this.$emit("setComponent", "Dividend");
     },
     initChart() {
+      console.log(window.screen.height - 250)
       const data = this.info.navChart.map((item) => ({
         name: item.displayName,
         data: item.price.map((val) => val.value),
@@ -288,9 +277,8 @@ export default {
           },
         },
         chart: {
-          height: "110%",
-          width: "100%",
-          // offsetY: 0,
+          width: '100%',
+          offsetY: 0,
           animations: {
             enabled: false,
           },

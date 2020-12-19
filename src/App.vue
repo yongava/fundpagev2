@@ -251,7 +251,6 @@ export default {
       if (fundCode) {
         const { data } = await this.axios.get(`/fund_info/${fundCode}?token=${userID}`);
         this.info = data.data;
-        console.log(this.info.isShowDisclaimer)
         if (this.info.isShowDisclaimer) {
           this.$modal.show("disclaimer");
           this.disclaimer = true
