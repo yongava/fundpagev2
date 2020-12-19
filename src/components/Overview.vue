@@ -288,9 +288,9 @@ export default {
           },
         },
         chart: {
-          height: "120%",
+          height: "110%",
           width: "100%",
-          offsetY: -25,
+          // offsetY: 0,
           animations: {
             enabled: false,
           },
@@ -438,8 +438,6 @@ export default {
 
 .chart-container {
   margin-bottom: 10px !important;
-  margin-top: -10px !important;
-  // height: 50vh !important;
 }
 
 .footer-container {
@@ -451,19 +449,20 @@ export default {
   margin-bottom: 0px !important;
 }
 
-/* On screens that are 600px wide or less, */
+/* On screens that are 1200px wide or less, */
 @media screen and (max-width: 1200px) {
   .footer-container {
     width: calc(100% - 20px);
   }
   .chart-container {
-    // height: 50vh !important;
+    // height: 30vh !important;
+    margin-top: -30px !important;
+    margin-left: -5px !important;
+    width: calc(100% - 0px);
     height: 30vh !important;
   }
 }
 a.footer {
-  // position: fixed;
-  // left: 0;
   bottom: 0;
   margin-left: 10px;
   width: calc(100% - 20px);
@@ -554,8 +553,6 @@ a.footer {
 }
 .chart-div {
   margin-bottom: 5px;
-  // height: calc(60% - 0px) !important;
-  // height: 50vh !important;
 }
 
 </style>

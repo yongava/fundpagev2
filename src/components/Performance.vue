@@ -343,4 +343,5 @@ export default {
 .chart-container {
   margin-bottom: -10px !important;
 }
+
 </style>

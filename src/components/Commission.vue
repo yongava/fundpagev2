@@ -215,34 +215,12 @@ export default {
 }
 
 .footer-container {
-  // display: flex;
-  // flex-direction: column;
-
-  // width: 375px;
-  // margin-top: 0px;
-  // margin-left: -20px;
-  // margin-right: -20px;
-  // border-radius: 10px;
-  margin-bottom: 20px;
-  // padding: 12px;
-
   background: #f1f3f8 !important;
   position: fixed;
   bottom: 0;
-
-  // margin: 0 -20px !important;
   margin-top: 0px;
-  // margin-left: -18px;
-  // margin-right: -20px;
-
-  // width: 375;
+  margin-bottom: 10px !important;
   width: calc(100% - 40px);
 }
 
-/* On screens that are 600px wide or less, */
-@media screen and (max-width: 1200) {
-  .footer-container {
-    width: calc(100% - 20px);
-  }
-}
 </style>
