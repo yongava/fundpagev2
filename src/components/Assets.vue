@@ -73,6 +73,9 @@ export default {
           },
         ],
         dataLabels: {
+          formatter: function (val) {
+            return val.toFixed(2) + "%";
+          },
           style: {
             colors: ["transparent"],
           },
