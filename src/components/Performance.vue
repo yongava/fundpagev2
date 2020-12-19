@@ -87,13 +87,12 @@ export default {
             },
           },
         },
-
         dataLabels: {
           enabled: true,
           formatter: function (val) {
             return val + "%";
           },
-          offsetY: -20,
+          offsetY: -15,
           style: {
             fontSize: "10px",
             colors: ["#724F96"],
@@ -106,28 +105,54 @@ export default {
         },
         xaxis: {
           categories: [],
+          axisBorder: {
+            show: false,
+            offsetX: 0,
+            offsetY: 0,
+          },
+          axisTicks: {
+            show: false,
+            offsetX: 0,
+            offsetY: 0,
+          },
           labels: {
             offsetY: -5,
             style: {
-              colors: ["#525252"],
+              colors: "#a0a0a0",
               fontSize: "10px",
             },
           },
         },
         yaxis: {
+          max: (max) => {
+            return Math.ceil(max * 1.2);
+          },
+          min: (min) => {
+            return Math.floor(min * 1.2);
+          },
+          axisBorder: {
+            show: false,
+            offsetX: 0,
+            offsetY: 0,
+          },
+          axisTicks: {
+            show: false,
+            offsetX: 0,
+            offsetY: 0,
+          },
           title: {
             text: "",
           },
           labels: {
             offsetX: -15,
             style: {
-              colors: ["#525252"],
+              colors: "#a0a0a0",
               fontSize: "10px",
             },
           },
         },
         grid: {
-          borderColor: '#f0f0f0',
+          borderColor: "#f0f0f0",
           padding: {
             right: 20,
             left: -10,
@@ -136,9 +161,8 @@ export default {
             lines: {
               show: true,
             },
-          }
+          },
         },
-
         fill: {
           opacity: 1,
           //colors: ["#724F96"],
@@ -196,13 +220,11 @@ export default {
           formatter: function (val) {
             return val + "%";
           },
-          offsetY: -20,
+          offsetY: -15,
           style: {
             fontSize: "10px",
             colors: ["#724F96"],
-            
           },
-          
         },
         stroke: {
           show: true,
@@ -211,28 +233,55 @@ export default {
         },
         xaxis: {
           categories: [],
+          axisBorder: {
+            show: false,
+            offsetX: 0,
+            offsetY: 0,
+          },
+          axisTicks: {
+            show: false,
+            offsetX: 0,
+            offsetY: 0,
+          },
           labels: {
             offsetY: -5,
             style: {
-              colors: ["#525252"],
+              colors: "#a0a0a0",
               fontSize: "10px",
             },
           },
         },
         yaxis: {
+          max: (max) => {
+            // console.log(`Max value: ${max}`);
+            return Math.ceil(max * 1.2);
+          },
+          min: (min) => {
+            return Math.floor(min * 1.2);
+          },
+          axisBorder: {
+            show: false,
+            offsetX: 0,
+            offsetY: 0,
+          },
+          axisTicks: {
+            show: false,
+            offsetX: 0,
+            offsetY: 0,
+          },
           title: {
             text: "",
           },
           labels: {
             offsetX: -15,
             style: {
-              colors: ["#525252"],
+              colors: "#a0a0a0",
               fontSize: "10px",
             },
           },
         },
         grid: {
-          borderColor: '#f0f0f0',
+          borderColor: "#f0f0f0",
           padding: {
             right: 20,
             left: -10,
@@ -241,7 +290,7 @@ export default {
             lines: {
               show: true,
             },
-          }
+          },
         },
         fill: {
           opacity: 1,
@@ -343,5 +392,4 @@ export default {
 .chart-container {
   margin-bottom: -10px !important;
 }
-
 </style>
