@@ -277,6 +277,7 @@ export default {
           },
         },
         chart: {
+          height: '110%',
           width: '100%',
           offsetY: 0,
           animations: {
