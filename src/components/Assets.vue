@@ -54,7 +54,7 @@ export default {
           type: "donut",
           offsetY: -20,
           animations: {
-            enabled: false,
+            enabled: true,
           },
         },
         legend: {
@@ -106,14 +106,14 @@ export default {
     assets() {
       return this.info.fundAsset.names.map((item, i) => ({
         name: item,
-        value: this.info.fundAsset.assetPctValue[i],
+        value: this.info.fundAsset.assetPctValue[i].toFixed(2),
         color: this.colors[i],
       }));
     },
     topAssets() {
       return this.info.topAsset.names.map((item, i) => ({
         name: item,
-        value: this.info.topAsset.assetPctValue[i],
+        value: this.info.topAsset.assetPctValue[i].toFixed(2),
       }));
     },
   },
