@@ -68,7 +68,11 @@
       <br />
 
       <div id="chart" class="chart-container">
-        <VueApexCharts type="line" :options="options" :series="series" />
+        <VueApexCharts
+          type="line"
+          :options="options"
+          :series="series"
+        />
       </div>
       <div></div>
     </div>
@@ -225,6 +229,19 @@ export default {
       this.options = {
         ...this.options,
         ...{
+          chart: {
+            height:'100%',
+            offsetY: 0,
+            animations: {
+              enabled: false,
+            },
+            toolbar: {
+              show: false,
+              tools: {
+                download: false,
+              },
+            },
+          },
           colors,
           xaxis: {
             categories: date,
@@ -277,20 +294,6 @@ export default {
           xaxis: {
             lines: {
               show: true,
-            },
-          },
-        },
-        chart: {
-          height: "110%",
-          width: "100%",
-          offsetY: 0,
-          animations: {
-            enabled: false,
-          },
-          toolbar: {
-            show: false,
-            tools: {
-              download: false,
             },
           },
         },
@@ -452,9 +455,10 @@ export default {
     margin-top: -30px !important;
     margin-left: -5px !important;
     width: calc(100% - 0px);
-    height: 30vh !important;
+    height: 35vh !important;
   }
 }
+
 @media screen and (max-height: 700px) {
   .chart-container {
     margin-top: -30px !important;
