@@ -1,10 +1,10 @@
 <template>
   <div v-if="info" class="overview-wrapper">
-    <div>
+    <div class="overview-div">
       <button
         v-if="info.typeName != 'normal'"
         class="mini"
-        :style="[info.typeName == 'มีปันผล' ? {'width': '55px'} : {'width': '115px'}]"
+        :style="[info.typeName == 'มีปันผล' ? {'width': '55px'} : {'width': '125px'}]"
       >
         {{ info.typeName }}
       </button>
@@ -65,6 +65,8 @@
 
       <div id="chart" class="chart-container">
         <VueApexCharts type="line" :options="options" :series="series" />
+      </div>
+      <div>
       </div>
     </div>
     <div class="footer-container">
@@ -451,6 +453,17 @@ export default {
     height: 30vh !important;
   }
 }
+@media screen and (max-height: 600px) {
+  .chart-container {
+    margin-top: -30px !important;
+    margin-left: -5px !important;
+    width: calc(100% - 0px);
+    height: 200px !important;
+  }
+}
+
+
+
 a.footer {
   bottom: 0;
   margin-left: 10px;
@@ -541,7 +554,7 @@ a.footer {
   }
 }
 .chart-div {
-  margin-bottom: 5px;
+  margin-bottom: 50px;
 }
 
 </style>
