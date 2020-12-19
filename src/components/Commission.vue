@@ -146,7 +146,10 @@ export default {
 
     &:last-child {
       margin-top: 5px;
+      margin-bottom: 10px !important;
     }
+    
+    width: calc(100% - 20px);
   }
 
   table {
@@ -222,8 +225,9 @@ export default {
   position: fixed;
   bottom: 0;
   margin-top: 0px;
-  margin-bottom: 10px !important;
-  width: calc(100% - 40px);
+  margin-left: 0px;
+  margin-bottom: 0px;
+  width: calc(100% - 20px);
 }
 
 @media screen and (max-height: 700px) {
