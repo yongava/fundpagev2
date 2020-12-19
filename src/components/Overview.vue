@@ -4,7 +4,9 @@
       <button
         v-if="info.typeName != 'normal'"
         class="mini"
-        :style="[info.typeName == 'มีปันผล' ? {'width': '55px'} : {'width': '125px'}]"
+        :style="[
+          info.typeName == 'มีปันผล' ? { width: '55px' } : { width: '125px' },
+        ]"
       >
         {{ info.typeName }}
       </button>
@@ -31,14 +33,16 @@
               <td class="table__td"><span>YTD</span></td>
               <td class="table__td">
                 <span :class="info.ytd >= 0 ? 'up' : 'down'">
-                  {{ info.ytd | toFixed(2) }}%
                   <span v-html="info.ytd >= 0 ? '&#9650;' : '&#9660;'"></span>
+                  {{ info.ytd | toFixed(2) }}%
                 </span>
               </td>
             </tr>
             <tr>
               <td colspan="2">
-                <p class="miniinfo">as of {{ getDate(info.navDate).replaceAll("/", "-") }}</p>
+                <p class="miniinfo">
+                  as of {{ getDate(info.navDate).replaceAll("/", "-") }}
+                </p>
               </td>
             </tr>
           </table>
@@ -66,8 +70,7 @@
       <div id="chart" class="chart-container">
         <VueApexCharts type="line" :options="options" :series="series" />
       </div>
-      <div>
-      </div>
+      <div></div>
     </div>
     <div class="footer-container">
       <a
@@ -115,14 +118,14 @@ export default {
         },
         grid: {
           show: true,
-          position: 'back',
+          position: "back",
           padding: {
-                top: 0,
-                right: 0,
-                bottom: 0,
-                left: 0
-            }
+            top: 0,
+            right: 0,
+            bottom: 0,
+            left: 0,
           },
+        },
         colors: [],
         stroke: {
           width: 2.3,
@@ -195,7 +198,7 @@ export default {
       return Number(value).toFixed(fix);
     },
     toLocale(value) {
-      return Number(value).toLocaleString("en");
+      return Number(value).toLocaleString("en", { minimumFractionDigits: 2 });
     },
   },
   methods: {
@@ -206,7 +209,7 @@ export default {
       this.$emit("setComponent", "Dividend");
     },
     initChart() {
-      console.log(window.screen.height - 250)
+      console.log(window.screen.height - 250);
       const data = this.info.navChart.map((item) => ({
         name: item.displayName,
         data: item.price.map((val) => val.value),
@@ -226,18 +229,17 @@ export default {
           xaxis: {
             categories: date,
             tickAmount: 12,
-            tickPlacement: 'on',
+            tickPlacement: "on",
             labels: {
               offsetX: 10,
               offsetY: 20,
               show: true,
-              // rotate: 90,
               rotate: 45,
               hideOverlappingLabels: true,
               showDuplicates: false,
               trim: true,
               style: {
-                colors: ["#525252"],
+                colors: "#a0a0a0",
                 fontSize: "10px",
               },
             },
@@ -253,7 +255,7 @@ export default {
             labels: {
               offsetX: -15,
               style: {
-                colors: ["#525252"],
+                colors: "#a0a0a0",
                 fontSize: "10px",
               },
             },
@@ -268,7 +270,7 @@ export default {
             opacity: 0.1,
           },
           padding: {
-            right:0,
+            right: 0,
             left: 0,
             bottom: 0,
           },
@@ -279,8 +281,8 @@ export default {
           },
         },
         chart: {
-          height: '110%',
-          width: '100%',
+          height: "110%",
+          width: "100%",
           offsetY: 0,
           animations: {
             enabled: false,
@@ -453,16 +455,17 @@ export default {
     height: 30vh !important;
   }
 }
-@media screen and (max-height: 600px) {
+@media screen and (max-height: 700px) {
   .chart-container {
     margin-top: -30px !important;
     margin-left: -5px !important;
     width: calc(100% - 0px);
-    height: 200px !important;
+    height: 250px !important;
+  }
+  .chart-div {
+    height: 350px !important;
   }
 }
-
-
 
 a.footer {
   bottom: 0;
@@ -556,5 +559,4 @@ a.footer {
 .chart-div {
   margin-bottom: 50px;
 }
-
 </style>
