@@ -34,7 +34,7 @@
               <td class="table__td">
                 <span :class="info.ytd >= 0 ? 'up' : 'down'">
                   <span v-html="info.ytd >= 0 ? '&#9650;' : '&#9660;'" style="font-size: 17px;"></span>
-                  {{ info.ytd | toFixed(2) }}%
+                  <span style="margin-left: -5px;"> {{ info.ytd | numtoStr(2) }}%</span>
                 </span>
               </td>
             </tr>
@@ -200,6 +200,9 @@ export default {
     },
   },
   filters: {
+    numtoStr(value, fix) {
+      return (Number(value)<0?"":"+") + Number(value).toFixed(fix);
+    },
     toFixed(value, fix) {
       return Number(value).toFixed(fix);
     },
