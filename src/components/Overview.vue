@@ -212,7 +212,7 @@ export default {
   },
   methods: {
     getDate(str) {
-      return new Date(str).toLocaleDateString("en").replaceAll(".", "-");
+      return new Date(str).toLocaleDateString("en-GB").replaceAll(".", "-");
     },
     setComponent() {
       this.$emit("setComponent", "Dividend");
