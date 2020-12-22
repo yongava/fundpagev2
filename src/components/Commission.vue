@@ -48,11 +48,7 @@
 
     <div class="footer-container">
       <a target="_blank" :href="info.factSheetURL">Fund Fact Sheet</a>
-      <a
-        target="_blank"
-        :href="`https://www.scbam.com/th/fund/morningstar/fund-information/${info.fundCode}`"
-        >ข้อมูลเพิ่มเติม</a
-      >
+      <a target="_blank" :href="info.webURL">ข้อมูลเพิ่มเติม</a>
     </div>
   </div>
 </template>
