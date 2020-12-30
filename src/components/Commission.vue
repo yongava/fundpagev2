@@ -82,6 +82,15 @@ export default {
       return Number(value).toFixed(2);
     },
   },
+  mounted(){
+    const urlParams = new URLSearchParams(window.location.search);
+    const fundCode = urlParams.get("FundCode");
+    const userID = urlParams.get("UserID");
+    this.$mixpanel.track('Commission', {
+        fundCode: fundCode,
+        userID: userID
+    });
+  }
 };
 </script>
 

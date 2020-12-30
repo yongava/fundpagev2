@@ -216,6 +216,15 @@ export default {
     },
   },
   methods: {
+    statTrack(){
+    const urlParams = new URLSearchParams(window.location.search);
+    const fundCode = urlParams.get("FundCode");
+    const userID = urlParams.get("UserID");
+    this.$mixpanel.track('Overview', {
+        fundCode: fundCode,
+        userID: userID
+    });
+    },
     getDate(str) {
       return new Date(str).toLocaleDateString("en-GB").replaceAll(".", "-");
     },
@@ -313,6 +322,7 @@ export default {
   mounted() {
     if (this.info) {
       this.initChart();
+      this.statTrack();
     }
   },
 };

@@ -243,6 +243,16 @@ export default {
     };
   },
   methods: {
+    statTrack(){
+    const urlParams = new URLSearchParams(window.location.search);
+    const fundCode = urlParams.get("FundCode");
+    const userID = urlParams.get("UserID");
+    this.$mixpanel.track('Change Page', {
+        fundCode: fundCode,
+        userID: userID
+    });
+    console.log('Change Page');
+    },
     async hideModal() {
       this.$modal.hide("disclaimer");
       this.disclaimer = false;
@@ -286,6 +296,7 @@ export default {
       );
     },
     setComponent(component) {
+      
       this.currentComponent = component;
     },
   },
