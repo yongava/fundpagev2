@@ -41,7 +41,7 @@
             <tr>
               <td colspan="2">
                 <p class="miniinfo">
-                  as of {{ getDate(info.navDate).replaceAll("/", "-") }}
+                  as of {{ getDate(info.navDate).replace("/", "-").replace("/", "-") }}
                 </p>
               </td>
             </tr>
@@ -226,7 +226,7 @@ export default {
     });
     },
     getDate(str) {
-      return new Date(str).toLocaleDateString("en-GB").replaceAll(".", "-");
+      return new Date(str).toLocaleDateString("en-GB");
     },
     setComponent() {
       this.$emit("setComponent", "Dividend");
