@@ -313,7 +313,7 @@ export default {
         fundCode: fundCode,
         userID: userID,
         msg: searchMsg,
-        selectedFundCode: userID,
+        selectedFundCode: fundCode,
         fundCodes: codeLists,
     });
 
