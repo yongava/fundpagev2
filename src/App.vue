@@ -317,11 +317,23 @@ export default {
       fundCodes: codeLists,
     });
 
-    this.axios.post("https://lineoa-dev.ava.fund/stats", {
-      userId: userID,
-      msg: searchMsg,
-      fundCodes: codeLists,
-      selectedFundCode: fundCode,
+
+    const options = {
+      method: 'POST',
+      url: 'https://lineoa-dev.ava.fund/stats',
+      headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+      data: {
+        userId: userID,
+        msg: searchMsg,
+        fundCodes: codeLists,
+        selectedFundCode: fundCode
+      }
+    };
+
+    this.axios.request(options).then(function (response) {
+      console.log(response.data);
+    }).catch(function (error) {
+      console.error(error);
     });
 
     // this.$modal.show("disclaimer");
