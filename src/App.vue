@@ -243,16 +243,16 @@ export default {
     };
   },
   methods: {
-    statTrack(){
-    const urlParams = new URLSearchParams(window.location.search);
-    const fundCode = urlParams.get("FundCode");
-    const userID = urlParams.get("UserID");
+    statTrack() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const fundCode = urlParams.get("FundCode");
+      const userID = urlParams.get("UserID");
 
-    this.$mixpanel.track('Change Page', {
+      this.$mixpanel.track("Change Page", {
         fundCode: fundCode,
         userID: userID,
-    });
-    console.log('Change Page');
+      });
+      console.log("Change Page");
     },
     async hideModal() {
       this.$modal.hide("disclaimer");
@@ -297,7 +297,6 @@ export default {
       );
     },
     setComponent(component) {
-      
       this.currentComponent = component;
     },
   },
@@ -309,18 +308,25 @@ export default {
     const codeLists = urlParams.get("FundCodeList");
 
     this.getData(fundCode, userID);
-    this.$mixpanel.track('Log_in', {
-        fundCode: fundCode,
-        userID: userID,
-        msg: searchMsg,
-        selectedFundCode: fundCode,
-        fundCodes: codeLists,
+
+    this.$mixpanel.track("Log_in", {
+      fundCode: fundCode,
+      userID: userID,
+      msg: searchMsg,
+      selectedFundCode: fundCode,
+      fundCodes: codeLists,
+    });
+
+    this.axios.post("https://lineoa-dev.ava.fund/stats", {
+      userId: userID,
+      msg: searchMsg,
+      fundCodes: codeLists,
+      selectedFundCode: fundCode,
     });
 
     // this.$modal.show("disclaimer");
   },
 };
-
 </script>
 
 <style lang="scss">
