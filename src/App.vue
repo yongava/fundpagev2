@@ -247,9 +247,10 @@ export default {
     const urlParams = new URLSearchParams(window.location.search);
     const fundCode = urlParams.get("FundCode");
     const userID = urlParams.get("UserID");
+
     this.$mixpanel.track('Change Page', {
         fundCode: fundCode,
-        userID: userID
+        userID: userID,
     });
     console.log('Change Page');
     },
@@ -304,11 +305,16 @@ export default {
     const urlParams = new URLSearchParams(window.location.search);
     const fundCode = urlParams.get("FundCode");
     const userID = urlParams.get("UserID");
+    const searchMsg = urlParams.get("Msg");
+    const codeLists = urlParams.get("FundCodeList");
 
     this.getData(fundCode, userID);
     this.$mixpanel.track('Log_in', {
         fundCode: fundCode,
-        userID: userID
+        userID: userID,
+        msg: searchMsg,
+        selectedFundCode: userID,
+        fundCodes: codeLists,
     });
 
     // this.$modal.show("disclaimer");
