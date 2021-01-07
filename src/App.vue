@@ -317,49 +317,29 @@ export default {
       fundCodes: codeLists,
     });
 
-    const options = {
-      method: "POST",
-      url: "http://e84673728d87.ngrok.io/stats",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      data: {
-        userId: userID,
-        msg: searchMsg,
-        fundCodes: codeLists,
-        selectedFundCode: fundCode,
-      }
+    var qs = require("qs");
+    var data = qs.stringify({
+      userId: userID,
+      msg: searchMsg,
+      fundCodes: codeLists,
+      selectedFundCode: fundCode,
+    });
+    var config = {
+      method: "post",
+      url: "https://lineoa-dev.ava.fund/stats",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+      data: data,
     };
 
-    this.axios
-      .request(options)
+    this.axios(config)
       .then(function (response) {
-        console.log(response.data);
+        console.log(JSON.stringify(response.data));
       })
       .catch(function (error) {
-        console.error(error);
+        console.log(error);
       });
-
-    // const options = {
-    //   method: "POST",
-    //   url: "https://lineoa-dev.ava.fund/stats",
-    //   headers: { "Content-Type": "application/x-www-form-urlencoded" },
-    //   data: {
-    //     userId: userID,
-    //     msg: searchMsg,
-    //     fundCodes: codeLists,
-    //     selectedFundCode: fundCode,
-    //   }
-    // };
-
-    // this.axios
-    //   .request(options2)
-    //   .then(function (response) {
-    //     console.log(response.data);
-    //   })
-    //   .catch(function (error) {
-    //     console.error(error);
-    //   });
-
-    // "https://lineoa-dev.ava.fund/stats
 
     // this.$modal.show("disclaimer");
   },
