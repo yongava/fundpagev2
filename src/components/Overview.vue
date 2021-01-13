@@ -33,15 +33,23 @@
               <td class="table__td"><span>YTD</span></td>
               <td class="table__td">
                 <span :class="info.ytd >= 0 ? 'up' : 'down'">
-                  <span v-html="info.ytd >= 0 ? '&#9650;' : '&#9660;'" style="font-size: 17px;"></span>
-                  <span style="margin-left: -5px;"> {{ info.ytd | numtoStr(2) }}%</span>
+                  <span
+                    v-html="info.ytd >= 0 ? '&#9650;' : '&#9660;'"
+                    style="font-size: 17px"
+                  ></span>
+                  <span style="margin-left: -5px">
+                    {{ info.ytd | numtoStr(2) }}%</span
+                  >
                 </span>
               </td>
             </tr>
             <tr>
               <td colspan="2">
                 <p class="miniinfo">
-                  as of {{ getDate(info.navDate).replace("/", "-").replace("/", "-") }}
+                  as of
+                  {{
+                    getDate(info.navDate).replace("/", "-").replace("/", "-")
+                  }}
                 </p>
               </td>
             </tr>
@@ -83,11 +91,7 @@
         :href="`https://info.scb.co.th/scbeasy/easy_app_link.html?URI=scbeasy://mutualfunds/discover/${info.fundCode}`"
         class="footer"
       > -->
-      <a
-        target="_blank"
-        :href="`${info.scbeasyLink}`"
-        class="footer"
-      >
+      <a target="_blank" :href="`${info.scbeasyLink}`" class="footer">
         ซื้อกองทุน {{ info.fundCode }}
       </a>
     </div>
@@ -108,7 +112,7 @@ export default {
       options: {
         chart: {
           id: "chart",
-          height:'110%',
+          height: "110%",
           offsetY: 0,
           offsetX: 0,
           type: "line",
@@ -206,7 +210,7 @@ export default {
   },
   filters: {
     numtoStr(value, fix) {
-      return (Number(value)<0?"":"+") + Number(value).toFixed(fix);
+      return (Number(value) < 0 ? "" : "+") + Number(value).toFixed(fix);
     },
     toFixed(value, fix) {
       return Number(value).toFixed(fix);
@@ -216,14 +220,14 @@ export default {
     },
   },
   methods: {
-    statTrack(){
-    const urlParams = new URLSearchParams(window.location.search);
-    const fundCode = urlParams.get("FundCode");
-    const userID = urlParams.get("UserID");
-    this.$mixpanel.track('Overview', {
+    statTrack() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const fundCode = urlParams.get("FundCode");
+      const userID = urlParams.get("UserID");
+      this.$mixpanel.track("Overview", {
         fundCode: fundCode,
-        userID: userID
-    });
+        userID: userID,
+      });
     },
     getDate(str) {
       return new Date(str).toLocaleDateString("en-GB");
@@ -249,7 +253,7 @@ export default {
         ...this.options,
         ...{
           chart: {
-            height:'110%',
+            height: "110%",
             offsetY: 0,
             animations: {
               enabled: false,
@@ -260,6 +264,10 @@ export default {
                 download: false,
               },
             },
+          },
+          stroke: {
+            show: true,
+            curve: "straight",
           },
           colors,
           xaxis: {
