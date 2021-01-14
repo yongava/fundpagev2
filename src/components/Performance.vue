@@ -90,13 +90,8 @@ export default {
         dataLabels: {
           enabled: true,
           formatter: function (val) {
-            if (val > 0) {
-              val =  val.toFixed(2) + "%";
-            }
-            else{
-               val =  '';
-            }
-            return val
+            val = val.toFixed(2) + "%";
+            return val;
           },
           offsetY: -15,
           style: {
@@ -130,6 +125,7 @@ export default {
           },
         },
         yaxis: {
+          forceNiceScale: true,
           max: (max) => {
             return Math.ceil(max * 1.2);
           },
@@ -224,13 +220,8 @@ export default {
         dataLabels: {
           enabled: true,
           formatter: function (val) {
-            if (val > 0) {
-              val =  val.toFixed(2) + "%";
-            }
-            else{
-               val =  '';
-            }
-            return val
+            val = val.toFixed(2) + "%";
+            return val;
           },
           offsetY: -15,
           style: {
@@ -264,6 +255,9 @@ export default {
           },
         },
         yaxis: {
+          show: (show) => {
+            return show;
+          },
           max: (max) => {
             // console.log(`Max value: ${max}`);
             return Math.ceil(max * 1.2);
@@ -284,7 +278,17 @@ export default {
           title: {
             text: "",
           },
+          forceNiceScale: true,
           labels: {
+            formatter: function (val) {
+              if (val=='Infinity') {
+                val = "";
+              }
+              else{
+                val = val.toFixed(2)
+              }
+              return val;
+            },
             offsetX: -15,
             style: {
               colors: "#a0a0a0",
@@ -368,9 +372,9 @@ export default {
     const urlParams = new URLSearchParams(window.location.search);
     const fundCode = urlParams.get("FundCode");
     const userID = urlParams.get("UserID");
-    this.$mixpanel.track('Performance', {
-        fundCode: fundCode,
-        userID: userID
+    this.$mixpanel.track("Performance", {
+      fundCode: fundCode,
+      userID: userID,
     });
   },
 };
