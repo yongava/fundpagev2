@@ -90,7 +90,13 @@ export default {
         dataLabels: {
           enabled: true,
           formatter: function (val) {
-            return val.toFixed(2) + "%";
+            if (val > 0) {
+              val =  val.toFixed(2) + "%";
+            }
+            else{
+               val =  '';
+            }
+            return val
           },
           offsetY: -15,
           style: {
@@ -218,7 +224,13 @@ export default {
         dataLabels: {
           enabled: true,
           formatter: function (val) {
-            return val.toFixed(2) + "%";
+            if (val > 0) {
+              val =  val.toFixed(2) + "%";
+            }
+            else{
+               val =  '';
+            }
+            return val
           },
           offsetY: -15,
           style: {
