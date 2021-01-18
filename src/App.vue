@@ -326,7 +326,7 @@ export default {
     });
     var config = {
       method: "post",
-      url: "https://scbam-lineoa-dev.ava.fund/stats",
+      url: "https://scbam-lineoa-line.ava.fund/stats",
       headers: {
         "Content-Type": "application/x-www-form-urlencoded",
       },
