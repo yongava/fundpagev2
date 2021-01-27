@@ -7,12 +7,12 @@ import VueAxios from 'vue-axios'
 import VueTouch from 'vue-touch';
 import VueMixpanel from 'vue-mixpanel'
 
-Vue.use(VueMixpanel, {
-    token: "",
-    config: {
-      debug: true
-    }
-  })
+// Vue.use(VueMixpanel, {
+//     token: "",
+//     config: {
+//       debug: true
+//     }
+//   })
 
 const urlParams = new URLSearchParams(window.location.search);
 const fundCode = urlParams.get("FundCode");

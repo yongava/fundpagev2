@@ -248,10 +248,10 @@ export default {
       const fundCode = urlParams.get("FundCode");
       const userID = urlParams.get("UserID");
 
-      this.$mixpanel.track("Change Page", {
-        fundCode: fundCode,
-        userID: userID,
-      });
+      // this.$mixpanel.track("Change Page", {
+      //   fundCode: fundCode,
+      //   userID: userID,
+      // });
       console.log("Change Page");
     },
     async hideModal() {
@@ -309,13 +309,13 @@ export default {
 
     this.getData(fundCode, userID);
 
-    this.$mixpanel.track("Log_in", {
-      fundCode: fundCode,
-      userID: userID,
-      msg: searchMsg,
-      selectedFundCode: fundCode,
-      fundCodes: codeLists,
-    });
+    // this.$mixpanel.track("Log_in", {
+    //   fundCode: fundCode,
+    //   userID: userID,
+    //   msg: searchMsg,
+    //   selectedFundCode: fundCode,
+    //   fundCodes: codeLists,
+    // });
 
     var qs = require("qs");
     var data = qs.stringify({
