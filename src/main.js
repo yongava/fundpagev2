@@ -5,7 +5,7 @@ import VModal from 'vue-js-modal'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
 import VueTouch from 'vue-touch';
-import VueMixpanel from 'vue-mixpanel'
+// import VueMixpanel from 'vue-mixpanel'
 
 // Vue.use(VueMixpanel, {
 //     token: "",

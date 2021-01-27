@@ -221,9 +221,9 @@ export default {
   },
   methods: {
     statTrack() {
-      const urlParams = new URLSearchParams(window.location.search);
-      const fundCode = urlParams.get("FundCode");
-      const userID = urlParams.get("UserID");
+      // const urlParams = new URLSearchParams(window.location.search);
+      // const fundCode = urlParams.get("FundCode");
+      // const userID = urlParams.get("UserID");
       // this.$mixpanel.track("Overview", {
       //   fundCode: fundCode,
       //   userID: userID,

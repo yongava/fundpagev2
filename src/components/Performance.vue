@@ -369,9 +369,9 @@ export default {
   mounted() {
     this.initChart1();
     this.initChart2();
-    const urlParams = new URLSearchParams(window.location.search);
-    const fundCode = urlParams.get("FundCode");
-    const userID = urlParams.get("UserID");
+    // const urlParams = new URLSearchParams(window.location.search);
+    // const fundCode = urlParams.get("FundCode");
+    // const userID = urlParams.get("UserID");
     // this.$mixpanel.track("Performance", {
     //   fundCode: fundCode,
     //   userID: userID,
