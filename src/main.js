@@ -8,7 +8,7 @@ import VueTouch from 'vue-touch';
 import VueMixpanel from 'vue-mixpanel'
 
 Vue.use(VueMixpanel, {
-    token: "e5b4ec9be8d4a50ae4400e94efaf9375",
+    token: "",
     config: {
       debug: true
     }
