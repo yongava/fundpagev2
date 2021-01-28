@@ -309,13 +309,13 @@ export default {
 
     this.getData(fundCode, userID);
 
-    // this.$mixpanel.track("Log_in", {
-    //   fundCode: fundCode,
-    //   userID: userID,
-    //   msg: searchMsg,
-    //   selectedFundCode: fundCode,
-    //   fundCodes: codeLists,
-    // });
+    this.$mixpanel.track("OpenWebview", {
+      fundCode: fundCode,
+      userID: userID,
+      msg: searchMsg,
+      selectedFundCode: fundCode,
+      fundCodes: codeLists,
+    });
 
     var qs = require("qs");
     var data = qs.stringify({
