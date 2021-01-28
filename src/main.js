@@ -5,14 +5,14 @@ import VModal from 'vue-js-modal'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
 import VueTouch from 'vue-touch';
-// import VueMixpanel from 'vue-mixpanel'
+import VueMixpanel from 'vue-mixpanel'
 
-// Vue.use(VueMixpanel, {
-//     token: "",
-//     config: {
-//       debug: true
-//     }
-//   })
+Vue.use(VueMixpanel, {
+    token: "b5adc4c78df72a6fe3719012bae35e20",
+    config: {
+      debug: true
+    }
+  })
 
 const urlParams = new URLSearchParams(window.location.search);
 const fundCode = urlParams.get("FundCode");

@@ -244,14 +244,14 @@ export default {
   },
   methods: {
     statTrack() {
-      // const urlParams = new URLSearchParams(window.location.search);
-      // const fundCode = urlParams.get("FundCode");
-      // const userID = urlParams.get("UserID");
+      const urlParams = new URLSearchParams(window.location.search);
+      const fundCode = urlParams.get("FundCode");
+      const userID = urlParams.get("UserID");
 
-      // this.$mixpanel.track("Change Page", {
-      //   fundCode: fundCode,
-      //   userID: userID,
-      // });
+      this.$mixpanel.track("Change Page", {
+        fundCode: fundCode,
+        userID: userID,
+      });
       console.log("Change Page");
     },
     async hideModal() {

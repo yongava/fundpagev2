@@ -43,13 +43,13 @@ export default {
     },
   },
   mounted(){
-    // const urlParams = new URLSearchParams(window.location.search);
-    // const fundCode = urlParams.get("FundCode");
-    // const userID = urlParams.get("UserID");
-    // this.$mixpanel.track('Dividend', {
-    //     fundCode: fundCode,
-    //     userID: userID
-    // });
+    const urlParams = new URLSearchParams(window.location.search);
+    const fundCode = urlParams.get("FundCode");
+    const userID = urlParams.get("UserID");
+    this.$mixpanel.track('Dividend', {
+        fundCode: fundCode,
+        userID: userID
+    });
   }
 };
 </script>
