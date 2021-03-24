@@ -1,5 +1,6 @@
 <template>
   <div v-if="info" class="overview-wrapper">
+
     <div class="overview-div">
       <button
         v-if="info.typeName != 'normal'"
@@ -62,14 +63,18 @@
             </span>
           </div>
         </div>
+
         <div class="rank">
-          <span :style="{ opacity: `${this.riskOpacity}` }">{{
-            info.risk
-          }}</span>
+          <span :style="{ opacity: `${this.riskOpacity}` }"> {{info.risk}} </span>
           <p>{{ riskText }}</p>
         </div>
+
+      <button class="mini">
+        ติดตามกองทุน
+      </button>
       </div>
     </div>
+
     <!-- <div v-bind:style="{ height: '250px'}"> -->
     <div class="chart-div">
       <h2>ผลการดำเนินงาน</h2>
@@ -85,6 +90,7 @@
       </div>
       <div></div>
     </div>
+
     <div class="footer-container">
       <!-- <a
         target="_blank"
@@ -235,6 +241,8 @@ export default {
     setComponent() {
       this.$emit("setComponent", "Dividend");
     },
+
+
     initChart() {
       console.log(window.screen.height - 250);
       const data = this.info.navChart.map((item) => ({
@@ -266,9 +274,9 @@ export default {
             },
           },
           stroke: {
-            show: true,
-            curve: "straight",
-          },
+          width: 2.3,
+          curve: "smooth",
+        },
           colors,
           xaxis: {
             categories: date,
