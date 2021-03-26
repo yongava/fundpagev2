@@ -69,9 +69,6 @@
           <p>{{ riskText }}</p>
         </div>
 
-      <button class="mini">
-        ติดตามกองทุน
-      </button>
       </div>
     </div>
 
@@ -106,7 +103,6 @@
 
 <script>
 import VueApexCharts from "vue-apexcharts";
-
 export default {
   name: "Overview",
   props: ["info"],
@@ -241,22 +237,17 @@ export default {
     setComponent() {
       this.$emit("setComponent", "Dividend");
     },
-
-
     initChart() {
       console.log(window.screen.height - 250);
       const data = this.info.navChart.map((item) => ({
         name: item.displayName,
         data: item.price.map((val) => val.value),
       }));
-
       const colors = this.info.navChart.map((item) => item.color);
       const date = this.info.navChart[0].price.map((val) =>
         new Date(val.date).toDateString().slice(4, 10)
       );
-
       this.series = [...this.series, ...data];
-
       this.options = {
         ...this.options,
         ...{
@@ -349,25 +340,20 @@ export default {
   width: 100%;
   height: 100%;
   margin-top: -5px;
-
   > div {
     background: #fff;
     border-radius: 5px;
     margin-top: 5px;
     margin-bottom: 10px;
-
     padding-top: 10px;
     padding-left: 10px;
     padding-right: 10px;
     padding-bottom: 10px;
-
     box-shadow: 0px 3px 6px #00000009;
-
     a {
       // font-family: "kitbold";
       font-size: 28px;
     }
-
     h2 {
       margin-top: 6px;
       margin-bottom: 5px;
@@ -377,7 +363,6 @@ export default {
       font-size: 36px;
       font-weight: normal;
     }
-
     p.info {
       margin: 0 0 30px;
       color: #a0a0a0;
@@ -385,7 +370,6 @@ export default {
       font-family: "KIT55P";
       font-weight: normal;
     }
-
     p.miniinfo {
       font-size: 16px;
       margin: 0 0 16px;
@@ -393,25 +377,21 @@ export default {
       font-family: "KIT55P";
       font-weight: normal;
     }
-
     .further-info {
       display: flex;
       align-items: flex-start;
       justify-content: center;
-
       .left-block {
         display: flex;
         justify-content: space-between;
         align-items: flex-start;
         flex-direction: column;
         width: 100%;
-
         .divided {
           display: flex;
           justify-content: space-between;
           width: 60%;
           align-items: left;
-
           > span {
             font-size: 24px;
             display: flex;
@@ -424,7 +404,6 @@ export default {
           }
         }
       }
-
       .rank {
         display: flex;
         align-items: center;
@@ -433,7 +412,6 @@ export default {
         margin-right: 5px;
         margin-top: 1px;
         // margin-left: -25px;
-
         span {
           margin-top: 10px;
           margin-right: 0px;
@@ -449,7 +427,6 @@ export default {
           font-family: "KIT75F";
           font-style: "bold";
         }
-
         p {
           margin: 0;
           margin-top: 5px;
@@ -463,15 +440,12 @@ export default {
     }
   }
 }
-
 .column {
   flex-direction: column;
 }
-
 .chart-container {
   margin-bottom: 10px !important;
 }
-
 .footer-container {
   background: #f1f3f8 !important;
   position: fixed;
@@ -480,7 +454,6 @@ export default {
   margin-left: -20px;
   margin-bottom: 0px !important;
 }
-
 /* On screens that are 1200px wide or less, */
 @media screen and (max-width: 1200px) {
   .footer-container {
@@ -494,7 +467,6 @@ export default {
     height: 35vh !important;
   }
 }
-
 @media screen and (max-height: 700px) {
   .chart-container {
     margin-top: -30px !important;
@@ -506,7 +478,6 @@ export default {
     height: 360px !important;
   }
 }
-
 a.footer {
   bottom: 0;
   margin-left: 10px;
@@ -527,7 +498,6 @@ a.footer {
   font-size: 28px;
   font-family: "KIT65P";
   font-weight: normal;
-
   a {
     height: 50px;
     margin-top: 24px;
@@ -546,23 +516,18 @@ a.footer {
     font-weight: medium;
   }
 }
-
 ::v-deep .apexcharts-canvas {
   // width: 330px !important;
 }
-
 ::v-deep .apexcharts-svg {
   // width: 330px !important;
 }
-
 .up {
   color: #2f9463;
 }
-
 .down {
   color: #e64c66;
 }
-
 .mini {
   margin-top: 5px;
   margin-right: 7px;
@@ -580,18 +545,15 @@ a.footer {
   float: right;
   cursor: pointer;
 }
-
 .table {
   &__tr {
     display: flex;
     align-items: baseline;
   }
-
   &__td {
     &:first-child {
       padding-right: 10px;
     }
-
     &:last-child {
       flex: 1;
     }
